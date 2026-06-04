@@ -16,7 +16,7 @@
   <script>
     tailwind.config = {
       theme: {
-        extend: {
+        extend: {    
           colors: {
             // Backgrounds
             pearl:   '#F7F3EE', // Warm Pearl Ivory — main bg
@@ -257,6 +257,7 @@ const Icons = {
   fb:      (p) => <Ico {...p}><path d="M14 8h2V5h-2c-2 0-3 1.3-3 3.2V11H9v3h2v6h3v-6h2.2l.5-3H14V8.6c0-.4.3-.6.7-.6z"/></Ico>,
   linkedin:(p) => <Ico {...p}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 11v6"/></Ico>,
   xcom:    (p) => <Ico {...p}><path d="M4 4l16 16M20 4L4 20"/></Ico>,
+  pinterest:(p) => <Ico {...p}><circle cx="12" cy="12" r="9"/><path d="M9.5 19l2-7M10.6 11.2a2.3 2.3 0 1 1 3.1 1.9c-1 .5-2.3.1-2.6-1"/></Ico>,
   pin:     (p) => <Ico {...p}><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></Ico>,
   mail:    (p) => <Ico {...p}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></Ico>,
   phone:   (p) => <Ico {...p}><path d="M5 4h3l2 5-2 1.5a11 11 0 0 0 5 5L17 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></Ico>,
@@ -482,8 +483,9 @@ function Header() {
 
         {/* Logo */}
         <a href="#" onClick={(e) => { e.preventDefault(); navigate('home'); }}
-           className="font-serif text-[26px] md:text-[30px] tracking-[0.22em] text-charcoal lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-          MAHIDHA
+           className="lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
+          <img src="img/mahidalogo.png" alt="MAHIDHA — Elevated Everyday"
+               className="h-11 md:h-14 w-auto" style={{ filter: 'brightness(0.62) saturate(1.5)' }} />
         </a>
 
         {/* Desktop nav */}
@@ -514,7 +516,7 @@ function Header() {
         <div className={`absolute inset-0 bg-navy/40 transition-opacity duration-300 ${drawer ? 'opacity-100' : 'opacity-0'}`} onClick={() => setDrawer(false)} />
         <div className={`absolute left-0 top-0 h-full w-[82%] max-w-sm bg-pearl shadow-xl transition-transform duration-300 ${drawer ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="flex items-center justify-between px-5 h-16 border-b border-charcoal/10">
-            <span className="font-serif text-[22px] tracking-[0.2em]">MAHIDHA</span>
+            <img src="img/mahidalogo.png" alt="MAHIDHA — Elevated Everyday" className="h-10 w-auto" style={{ filter: 'brightness(0.62) saturate(1.5)' }} />
             <button aria-label="Close menu" onClick={() => setDrawer(false)} className="p-1.5"><Icons.close /></button>
           </div>
           <nav className="px-5 py-6 flex flex-col">
@@ -575,24 +577,23 @@ function Footer() {
       {/* Columns */}
       <div className="max-w-wrap mx-auto px-5 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
-          <span className="font-serif text-[26px] tracking-[0.2em]">MAHIDHA</span>
-          <p className="mt-4 text-[14px] text-ivory/70 leading-[1.8]">Elevating everyday. Pearls reimagined for the modern woman — rooted in Hyderabad's Nizam-era pearl heritage.</p>
+          <img src="img/mahidalogo.png" alt="MAHIDHA — Elevated Everyday" className="h-16 w-auto" />
+          <p className="mt-4 text-[14px] text-ivory/70 leading-[1.8]">Thoughtfully crafted pieces inspired by heritage and designed for modern living. Timeless details for everyday moments.</p>
           <div className="mt-6 flex gap-3 text-gold">
             <a href="#" aria-label="Instagram @lovedbymahidha" className="hover:text-ivory"><Icons.insta size={20} /></a>
-            <a href="#" aria-label="Facebook" className="hover:text-ivory"><Icons.fb size={20} /></a>
+            <a href="#" aria-label="Pinterest" className="hover:text-ivory"><Icons.pinterest size={20} /></a>
             <a href="#" aria-label="LinkedIn" className="hover:text-ivory"><Icons.linkedin size={20} /></a>
-            <a href="#" aria-label="X" className="hover:text-ivory"><Icons.xcom size={20} /></a>
           </div>
         </div>
-        {col('Quick Links', [['Home','home'],['About Us','story'],['Shop','list',{cat:'All Jewellery'}],['Blog','contact'],['Contact Us','contact']])}
-        {col('Shop', [['All Jewellery','list',{cat:'All Jewellery'}],['New Arrivals','list',{cat:'New Arrivals'}],['Boardroom Edit','style'],['Cosmic & Celestial','style'],['Desk to Dinner','style'],['S925','list',{cat:'S925'}],['Shop by Style','style'],['The Nizam Heritage','nizam'],['Celeb vibes','style']])}
-        {col('Customer Care', [['Jewellery Care','care'],['FAQs','faqs'],['Gift Guide','gift'],['Shipping & Exchange','shipping'],['Size Guide','size'],['Returns & Refunds','shipping'],['Contact Us','contact']])}
+        {col('Discover', [['Our Story','story'],['Founders','story'],['Journal','contact'],['Contact Us','contact']])}
+        {col('Shop', [['New Arrivals','list',{cat:'New Arrivals'}],['Earrings','list',{cat:'All Jewellery',style:'Earrings'}],['Necklaces','list',{cat:'All Jewellery',style:'Necklaces'}],['Bracelets','list',{cat:'All Jewellery',style:'Bracelets'}],['Rings','list',{cat:'All Jewellery',style:'Rings'}],['The Nizam Edit','nizam'],['Workday Edit','style'],['Shop by Style','style']])}
+        {col('Customer Care', [['Jewellery Care','care'],['FAQs','faqs'],['Gift Guide','gift'],['Track Order','contact'],['Shipping & Returns','shipping'],['Privacy Policy','contact'],['Terms & Conditions','contact']])}
       </div>
 
       {/* Contact strip */}
       <div className="max-w-wrap mx-auto px-5 pb-10 grid sm:grid-cols-3 gap-5 text-[13px] text-ivory/70">
         <p className="flex items-start gap-2"><Icons.pin size={16} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna Sarovar Grande, Hyderabad, Telangana 500019</p>
-        <p className="flex items-center gap-2"><Icons.mail size={16} stroke="#C4A87A" /> info@houseofmahidha.com</p>
+        <p className="flex items-center gap-2"><Icons.mail size={16} stroke="#C4A87A" /> hello@mahidha.com</p>
         <p className="flex items-center gap-2"><Icons.phone size={16} stroke="#C4A87A" /> +91 72073 61114</p>
       </div>
 
@@ -922,10 +923,10 @@ function Hero() {
       ))}
       <div className="relative h-full max-w-wrap mx-auto px-5 flex flex-col justify-center items-start text-left">
         <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-5 reveal in">{slides[i].kicker}</p>
-        <h1 className="font-serif text-ivory leading-[0.95] text-[42px] sm:text-[58px] md:text-[78px] max-w-4xl">
+        <h1 className="font-serif text-ivory leading-[1.0] text-[32px] sm:text-[44px] md:text-[58px] max-w-3xl">
           Pearls reimagined for modern everyday wear.
         </h1>
-        <p className="mt-6 text-ivory/80 text-[17px] md:text-[22px] leading-relaxed max-w-xl">
+        <p className="mt-6 text-ivory/80 text-[16px] md:text-[19px] leading-relaxed max-w-xl">
           Timeless pearls, sterling silver and thoughtful designs — made to move with your every day.
         </p>
         <div className="mt-9 flex flex-wrap items-center gap-5">
@@ -946,11 +947,11 @@ function Hero() {
 }
 
 const LIFESTYLE = [
-  ['Everyday Icons','Effortless pieces for every day', F.heroWoman, 'Everyday Icons'],
-  ['Vacations','Lightweight luxury for your escape', F.styleScarf, 'Vacations'],
-  ['Celebrations','Modern elegance for special moments', F.lifeCeleb, 'Celebrations'],
-  ['Modern Heirlooms','Timeless pieces to cherish forever', F.nizamSet, 'The Nizam Heritage'],
-  ['The Pearl Edit','Our love for pearls, reimagined', F.neckRope, 'All Jewellery'],
+  ['For Workdays','Confident corporate femininity', F.heroBlazer, 'All Jewellery'],
+  ['For Coffee Runs','Soft, effortless luxury', F.heroWoman, 'Everyday Icons'],
+  ['For Vacations','A dreamy feminine escape', F.styleScarf, 'Vacations'],
+  ['For Celebrations','Understated, modern elegance', F.lifeCeleb, 'Celebrations'],
+  ['For Everyday','Personal and wearable', F.lifeGreen, 'Everyday Icons'],
 ];
 
 function LifestyleStrip() {
@@ -963,8 +964,20 @@ function LifestyleStrip() {
         <div className="mt-12 flex lg:grid lg:grid-cols-5 gap-5 overflow-x-auto no-bar -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
           {LIFESTYLE.map(([title, line, img, cat]) => (
             <div key={title} className="snap-start shrink-0 w-[72%] sm:w-[44%] lg:w-auto">
-              <EditCard title={title} line={line} img={img}
-                onClick={() => navigate(cat === 'The Nizam Heritage' ? 'nizam' : 'list', cat === 'The Nizam Heritage' ? {} : { cat })} />
+              <button onClick={() => navigate(cat === 'The Nizam Heritage' ? 'nizam' : 'list', cat === 'The Nizam Heritage' ? {} : { cat })}
+                      className="group block text-left w-full">
+                <div className="aspect-[3/4] overflow-hidden rounded-btn bg-beige">
+                  <img src={ph(img, 700, 933, 'E2D8CB', '7A746C')} alt={`${title} — ${line}`}
+                       className="w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105" />
+                </div>
+                <div className="pt-4">
+                  <h3 className="font-serif text-[21px] md:text-[22px] text-charcoal leading-tight group-hover:text-taupe transition-colors">{title}</h3>
+                  <p className="mt-1 text-taupe text-[13px] leading-snug">{line}</p>
+                  <span className="mt-2.5 inline-flex items-center gap-1.5 font-sans text-[11px] tracking-nav uppercase text-gold">
+                    Shop Now <Icons.arrow size={13} stroke="#C4A87A" />
+                  </span>
+                </div>
+              </button>
             </div>
           ))}
         </div>
@@ -974,12 +987,11 @@ function LifestyleStrip() {
 }
 
 const EDITS = [
-  ['The Celestial Edit','Inspired by the stars. Made for you.', F.flatCelest],
-  ['The Vacation Edit','Sun, sea, salt. Simplicity that shines.', F.styleScarf],
-  ['The Celebration Edit','Festive, refined & full of glow.', F.lifeCeleb],
-  ['The Evening Edit','Elevated for unforgettable nights.', F.lifeEvening],
-  ['The Nizam Edit','Heritage. Culture. Craftsmanship.', F.nizamSet],
-  ['Layering Essentials','Curated to mix. Styled to express.', F.flatSilver],
+  ['Office, Everyday & Coffee Runs','Confident corporate femininity, softened for slow mornings.', F.heroBlazer],
+  ['Vacation Edit','Sun, sea and salt — a dreamy feminine escape.', F.styleScarf],
+  ['Festive / Celebration Edit','Modern, intimate dressing with understated glow.', F.lifeCeleb],
+  ['Modern Heirloom & Nizam Edit','Heritage. Culture. Craftsmanship — reimagined for now.', F.nizamSet],
+  ['Silver 925 Edit','Hallmarked sterling silver, made to last.', F.flatSilver],
 ];
 
 function StyleEditsHome() {
@@ -1502,15 +1514,18 @@ function PDP({ id }) {
    ================================================================= */
 function StoryPage() {
   const { navigate } = useStore();
-  const values = [['gem','Premium Quality','Real pearls, sterling silver and thoughtfully selected stones.'],['sparkle','Elegant Design','Timeless, versatile and modern — designed with intention.'],['feather','Affordable Luxury','Accessible everyday luxury that never compromises on craft.'],['heart','Customer First','From our hands to yours — designed around real lives.']];
+  const promise = [['shield','925 Sterling Silver','Hallmarked, durable and restorable.'],['drop','Freshwater Pearls','Real pearls, each one unique.'],['leaf','Hypoallergenic','Gentle on sensitive skin.'],['hand','Handcrafted','Finished by skilled artisans.'],['sparkle','Everyday Wear','Lightweight and effortless.']];
   return (
     <>
-      <PageHero overline="Our Story" title="Elevating everyday." sub="Pearls reimagined for the modern woman." img="OUR STORY — two sisters, brand editorial portrait in soft light" />
+      <PageHero overline="Elevated Everyday" title="Our Story" sub="Jewellery designed for women who do it all. Sterling silver. Freshwater pearls. Elevated everyday." img="OUR STORY — two sisters, brand editorial portrait in soft light" />
       <section className="bg-pearl">
-        <div className="max-w-3xl mx-auto px-5 py-20 md:py-28 space-y-6 text-charcoal text-[17px] md:text-[19px] leading-[1.85]">
-          <p>MAHIDHA was born from a simple idea between two sisters who wanted jewellery to feel timeless, personal and effortless to wear every day. We found ourselves constantly looking for pieces that felt elegant yet versatile — jewellery that could move seamlessly from workdays to dinners, from vacations to celebrations and from everyday moments to meaningful occasions without ever feeling repetitive.</p>
-          <p>As we began building MAHIDHA, we spent time understanding the craftsmanship behind jewellery making. We met skilled karigars, worked closely with artisans and witnessed the patience, artistry and detail that goes into creating handmade jewellery. At the heart of MAHIDHA are sterling silver jewellery, freshwater pearls, South Sea pearls, cultured pearls and thoughtfully selected natural stones — every piece designed with intention, blending timeless elegance with modern femininity and everyday wearability.</p>
-          <p>Our inspiration comes from modern women who balance ambition, individuality, movement and grace. Women who want jewellery that feels expressive yet effortless. Soft yet powerful. Minimal yet memorable. More than jewellery, MAHIDHA is about creating pieces that become part of your everyday life and meaningful enough to be treasured for years to come. From our hands to yours, every piece carries a little part of that journey. Welcome to MAHIDHA. Elevating everyday.</p>
+        <div className="max-w-3xl mx-auto px-5 py-20 md:py-28 space-y-6 text-charcoal text-[16px] md:text-[18px] leading-[1.85]">
+          <p className="font-serif text-[24px] md:text-[30px] leading-[1.35] text-charcoal !mt-0">Mahidha was born from a simple question. Why did jewellery always feel like it belonged to a different version of us?</p>
+          <p>The version dressed for weddings. The version attending celebrations. The version waiting for a special occasion. But what about the woman rushing to work with coffee in one hand and her laptop in the other? The woman taking conference calls, school runs, flights, weekend brunches and everything in between? She deserved beautiful jewellery too. And that is where Mahidha began.</p>
+          <p className="font-serif text-[20px] md:text-[24px] text-charcoal pt-4">Two sisters. Two countries. One dream.</p>
+          <p>Mahidha was founded by sisters Mahima and Medha. For years, we searched for jewellery that felt elegant, timeless and easy to wear every day — pieces that could move effortlessly from a morning meeting to dinner with friends, that felt luxurious without feeling reserved. What we found instead was a market divided: fast fashion that didn't last, or fine jewellery too precious to wear every day. We knew there had to be something in between. So we decided to create it ourselves.</p>
+          <p className="font-serif text-[20px] md:text-[24px] text-charcoal pt-4">Jewellery for real life.</p>
+          <p>We believe jewellery should not spend most of its life inside a box. It should travel with you. It should collect memories. It should become part of your story — the necklace you wear on your first day at a new job, the bracelet you take on a holiday you'll never forget, the earrings you reach for without thinking because they simply feel like you. These are the pieces we create. Not for occasions. For life.</p>
         </div>
       </section>
 
@@ -1523,23 +1538,59 @@ function StoryPage() {
         </p>
       </section>
 
-      {/* Mission / Vision */}
-      <section className="bg-navy text-ivory">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-24 grid md:grid-cols-2 gap-12">
-          <Reveal><p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Mission</p><p className="font-serif text-[26px] md:text-[32px] leading-[1.35] text-ivory">To create thoughtfully designed jewellery that empowers modern women with confidence, versatility and accessible everyday luxury.</p></Reveal>
-          <Reveal><p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Vision</p><p className="font-serif text-[26px] md:text-[32px] leading-[1.35] text-ivory">To become a globally loved contemporary jewellery brand known for timeless design, premium craftsmanship and meaningful self-expression.</p></Reveal>
+      {/* Why Pearls */}
+      <section className="bg-pearl">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Why pearls</p>
+            <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal">No two pearls are ever the same.</h2>
+            <p className="mt-5 text-taupe text-[16px] md:text-[18px] leading-[1.85]">Each pearl carries its own shape, texture and character. They remind us of women — unique, beautiful in their individuality, strong. For centuries pearls have symbolised grace and sophistication. We wanted to reinterpret them for the modern woman: lighter, more versatile, more effortless. Pearls that work with linen shirts, oversized blazers, cotton kurtas and evening dresses alike. Pearls that belong in everyday life.</p>
+          </Reveal>
+          <Reveal><img src={ph('WHY PEARLS — pearl macro detail, soft natural light', 800, 700, 'E2D8CB', '7A746C')} alt="Why pearls — pearl detail in soft natural light" className="rounded-btn w-full object-cover" /></Reveal>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Why Sterling Silver */}
+      <section className="bg-beige">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal className="order-2 lg:order-1"><img src={ph('WHY SILVER — sterling silver layering flatlay on marble', 800, 700, 'E2D8CB', '7A746C')} alt="Why sterling silver — silver layering on marble" className="rounded-btn w-full object-cover" /></Reveal>
+          <Reveal className="order-1 lg:order-2">
+            <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Why sterling silver</p>
+            <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal">Everyday jewellery, made to last.</h2>
+            <p className="mt-5 text-taupe text-[16px] md:text-[18px] leading-[1.85]">Every Mahidha piece is crafted using 925 sterling silver and thoughtfully selected freshwater pearls and natural gemstones. Sterling silver is durable, timeless, hypoallergenic and can be polished and restored for years of wear. It lets us create jewellery that feels luxurious without compromising practicality — designed to stay with you, not be replaced by the next trend.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Crafted by Artisans */}
+      <section className="bg-pearl">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 text-center max-w-3xl">
+          <Reveal>
+            <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Crafted by artisans</p>
+            <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal mx-auto max-w-2xl">Crafted by hands. Designed with heart.</h2>
+            <p className="mt-6 text-taupe text-[16px] md:text-[18px] leading-[1.85] mx-auto max-w-2xl">Behind every Mahidha piece are skilled artisans who bring generations of craftsmanship to life. Their hands shape, polish, string and finish every detail with care. We believe luxury is not defined by logos — it is defined by craftsmanship, by the time taken to create something meaningful, and by the people who make it. Every piece carries a part of their story, and ours.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Mission / Vision */}
+      <section className="bg-navy text-ivory">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-24 grid md:grid-cols-2 gap-12">
+          <Reveal><p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Mission</p><p className="font-serif text-[22px] md:text-[26px] leading-[1.4] text-ivory">To celebrate everyday life through timeless design, meaningful craftsmanship and thoughtful experiences.</p></Reveal>
+          <Reveal><p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Vision</p><p className="font-serif text-[22px] md:text-[26px] leading-[1.4] text-ivory">To become a globally loved lifestyle brand that inspires people to live beautifully, intentionally and confidently every day.</p></Reveal>
+        </div>
+      </section>
+
+      {/* Our Promise */}
       <section className="bg-pearl">
         <div className="max-w-wrap mx-auto px-5 py-20 md:py-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-            {values.map(([ic, t, s]) => { const I = Icons[ic]; return (
+          <SectionHeading overline="Our Promise" title="What every piece is made of" />
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10">
+            {promise.map(([ic, t, s]) => { const I = Icons[ic]; return (
               <Reveal key={t} className="text-center flex flex-col items-center">
                 <span className="w-14 h-14 rounded-full border border-gold/50 flex items-center justify-center"><I size={24} stroke="#C4A87A" /></span>
-                <p className="mt-4 font-serif text-[22px] text-charcoal">{t}</p>
-                <p className="mt-1.5 text-taupe text-[14px] leading-relaxed">{s}</p>
+                <p className="mt-4 font-serif text-[20px] text-charcoal leading-tight">{t}</p>
+                <p className="mt-1.5 text-taupe text-[13px] leading-relaxed">{s}</p>
               </Reveal>
             ); })}
           </div>
@@ -1561,9 +1612,9 @@ function StoryPage() {
       {/* Leadership */}
       <section className="bg-pearl">
         <div className="max-w-wrap mx-auto px-5 py-20 md:py-24">
-          <SectionHeading overline="Leadership" title="The sisters behind Mahidha" />
+          <SectionHeading overline="Meet the Founders" title="The sisters behind Mahidha" sub="Two sisters. Two countries. One dream." />
           <div className="mt-12 grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {[['Medha Sharma','Co-Founder & CPDO','FOUNDER — Medha Sharma portrait'],['Mahima Sharma','Co-Founder & COO','FOUNDER — Mahima Sharma portrait']].map(([name, role, img]) => (
+            {[['Mahima','Co-Founder & Head of Operations','FOUNDER — Mahima portrait'],['Medha','Co-Founder & Head of Product & Digital','FOUNDER — Medha portrait']].map(([name, role, img]) => (
               <Reveal key={name} className="text-center">
                 <div className="aspect-[4/5] overflow-hidden rounded-btn bg-beige"><img src={ph(img, 600, 750, 'E2D8CB', '7A746C')} alt={`${img}`} className="w-full h-full object-cover" /></div>
                 <p className="mt-5 font-serif text-[26px] text-charcoal">{name}</p>
@@ -1576,8 +1627,9 @@ function StoryPage() {
 
       <section className="bg-navy text-center">
         <div className="max-w-wrap mx-auto px-5 py-24">
-          <h2 className="font-serif text-[34px] md:text-[52px] text-ivory">Experience Timeless Elegance</h2>
-          <Button variant="light" className="mt-8" onClick={() => navigate('list', { cat: 'All Jewellery' })}>Shop Now</Button>
+          <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-5">Welcome to Mahidha</p>
+          <h2 className="font-serif text-[30px] md:text-[48px] leading-[1.15] text-ivory max-w-3xl mx-auto">For the meetings, the memories, the milestones and everything in between.</h2>
+          <Button variant="light" className="mt-9" onClick={() => navigate('list', { cat: 'All Jewellery' })}>Shop the Collection</Button>
         </div>
       </section>
     </>
@@ -1620,51 +1672,58 @@ function CarePage() {
    ================================================================= */
 const FAQ_GROUPS = [
   ['About Our Jewellery', [
-    ['What materials do you use?','We use sterling silver (S925), freshwater pearls, South Sea pearls, cultured pearls and thoughtfully selected natural stones.'],
-    ['Are your pearls real?','Yes. All our pearls are real — freshwater, South Sea and cultured pearls, handpicked for quality and lustre.'],
-    ['What is the difference between freshwater and South Sea pearls?','Freshwater pearls are versatile and lightweight with a soft glow; South Sea pearls are larger, rarer and more luminous, making them ideal for statement pieces.'],
-    ['Is your jewellery handmade?','Yes. Every piece is handcrafted by skilled karigars using time-honoured techniques paired with modern design.'],
-  ]],
-  ['Jewellery Care', [
-    ['How should I store my jewellery?','Store each piece separately in a soft pouch or jewellery box to prevent scratches and tangling.'],
-    ['Can I wear pearls with perfume or water?','Avoid direct contact with perfume, lotions and water. Wear jewellery last and remove it first; wipe pearls gently after use.'],
-    ['How do I clean my jewellery?','Use a soft dry cloth to gently clean after every wear. Avoid harsh chemicals.'],
+    ['What materials are used in MAHIDHA jewellery?','Our jewellery is thoughtfully crafted using sterling silver, freshwater pearls, South Sea pearls, cultured pearls and carefully selected natural stones. Every piece is designed to feel timeless, elegant and suitable for everyday wear.'],
+    ['Are your pearls real?','Yes. We use real freshwater pearls, cultured pearls and South Sea pearls across our collections. Each pearl carries its own natural beauty, shape and texture, making every piece unique.'],
+    ['What is the difference between freshwater and South Sea pearls?','Freshwater pearls are loved for their soft lustre, versatility and everyday elegance. South Sea pearls are rarer, larger in size and known for their rich glow and luxurious appearance.'],
+    ['Is your jewellery handmade?','Many of our pieces involve detailed handcrafted work by skilled karigars and artisans who bring every design to life with precision and care.'],
   ]],
   ['Authenticity & Quality', [
-    ['Is your sterling silver hallmarked?','Yes, our sterling silver is 925 hallmarked.'],
-    ['Is sterling silver suitable for sensitive skin?','Sterling silver is generally hypoallergenic and well-suited to sensitive skin.'],
-    ['Will my jewellery tarnish?','Sterling silver may naturally tarnish over time with exposure to air and moisture; proper storage and gentle cleaning keep it radiant.'],
+    ['Is your jewellery hallmarked?','Yes. Our sterling silver jewellery is crafted using quality-certified materials to ensure authenticity and durability.'],
+    ['Are the pearls natural?','Our collections feature real freshwater pearls, cultured pearls and South Sea pearls, carefully selected for their beauty and lustre.'],
+    ['Is sterling silver suitable for sensitive skin?','Yes. Sterling silver is generally skin friendly and suitable for everyday wear. We recommend avoiding direct contact with harsh chemicals or moisture for long-lasting shine.'],
+    ['Why do some pearls differ slightly in shape or texture?','Real pearls are naturally unique and may carry slight variations in shape, texture and size. These characteristics are part of their beauty and authenticity.'],
+  ]],
+  ['Jewellery Care', [
+    ['How should I store my jewellery?','Store your jewellery separately in a soft pouch or jewellery box to avoid scratches, tangling and moisture exposure.'],
+    ['Can I wear my jewellery daily?','Yes. Our jewellery is designed for elevated everyday wear. We recommend removing pieces before sleeping, showering, swimming or exercising.'],
+    ['Can pearls come in contact with perfume or water?','We recommend keeping pearls away from perfumes, lotions, hairsprays and excessive moisture as pearls are naturally delicate.'],
+    ['How do I clean my jewellery?','Use a soft dry cloth to gently wipe your jewellery after every wear. Avoid harsh cleaning chemicals or abrasive materials.'],
+    ['Will my jewellery tarnish over time?','Sterling silver may naturally oxidise over time when exposed to air, moisture or chemicals. Proper storage and care will help maintain its finish and shine.'],
   ]],
   ['Wearability & Styling', [
-    ['Can I style your pieces with western and Indian wear?','Absolutely. Our pieces are designed to be versatile — equally at home with western and Indian outfits, desk to dinner.'],
-    ['Is your jewellery lightweight?','Yes. Comfort matters — our pieces are designed to be lightweight for all-day wear.'],
-    ['Are there pearl variations between pieces?','As pearls are natural, slight variations in shape, size and lustre are normal and celebrated as part of their beauty.'],
+    ['Can I style your jewellery for everyday wear?','Absolutely. MAHIDHA is designed around elevated everyday wear, making our pieces versatile enough for workdays, celebrations, dinners and everyday moments alike.'],
+    ['Is your jewellery lightweight?','Most of our pieces are thoughtfully designed to feel comfortable and wearable throughout the day without compromising elegance.'],
+    ['Can pearls be worn with western outfits?','Yes. Our collections blend timeless pearls with contemporary silhouettes, making them effortless to style with both western and Indian wear.'],
   ]],
   ['Longevity & Maintenance', [
-    ['How long will my jewellery last?','With the right care, your jewellery will stay radiant for years and become a piece to treasure.'],
-    ['Can I shower or swim wearing it?','Please remove jewellery before showering, swimming or exercising to preserve finish and structure.'],
+    ['How long will sterling silver jewellery last?','With proper care, sterling silver jewellery can last beautifully for years. Regular cleaning and careful storage help preserve its shine and finish.'],
+    ['Can I shower or swim while wearing the jewellery?','We recommend removing your jewellery before showering, swimming or exercising to maintain its longevity and shine.'],
   ]],
   ['Orders & Shipping', [
-    ['Do you offer Cash on Delivery?','Yes, COD is available on eligible orders across India.'],
-    ['Can I cancel or modify my order?','Orders can be modified or cancelled before dispatch — contact us as soon as possible and we will do our best to help.'],
-    ['How is my order packaged?','Every order arrives in thoughtful, beautiful packaging — perfect for gifting.'],
+    ['Do you ship across India?','Yes, we offer pan-India shipping.'],
+    ['How long does shipping take?','Orders are usually processed within 2 to 5 business days. Delivery timelines may vary depending on your location.'],
+    ['Will I receive tracking details for my order?','Yes. Once your order is shipped, tracking details will be shared via email or SMS.'],
+    ['Is Cash on Delivery available?','Yes, Cash on Delivery is available on eligible orders across India.'],
+    ['Can I cancel or modify my order after placing it?','Orders can only be modified or cancelled before dispatch. Please contact us as soon as possible for assistance.'],
+    ['Do your pieces come in packaging?','Yes. Every MAHIDHA piece is thoughtfully packaged to make your unboxing experience feel elegant and special.'],
   ]],
   ['Returns & Exchanges', [
-    ['What is your returns policy?','Returns and exchanges are offered only for damaged or incorrect items.'],
-    ['I received a damaged product — what do I do?','Please contact us within 48 hours of delivery with images and your order details, and we will assist you promptly.'],
-  ]],
-  ['Orders & Customer Confidence', [
-    ['Will the product match the images?','Yes — though as pearls are natural, slight, beautiful variations may occur between pieces.'],
-  ]],
-  ['Product Information', [
-    ['Why is MAHIDHA priced the way it is?','At MAHIDHA, we focus on quality materials, real pearls, sterling silver and thoughtful craftsmanship instead of mass-produced fashion jewellery. Every piece is designed to feel timeless, wearable and made to stay with you beyond trends.'],
+    ['Do you accept returns or exchanges?','We currently accept returns or exchanges only for damaged or incorrect products received. Please refer to our Returns Policy for complete details.'],
+    ['What should I do if I receive a damaged product?','Please contact us within 48 hours of delivery with clear images and your order details, and our team will assist you further.'],
   ]],
   ['Gifting', [
-    ['Do you offer gift packaging?','Yes — every Mahidha piece arrives beautifully packed, ideal for gifting milestones and everyday wins.'],
+    ['Is MAHIDHA suitable for gifting?','Yes. Our jewellery is thoughtfully packaged and designed to feel timeless, meaningful and special for gifting occasions.'],
+    ['Do you offer gift packaging?','All MAHIDHA orders are packaged with care to create an elegant unboxing experience.'],
+  ]],
+  ['Product Information', [
+    ['Will the jewellery look exactly like the images?','We try our best to capture every product as accurately as possible. However, slight variations may occur due to lighting, photography and the natural characteristics of pearls and stones.'],
+    ['Are your pieces lightweight?','Most of our designs are created keeping comfort and everyday wearability in mind. Product details and weights are mentioned wherever applicable.'],
+    ['Why is MAHIDHA priced the way it is?','At MAHIDHA, we focus on quality materials, real pearls, sterling silver and thoughtful craftsmanship instead of mass-produced fashion jewellery. Every piece is designed to feel timeless, wearable and made to stay with you beyond trends.'],
   ]],
   ['Brand & Craftsmanship', [
-    ['What inspires Mahidha?','We are inspired by Hyderabad\'s Nizam-era pearl heritage and by modern women who balance ambition, femininity and everyday life.'],
-    ['What makes Mahidha different?','We reimagine pearls for the modern woman — wearable luxury, real materials and genuine craftsmanship, designed to be lived in and loved.'],
+    ['Who is MAHIDHA designed for?','MAHIDHA is created for modern women who appreciate timeless elegance, everyday wearability and thoughtfully crafted jewellery that feels personal and expressive.'],
+    ['What inspires MAHIDHA?','MAHIDHA is inspired by modern women, timeless pearls, celestial beauty and the elegance associated with Hyderabad\'s rich pearl heritage and craftsmanship.'],
+    ['What makes MAHIDHA different?','We focus on creating elevated everyday jewellery that blends modern design, real pearls, sterling silver and thoughtful craftsmanship into pieces that feel timeless, versatile and personal.'],
   ]],
 ];
 
@@ -1837,14 +1896,13 @@ function ContactPage() {
             <h3 className="font-serif text-[28px] text-charcoal mb-5">Reach us</h3>
             <ul className="space-y-4 text-[15px] text-taupe">
               <li className="flex items-start gap-3"><Icons.pin size={20} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna Sarovar Grande, Hyderabad, Telangana 500019</li>
-              <li className="flex items-center gap-3"><Icons.mail size={20} stroke="#C4A87A" /> info@houseofmahidha.com</li>
+              <li className="flex items-center gap-3"><Icons.mail size={20} stroke="#C4A87A" /> hello@mahidha.com</li>
               <li className="flex items-center gap-3"><Icons.phone size={20} stroke="#C4A87A" /> +91 72073 61114</li>
             </ul>
             <div className="mt-6 flex gap-3 text-charcoal">
               <a href="#" aria-label="Instagram @lovedbymahidha" className="hover:text-gold"><Icons.insta size={22} /></a>
-              <a href="#" aria-label="Facebook" className="hover:text-gold"><Icons.fb size={22} /></a>
+              <a href="#" aria-label="Pinterest" className="hover:text-gold"><Icons.pinterest size={22} /></a>
               <a href="#" aria-label="LinkedIn" className="hover:text-gold"><Icons.linkedin size={22} /></a>
-              <a href="#" aria-label="X" className="hover:text-gold"><Icons.xcom size={22} /></a>
             </div>
             <div className="mt-8 aspect-[16/10] rounded-btn overflow-hidden bg-beige">
               <img src={ph('MAP — Hyderabad store location placeholder', 800, 500, 'E2D8CB', '7A746C')} alt="Map placeholder — Hyderabad location" className="w-full h-full object-cover" />
