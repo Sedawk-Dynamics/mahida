@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* =================================================================
+   DESIGN TOKENS — ported from the original tailwind.config (CSS-first)
+   Reproduces the exact utilities: bg-pearl, text-charcoal, text-gold,
+   tracking-nav, rounded-btn, max-w-wrap, bg-navy-soft, font-serif, ...
+   ================================================================= */
+@theme {
+  /* Colors — backgrounds */
+  --color-pearl: #f7f3ee; /* warm pearl ivory — main bg */
+  --color-navy: #162033; /* midnight navy — hero/footer/campaign */
+  --color-navy-soft: #1f2c45; /* hover lighter navy */
+  --color-beige: #efe8df; /* moon beige — cards/hover/testimonials */
+  /* Colors — text */
+  --color-charcoal: #2b2b2b; /* primary text (never pure black) */
+  --color-taupe: #7a746c; /* secondary copy */
+  --color-ivory: #f8f5f0; /* text on navy */
+  /* Colors — accents */
+  --color-gold: #c4a87a; /* champagne gold micro-accent */
+  --color-silver: #c7ccd4; /* pearl silver lines */
+
+  /* Fonts (wired to next/font CSS variables) */
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* Letter spacing → enables tracking-nav */
+  --tracking-nav: 0.12em;
+
+  /* Border radius → enables rounded-btn */
+  --radius-btn: 3px;
+
+  /* Max-width container → enables max-w-wrap */
+  --container-wrap: 1280px;
+}
+
+/* Safety-net utilities in case a v4 namespace doesn't emit the exact
+   class name the original markup relies on. */
+@utility max-w-wrap {
+  max-width: 1280px;
+}
+
+/* =================================================================
+   GLOBAL CSS — ported verbatim from the original <style> block
+   ================================================================= */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f7f3ee;
+  color: #2b2b2b;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+}
+::selection {
+  background: #c4a87a;
+  color: #162033;
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero slide cross-fade */
+.slide {
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.slide.active {
+  opacity: 1;
+}
+
+/* Gold underline grow for nav/links */
+.ulink {
+  position: relative;
+}
+.ulink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0;
+  background: #c4a87a;
+  transition: width 0.35s ease;
+}
+.ulink:hover::after,
+.ulink.active::after {
+  width: 100%;
+}
+
+/* Focus ring for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #c4a87a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Hide scrollbars on horizontal scroll rails but keep function */
+.no-bar::-webkit-scrollbar {
+  display: none;
+}
+.no-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Ken-burns drift for hero / full-bleed bands */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate(-1.5%, -1.2%);
+  }
+}
+.kenburns {
+  animation: kenburns 11s ease-in-out alternate infinite;
+  transform-origin: center;
+}
+
+/* Auto-scrolling marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 48s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Faint paper grain so flat ivory never reads empty */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Cohesion wash applied to lifestyle/background imagery */
+.duo {
+  position: relative;
+}
+.duo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(196, 168, 122, 0.1),
+    rgba(22, 32, 51, 0.3)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .slide {
+    transition: none;
+  }
+  * {
+    animation: none !important;
+  }
+}
