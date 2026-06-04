@@ -61,7 +61,9 @@ export default function Footer() {
         <h2 className="font-serif text-[36px] md:text-[56px] leading-tight text-ivory">
           Worn. Lived in. Loved.
         </h2>
-        <p className="mt-4 text-ivory/70 text-[15px]">Join the Mahidha world.</p>
+        <p className="mt-4 text-ivory/70 text-[15px]">
+          Join the Mahidha world.
+        </p>
         <form
           className="mt-7 max-w-md mx-auto flex items-stretch border border-ivory/25 rounded-btn overflow-hidden"
           onSubmit={onSubmit}
@@ -115,11 +117,15 @@ export default function Footer() {
             className="h-16 w-auto"
           />
           <p className="mt-4 text-[14px] text-ivory/70 leading-[1.8]">
-            Thoughtfully crafted pieces inspired by heritage and designed for modern
-            living. Timeless details for everyday moments.
+            Thoughtfully crafted pieces inspired by heritage and designed for
+            modern living. Timeless details for everyday moments.
           </p>
           <div className="mt-6 flex gap-3 text-gold">
-            <a href="#" aria-label="Instagram @lovedbymahidha" className="hover:text-ivory">
+            <a
+              href="#"
+              aria-label="Instagram @lovedbymahidha"
+              className="hover:text-ivory"
+            >
               <Icons.insta size={20} />
             </a>
             <a href="#" aria-label="Pinterest" className="hover:text-ivory">
@@ -169,8 +175,8 @@ export default function Footer() {
       {/* Contact strip */}
       <div className="max-w-wrap mx-auto px-5 pb-10 grid sm:grid-cols-3 gap-5 text-[13px] text-ivory/70">
         <p className="flex items-start gap-2">
-          <Icons.pin size={16} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna Sarovar
-          Grande, Hyderabad, Telangana 500019
+          <Icons.pin size={16} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna
+          Sarovar Grande, Hyderabad, Telangana 500019
         </p>
         <p className="flex items-center gap-2">
           <Icons.mail size={16} stroke="#C4A87A" /> hello@mahidha.com
