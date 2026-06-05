@@ -18,4 +18,6 @@ export interface NavItem {
   label: string;
   to: string;
   params?: { cat?: string; style?: string };
+  /** Absolute external URL — when set, the nav item links here instead of an internal route. */
+  external?: string;
 }

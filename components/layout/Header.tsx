@@ -49,6 +49,16 @@ function IconBtn({
   );
 }
 
+// Nav items that should link out to the live mahidha.com category pages
+// instead of the internal routes (keyed by label).
+const EXTERNAL_NAV: Record<string, string> = {
+  "All Jewellery": "https://mahidha.com/product-category/all-jewellery/",
+  "New Arrivals": "https://mahidha.com/product-category/new-arrivals/",
+  "Shop by Style": "https://mahidha.com/product-category/shop-by-style/",
+  S925: "https://mahidha.com/product-category/s925/",
+  "The Nizam Heritage": "https://mahidha.com/product-category/the-nizam-heritage/",
+};
+
 export default function Header() {
   const pathname = usePathname();
   const setCartOpen = useStore((s) => s.setCartOpen);
@@ -106,17 +116,27 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
-          {NAV.map((n) => (
-            <Link
-              key={n.label}
-              href={hrefFor(n.to, n.params)}
-              className={`ulink font-sans text-[13px] tracking-nav uppercase text-charcoal hover:text-charcoal ${
-                isActive(n.to, n.params) ? "active" : ""
-              }`}
-            >
-              {n.label}
-            </Link>
-          ))}
+          {NAV.map((n) => {
+            const ext = EXTERNAL_NAV[n.label];
+            const cls =
+              "ulink font-sans text-[13px] tracking-nav uppercase text-charcoal hover:text-charcoal";
+            if (ext) {
+              return (
+                <a key={n.label} href={ext} className={cls}>
+                  {n.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={n.label}
+                href={hrefFor(n.to, n.params)}
+                className={`${cls} ${isActive(n.to, n.params) ? "active" : ""}`}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right icons */}
@@ -170,16 +190,33 @@ export default function Header() {
             </button>
           </div>
           <nav className="px-5 py-6 flex flex-col">
-            {NAV.map((n) => (
-              <Link
-                key={n.label}
-                href={hrefFor(n.to, n.params)}
-                onClick={() => setDrawer(false)}
-                className="py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between"
-              >
-                {n.label} <Icons.chevron size={16} stroke="#C4A87A" />
-              </Link>
-            ))}
+            {NAV.map((n) => {
+              const ext = EXTERNAL_NAV[n.label];
+              const cls =
+                "py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between";
+              if (ext) {
+                return (
+                  <a
+                    key={n.label}
+                    href={ext}
+                    onClick={() => setDrawer(false)}
+                    className={cls}
+                  >
+                    {n.label} <Icons.chevron size={16} stroke="#C4A87A" />
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={n.label}
+                  href={hrefFor(n.to, n.params)}
+                  onClick={() => setDrawer(false)}
+                  className={cls}
+                >
+                  {n.label} <Icons.chevron size={16} stroke="#C4A87A" />
+                </Link>
+              );
+            })}
             <Link
               href={hrefFor("gift")}
               onClick={() => setDrawer(false)}
