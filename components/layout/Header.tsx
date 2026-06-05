@@ -36,6 +36,14 @@ function IconBtn({
   const cls =
     "relative p-1.5 text-charcoal hover:text-gold transition-colors inline-flex";
   if (href) {
+    const external = /^https?:\/\//.test(href);
+    if (external) {
+      return (
+        <a href={href} aria-label={label} className={cls}>
+          {inner}
+        </a>
+      );
+    }
     return (
       <Link href={href} aria-label={label} className={cls}>
         {inner}
@@ -49,6 +57,8 @@ function IconBtn({
   );
 }
 
+const SHOP_URL = "https://mahidha.com/shop/";
+
 // Nav items that should link out to the live mahidha.com category pages
 // instead of the internal routes (keyed by label).
 const EXTERNAL_NAV: Record<string, string> = {
@@ -61,7 +71,6 @@ const EXTERNAL_NAV: Record<string, string> = {
 
 export default function Header() {
   const pathname = usePathname();
-  const setCartOpen = useStore((s) => s.setCartOpen);
   const wishlist = useStore((s) => s.wishlist);
   const { count } = useCart();
   const hydrated = useHydrated();
@@ -141,20 +150,16 @@ export default function Header() {
 
         {/* Right icons */}
         <div className="flex items-center gap-1 md:gap-2">
-          <IconBtn label="Search" href={hrefFor("list", { cat: "All Jewellery" })}>
+          <IconBtn label="Search" href={SHOP_URL}>
             <Icons.search size={20} />
           </IconBtn>
-          <IconBtn label="Account" href={hrefFor("contact")}>
+          <IconBtn label="Account" href={SHOP_URL}>
             <Icons.account size={20} />
           </IconBtn>
-          <IconBtn
-            label="Wishlist"
-            href={hrefFor("list", { cat: "All Jewellery" })}
-            badge={hydrated ? wishlist.length : 0}
-          >
+          <IconBtn label="Wishlist" href={SHOP_URL} badge={hydrated ? wishlist.length : 0}>
             <Icons.heart size={20} />
           </IconBtn>
-          <IconBtn label="Cart" onClick={() => setCartOpen(true)} badge={hydrated ? count : 0}>
+          <IconBtn label="Cart" href={SHOP_URL} badge={hydrated ? count : 0}>
             <Icons.bag size={20} />
           </IconBtn>
         </div>
