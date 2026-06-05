@@ -9,11 +9,11 @@ import Accordion from "@/components/ui/Accordion";
 import SmartImage from "@/components/ui/SmartImage";
 import { POOL, pick, ph } from "@/lib/images";
 import { inr } from "@/lib/utils";
+import { LIVE_SHOP } from "@/lib/links";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
 
 export default function PDPView({ p }: { p: Product }) {
-  const addToCart = useStore((s) => s.addToCart);
   const toggleWish = useStore((s) => s.toggleWish);
   const wishlist = useStore((s) => s.wishlist);
   const hydrated = useHydrated();
@@ -104,8 +104,7 @@ export default function PDPView({ p }: { p: Product }) {
           </div>
           <Button
             className="flex-1 min-w-[180px]"
-            onClick={() => !sold && addToCart(p.id, qty)}
-            disabled={sold}
+            {...(sold ? { disabled: true } : { href: LIVE_SHOP })}
           >
             {sold ? "Sold Out" : "Add to Cart"}
           </Button>

@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
+import { LIVE_SHOP } from "@/lib/links";
 
 export default function CampaignCTA() {
   return (
@@ -17,7 +17,7 @@ export default function CampaignCTA() {
         <h2 className="font-serif text-[34px] md:text-[56px] leading-[1.05] text-ivory max-w-3xl mx-auto">
           Step into luxury — upgrade your style with timeless elegance.
         </h2>
-        <Button variant="light" className="mt-9" href={hrefFor("list", { cat: "All Jewellery" })}>
+        <Button variant="light" className="mt-9" href={LIVE_SHOP}>
           Shop Now
         </Button>
       </div>

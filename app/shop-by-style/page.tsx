@@ -4,7 +4,7 @@ import EditCard from "@/components/product/EditCard";
 import ProductRail from "@/components/product/ProductRail";
 import Reveal from "@/components/ui/Reveal";
 import { CATEGORY_INTRO, EDITS, PRODUCTS } from "@/lib/data";
-import { hrefFor } from "@/lib/utils";
+import { LIVE_SHOP } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Shop by Style",
@@ -29,7 +29,7 @@ export default function StylePage() {
                 line={line}
                 img={img}
                 tone="navy"
-                href={hrefFor("list", { cat: "All Jewellery" })}
+                href={LIVE_SHOP}
                 className="h-full"
               />
             </Reveal>

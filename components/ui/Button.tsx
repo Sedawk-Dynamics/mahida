@@ -31,12 +31,18 @@ export default function Button({
 }: ButtonProps) {
   const cls = `${base} ${styles[variant]} ${className}`;
   if (href) {
+    const onClick = rest.onClick as
+      | React.MouseEventHandler<HTMLAnchorElement>
+      | undefined;
+    if (/^https?:\/\//.test(href)) {
+      return (
+        <a href={href} className={cls} onClick={onClick}>
+          {children}
+        </a>
+      );
+    }
     return (
-      <Link
-        href={href}
-        className={cls}
-        onClick={rest.onClick as React.MouseEventHandler<HTMLAnchorElement> | undefined}
-      >
+      <Link href={href} className={cls} onClick={onClick}>
         {children}
       </Link>
     );

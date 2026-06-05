@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import SmartImage from "@/components/ui/SmartImage";
 import { F, ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
+import { LIVE_SITE } from "@/lib/links";
 
 const slides = [
   { img: F.heroLayers, alt: "Woman in navy wearing layered sterling silver and pearls", kicker: "Elevating everyday" },
@@ -51,21 +50,21 @@ export default function Hero() {
           every day.
         </p>
         <div className="mt-9 flex flex-wrap items-center gap-5">
-          <Button variant="light" href={hrefFor("list", { cat: "All Jewellery" })}>
+          <Button variant="light" href={LIVE_SITE}>
             Explore Collections
           </Button>
-          <Link
-            href={hrefFor("list", { cat: "New Arrivals" })}
+          <a
+            href={LIVE_SITE}
             className="ulink font-sans text-[13px] tracking-nav uppercase text-ivory"
           >
             New In
-          </Link>
-          <Link
-            href={hrefFor("list", { cat: "All Jewellery" })}
+          </a>
+          <a
+            href={LIVE_SITE}
             className="ulink font-sans text-[13px] tracking-nav uppercase text-ivory"
           >
             Bestsellers
-          </Link>
+          </a>
         </div>
         {/* slide dots */}
         <div className="absolute bottom-7 left-5 flex gap-2">
