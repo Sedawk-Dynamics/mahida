@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { Icons } from "@/components/ui/Icons";
 
 const msgs = [
-  "Free shipping pan-India",
-  "Cash on Delivery available",
-  "Real pearls. Sterling silver. Handcrafted.",
+  "Jewelry for quiet confidence",
+  "Luxury delivered to your doorstep",
+  "Worn. Lived in. Loved.",
+  "Real pearls, Handcrafted and Sterling Silver",
 ];
 
 export default function UtilityBar() {

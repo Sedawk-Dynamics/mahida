@@ -24,10 +24,10 @@ export default function HomePage() {
       <Hero />
       <TrustMini />
       <LifestyleStrip />
+      <ShopByCategory />
       <StyleEditsHome />
       <HeritageStrip />
       <TrustStrip />
-      <ShopByCategory />
       <ProductRail
         overline="New In"
         title="Fresh arrivals"

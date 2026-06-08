@@ -59,16 +59,6 @@ function IconBtn({
 
 const SHOP_URL = "https://mahidha.com/shop/";
 
-// Nav items that should link out to the live mahidha.com category pages
-// instead of the internal routes (keyed by label).
-const EXTERNAL_NAV: Record<string, string> = {
-  "All Jewellery": "https://mahidha.com/product-category/all-jewellery/",
-  "New Arrivals": "https://mahidha.com/product-category/new-arrivals/",
-  "Shop by Style": "https://mahidha.com/product-category/shop-by-style/",
-  S925: "https://mahidha.com/product-category/s925/",
-  "The Nizam Heritage": "https://mahidha.com/product-category/the-nizam-heritage/",
-};
-
 export default function Header() {
   const pathname = usePathname();
   const wishlist = useStore((s) => s.wishlist);
@@ -126,7 +116,7 @@ export default function Header() {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7">
           {NAV.map((n) => {
-            const ext = EXTERNAL_NAV[n.label];
+            const ext = n.external;
             const cls =
               "ulink font-sans text-[13px] tracking-nav uppercase text-charcoal hover:text-charcoal";
             if (ext) {
@@ -196,7 +186,7 @@ export default function Header() {
           </div>
           <nav className="px-5 py-6 flex flex-col">
             {NAV.map((n) => {
-              const ext = EXTERNAL_NAV[n.label];
+              const ext = n.external;
               const cls =
                 "py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between";
               if (ext) {

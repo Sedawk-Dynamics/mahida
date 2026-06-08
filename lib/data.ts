@@ -55,12 +55,13 @@ export const CATEGORY_INTRO: Record<string, string> = {
    NAVIGATION
    ================================================================= */
 export const NAV: NavItem[] = [
-  { label: "All Jewellery", to: "list", params: { cat: "All Jewellery" } },
-  { label: "New Arrivals", to: "list", params: { cat: "New Arrivals" } },
-  { label: "Shop by Style", to: "style" },
-  { label: "S925", to: "list", params: { cat: "S925" } },
-  { label: "The Nizam Heritage", to: "nizam" },
-  { label: "Our Story", to: "story" },
+  { label: "Latest", to: "list", external: "https://mahidha.com/product-category/latest/" },
+  { label: "Everyday", to: "list", external: "https://mahidha.com/product-category/everyday/" },
+  { label: "Escape", to: "list", external: "https://mahidha.com/product-category/escape/" },
+  { label: "Nizam", to: "nizam", external: "https://mahidha.com/product-category/nizam/" },
+  { label: "Collector's Choice", to: "list", external: "https://mahidha.com/product-category/collectors-choice/" },
+  { label: "All Jewelry", to: "list", external: "https://mahidha.com/product-category/all-jewellery/" },
+  { label: "Our story", to: "story" },
 ];
 
 /* =================================================================
@@ -84,11 +85,12 @@ export const LIFESTYLE: [string, string, string, string][] = [
 ];
 
 export const EDITS: [string, string, string][] = [
-  ["Office, Everyday & Coffee Runs", "Confident corporate femininity, softened for slow mornings.", F.heroBlazer],
-  ["Vacation Edit", "Sun, sea and salt — a dreamy feminine escape.", F.styleScarf],
-  ["Festive / Celebration Edit", "Modern, intimate dressing with understated glow.", F.lifeCeleb],
-  ["Modern Heirloom & Nizam Edit", "Heritage. Culture. Craftsmanship — reimagined for now.", F.nizamSet],
-  ["Silver 925 Edit", "Hallmarked sterling silver, made to last.", F.flatSilver],
+  ["The Everyday Muse", "Effortless pieces for work, coffee runs, and everyday elegance.", F.heroBlazer],
+  ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", F.styleScarf],
+  ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", F.nizamSet],
+  ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", F.flatSilver],
+  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatGold],
+  ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", F.lifeCeleb],
 ];
 
 export const TRUST6: [string, string, string][] = [

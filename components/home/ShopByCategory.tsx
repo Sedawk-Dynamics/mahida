@@ -1,14 +1,15 @@
-import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
-import { ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
+import { F, ph } from "@/lib/images";
+import { LIVE_SHOP } from "@/lib/links";
 
 const cats: [string, string][] = [
-  ["Necklaces", "CATEGORY — necklace"],
-  ["Earrings", "CATEGORY — earrings"],
-  ["Rings", "CATEGORY — ring"],
-  ["Bracelets", "CATEGORY — bracelet"],
+  ["Necklace", F.neckRope],
+  ["Earrings", F.earrDrop],
+  ["Choker", F.heroPendant],
+  ["Bracelets", F.braceSilver],
+  ["Rings", F.ringDome],
+  ["Accessories", F.flatCeleb],
 ];
 
 export default function ShopByCategory() {
@@ -17,20 +18,16 @@ export default function ShopByCategory() {
       <div className="max-w-wrap mx-auto px-5 py-20 md:py-24">
         <SectionHeading
           overline="Shop by category"
-          title="Find your everyday icon"
+          title="Choose your signature sparkle"
           sub="Everyday elegance, reimagined."
         />
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {cats.map(([style, img]) => (
-            <Link
-              key={style}
-              href={hrefFor("list", { cat: "All Jewellery", style })}
-              className="group text-center"
-            >
+            <a key={style} href={LIVE_SHOP} className="group text-center">
               <div className="relative aspect-square overflow-hidden rounded-full bg-pearl mx-auto max-w-[220px]">
                 <SmartImage
                   src={ph(img)}
-                  alt={`${img} — product category`}
+                  alt={`${style} — product category`}
                   fill
                   sizes="220px"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -40,7 +37,7 @@ export default function ShopByCategory() {
               <span className="ulink font-sans text-[12px] tracking-nav uppercase text-gold">
                 Shop {style}
               </span>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
