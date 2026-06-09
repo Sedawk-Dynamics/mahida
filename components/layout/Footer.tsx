@@ -70,6 +70,8 @@ export default function Footer() {
             ["Journal", "contact"],
             ["Contact Us", "contact"],
           ]}
+
+          
         />
         <Column
           title="Shop"
