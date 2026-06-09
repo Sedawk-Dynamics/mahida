@@ -7,8 +7,6 @@ import TrustStrip from "@/components/home/TrustStrip";
 import ShopByCategory from "@/components/home/ShopByCategory";
 import UGCSection from "@/components/home/UGCSection";
 import Testimonials from "@/components/home/Testimonials";
-import Newsletter from "@/components/home/Newsletter";
-import CampaignCTA from "@/components/home/CampaignCTA";
 import CarePreview from "@/components/home/CarePreview";
 import ProductRail from "@/components/product/ProductRail";
 import JsonLd from "@/components/ui/JsonLd";
@@ -43,8 +41,6 @@ export default function HomePage() {
       />
       <Testimonials />
       <CarePreview />
-      <Newsletter />
-      <CampaignCTA />
     </>
   );
 }

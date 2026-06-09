@@ -1,12 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
 import { LOGO } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
-import { subscribe } from "@/lib/api-client";
 
 type LinkDef = [string, string, { cat?: string; style?: string }?];
 
@@ -33,30 +29,8 @@ function Column({ title, links }: { title: string; links: LinkDef[] }) {
 }
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
-  const [done, setDone] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || loading) return;
-    setLoading(true);
-    setError("");
-    try {
-      await subscribe(email, company);
-      setDone(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <footer className="bg-navy text-ivory">
-
       {/* Columns */}
       <div className="max-w-wrap mx-auto px-5 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
