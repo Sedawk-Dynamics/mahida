@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { Icons } from "@/components/ui/Icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
-import { LIVE_SHOP } from "@/lib/links";
+import { hrefFor } from "@/lib/utils";
 import { LIFESTYLE } from "@/lib/data";
 
 export default function LifestyleStrip() {
@@ -15,10 +16,12 @@ export default function LifestyleStrip() {
           sub="Pearls for every version of you — from slow mornings to fast lives."
         />
         <div className="mt-12 flex lg:grid lg:grid-cols-5 gap-5 overflow-x-auto no-bar -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
-          {LIFESTYLE.map(([title, line, img]) => {
+          {LIFESTYLE.map(([title, line, img, cat]) => {
+            const href =
+              cat === "The Nizam Heritage" ? hrefFor("nizam") : hrefFor("list", { cat });
             return (
               <div key={title} className="snap-start shrink-0 w-[72%] sm:w-[44%] lg:w-auto">
-                <a href={LIVE_SHOP} className="group block text-left w-full">
+                <Link href={href} className="group block text-left w-full">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-btn bg-beige">
                     <SmartImage
                       src={ph(img)}
@@ -37,7 +40,7 @@ export default function LifestyleStrip() {
                       Shop Now <Icons.arrow size={13} stroke="#C4A87A" />
                     </span>
                   </div>
-                </a>
+                </Link>
               </div>
             );
           })}

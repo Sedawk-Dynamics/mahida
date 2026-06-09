@@ -4,7 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import EditCard from "@/components/product/EditCard";
 import { ph } from "@/lib/images";
-import { LIVE_SHOP } from "@/lib/links";
+import { hrefFor } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Gift Guide",
@@ -58,7 +58,7 @@ export default function GiftPage() {
                   line="Thoughtfully packed for gifting"
                   img={img}
                   tone="navy"
-                  href={LIVE_SHOP}
+                  href={hrefFor("list", { cat: "All Jewellery" })}
                 />
               </Reveal>
             ))}

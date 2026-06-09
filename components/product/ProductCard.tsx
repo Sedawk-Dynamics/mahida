@@ -9,11 +9,11 @@ import Stars from "@/components/ui/Stars";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
 import { inr, hrefFor } from "@/lib/utils";
-import { LIVE_SHOP } from "@/lib/links";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
 
 export default function ProductCard({ p }: { p: Product }) {
+  const addToCart = useStore((s) => s.addToCart);
   const toggleWish = useStore((s) => s.toggleWish);
   const wishlist = useStore((s) => s.wishlist);
   const hydrated = useHydrated();
@@ -79,7 +79,11 @@ export default function ProductCard({ p }: { p: Product }) {
             </Button>
           ) : (
             <div className="flex gap-2">
-              <Button variant="light" className="flex-1 !px-3" href={LIVE_SHOP}>
+              <Button
+                variant="light"
+                className="flex-1 !px-3"
+                onClick={() => addToCart(p.id)}
+              >
                 Add to Cart
               </Button>
               <Button

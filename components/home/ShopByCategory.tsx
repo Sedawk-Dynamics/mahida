@@ -1,7 +1,8 @@
+import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import { F, ph } from "@/lib/images";
-import { LIVE_SHOP } from "@/lib/links";
+import { hrefFor } from "@/lib/utils";
 
 const cats: [string, string][] = [
   ["Necklace", F.neckRope],
@@ -23,7 +24,11 @@ export default function ShopByCategory() {
         />
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {cats.map(([style, img]) => (
-            <a key={style} href={LIVE_SHOP} className="group text-center">
+            <Link
+              key={style}
+              href={hrefFor("list", { cat: "All Jewellery", style })}
+              className="group text-center"
+            >
               <div className="relative aspect-square overflow-hidden rounded-full bg-pearl mx-auto max-w-[220px]">
                 <SmartImage
                   src={ph(img)}
@@ -37,7 +42,7 @@ export default function ShopByCategory() {
               <span className="ulink font-sans text-[12px] tracking-nav uppercase text-gold">
                 Shop {style}
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

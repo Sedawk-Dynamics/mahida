@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { F, ph } from "@/lib/images";
-import { LIVE_SHOP } from "@/lib/links";
+import { hrefFor } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "The Craft",
@@ -133,7 +133,7 @@ export default function CraftPage() {
             craftsmanship, and a deep commitment to quality that endures well beyond the moment of
             purchase.
           </p>
-          <Button variant="light" className="mt-10" href={LIVE_SHOP}>
+          <Button variant="light" className="mt-10" href={hrefFor("list", { cat: "All Jewellery" })}>
             Explore the Collection
           </Button>
         </div>
