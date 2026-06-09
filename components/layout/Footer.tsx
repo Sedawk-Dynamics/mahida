@@ -56,55 +56,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy text-ivory">
-      {/* Headline + newsletter */}
-      <div className="max-w-wrap mx-auto px-5 pt-20 pb-14 text-center border-b border-ivory/10">
-        <h2 className="font-serif text-[36px] md:text-[56px] leading-tight text-ivory">
-          Worn. Lived in. Loved.
-        </h2>
-        <p className="mt-4 text-ivory/70 text-[15px]">
-          Join the Mahidha world.
-        </p>
-        <form
-          className="mt-7 max-w-md mx-auto flex items-stretch border border-ivory/25 rounded-btn overflow-hidden"
-          onSubmit={onSubmit}
-        >
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            className="hidden"
-            aria-hidden="true"
-          />
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            aria-label="Email address"
-            className="flex-1 bg-transparent px-4 py-3 text-[14px] text-ivory placeholder:text-ivory/40 focus:outline-none"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            aria-label="Subscribe"
-            className="px-5 bg-ivory/10 hover:bg-gold hover:text-navy transition-colors text-ivory disabled:opacity-60"
-          >
-            <Icons.arrow size={18} />
-          </button>
-        </form>
-        {done && (
-          <p className="mt-3 text-gold text-[13px] font-sans tracking-nav uppercase">
-            Welcome to the Mahidha world ✦
-          </p>
-        )}
-        {error && !done && (
-          <p className="mt-3 text-ivory/70 text-[13px] font-sans">{error}</p>
-        )}
-      </div>
 
       {/* Columns */}
       <div className="max-w-wrap mx-auto px-5 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
