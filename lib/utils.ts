@@ -47,6 +47,8 @@ export function hrefFor(to: string, params: { cat?: string; style?: string; id?:
       return `/product/${params.id}`;
     case "story":
       return "/our-story";
+    case "craft":
+      return "/the-craft";
     case "care":
       return "/jewellery-care";
     case "faqs":

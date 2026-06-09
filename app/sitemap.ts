@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/shop-by-style",
     "/nizam-heritage",
     "/our-story",
+    "/the-craft",
     "/jewellery-care",
     "/faqs",
     "/gift-guide",

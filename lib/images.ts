@@ -42,6 +42,12 @@ export const F = {
   styleScarf: A + "imgi_25_jewellery-blog-img-6.jpg", // sunglasses, scarf, statement earrings
   ringDome: A + "imgi_26_jewellery-blog-img-7.jpg", // gold dome ring, dried flowers
   ringsMirror: A + "imgi_24_jewellery-blog-img-9.jpg", // gold rings on a mirror, sunlight
+  // Real client photography for the homepage hero + The Craft page
+  workwear: A + "workwear_in_office.jpeg", // pearl bracelet beside laptop & coffee
+  vacation: A + "vaccation.jpeg", // vacation mood with pearl jewellery
+  coffeeCafe: A + "coffee_in_cafe.jpeg", // two women in a café wearing pearls
+  nizamPhoto: A + "nizam_heritage.jpeg", // pearl & amethyst choker, ivory saree
+  karigar: A + "karigar.jpeg", // a karigar's hands crafting a pearl bracelet
 } as const;
 
 export const LOGO = A + "mahidalogo.png";

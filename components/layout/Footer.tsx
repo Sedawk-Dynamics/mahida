@@ -140,6 +140,7 @@ export default function Footer() {
           title="Discover"
           links={[
             ["Our Story", "story"],
+            ["The Craft", "craft"],
             ["Founders", "story"],
             ["Journal", "contact"],
             ["Contact Us", "contact"],
