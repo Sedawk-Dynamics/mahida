@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/nizam-heritage",
     "/our-story",
     "/the-craft",
+    "/know-your-pearls",
     "/jewellery-care",
     "/faqs",
     "/gift-guide",

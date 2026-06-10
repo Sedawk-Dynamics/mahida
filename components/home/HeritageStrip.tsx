@@ -61,9 +61,14 @@ export default function HeritageStrip() {
               );
             })}
           </div>
-          <Button variant="ghostLight" className="mt-10" href={hrefFor("story")}>
-            Our Story
-          </Button>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button variant="ghostLight" href={hrefFor("story")}>
+              Our Story
+            </Button>
+            <Button variant="ghostLight" href={hrefFor("pearls")}>
+              Know Your Pearls
+            </Button>
+          </div>
         </Reveal>
       </div>
     </section>

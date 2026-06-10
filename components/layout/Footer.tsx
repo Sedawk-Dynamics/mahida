@@ -66,6 +66,7 @@ export default function Footer() {
           links={[
             ["Our Story", "story"],
             ["The Craft", "craft"],
+            ["Know Your Pearls", "pearls"],
             ["Founders", "story"],
             ["Journal", "contact"],
             ["Contact Us", "contact"],
