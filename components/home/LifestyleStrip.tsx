@@ -11,9 +11,9 @@ export default function LifestyleStrip() {
     <section className="bg-pearl">
       <div className="max-w-wrap mx-auto px-5 py-20 md:py-28">
         <SectionHeading
-          overline="Jewellery in her life"
-          title="Made to move with your everyday"
-          sub="Pearls for every version of you — from slow mornings to fast lives."
+          overline="For her special moments"
+          title="Thoughtful gifts chosen to be worn, loved, and cherished."
+          sub="Elegant pearl and silver jewellery for everyday wear, special occasions, and meaningful gifting."
         />
         <div className="mt-12 flex lg:grid lg:grid-cols-5 gap-5 overflow-x-auto no-bar -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
           {LIFESTYLE.map(([title, line, img, cat]) => {

@@ -77,11 +77,11 @@ export const CARE_TIPS: [string, string, string][] = [
 ];
 
 export const LIFESTYLE: [string, string, string, string][] = [
-  ["For Workdays", "Confident corporate femininity", F.heroBlazer, "All Jewellery"],
-  ["For Coffee Runs", "Soft, effortless luxury", F.heroWoman, "Everyday Icons"],
-  ["For Vacations", "A dreamy feminine escape", F.styleScarf, "Vacations"],
-  ["For Celebrations", "Understated, modern elegance", F.lifeCeleb, "Celebrations"],
-  ["For Everyday", "Personal and wearable", F.lifeGreen, "Everyday Icons"],
+  ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", F.heroBlazer, "All Jewellery"],
+  ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", F.heroWoman, "All Jewellery"],
+  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", F.styleScarf, "All Jewellery"],
+  ["Signature Gifts", "Curated treasures designed to be cherished for years.", F.lifeCeleb, "All Jewellery"],
+  ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", F.lifeGreen, "All Jewellery"],
 ];
 
 export const EDITS: [string, string, string][] = [
