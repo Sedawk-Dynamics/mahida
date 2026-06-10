@@ -19,11 +19,10 @@ export default function EditCard({
   href,
   className = "",
 }: EditCardProps) {
-  return (
-    <Link
-      href={href}
-      className={`group relative block text-left overflow-hidden rounded-btn ${className}`}
-    >
+  const cls = `group relative block text-left overflow-hidden rounded-btn ${className}`;
+  const external = /^https?:\/\//.test(href);
+  const inner = (
+    <>
       <div className="relative aspect-[3/4] overflow-hidden bg-beige">
         <SmartImage
           src={ph(img)}
@@ -46,6 +45,19 @@ export default function EditCard({
           </span>
         </span>
       </div>
+    </>
+  );
+
+  if (external) {
+    return (
+      <a href={href} className={cls}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={cls}>
+      {inner}
     </Link>
   );
 }
