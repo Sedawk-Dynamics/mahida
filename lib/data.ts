@@ -59,7 +59,7 @@ export const NAV: NavItem[] = [
   { label: "Everyday", to: "list", external: "https://shop.mahidha.com/product-category/everyday/" },
   { label: "Escape", to: "list", external: "https://shop.mahidha.com/product-category/escape/" },
   { label: "Nizam", to: "nizam", external: "https://shop.mahidha.com/product-category/nizam/" },
-  { label: "Collector's Choice", to: "list", external: "https://shop.mahidha.com/product-category/collectors-choice/" },
+  { label: "S925", to: "list", external: "https://shop.mahidha.com/product-category/s925/" },
   { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Our story", to: "story" },
 ];
