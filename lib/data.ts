@@ -55,12 +55,12 @@ export const CATEGORY_INTRO: Record<string, string> = {
    NAVIGATION
    ================================================================= */
 export const NAV: NavItem[] = [
-  { label: "Latest", to: "list", params: { cat: "New Arrivals" } },
-  { label: "Everyday", to: "list", params: { cat: "S925" } },
-  { label: "Escape", to: "style" },
-  { label: "Nizam", to: "nizam" },
-  { label: "Collector's Choice", to: "list", params: { cat: "New Arrivals" } },
-  { label: "All Jewelry", to: "list", params: { cat: "All Jewellery" } },
+  { label: "Latest", to: "list", external: "https://shop.mahidha.com/product-category/latest/" },
+  { label: "Everyday", to: "list", external: "https://shop.mahidha.com/product-category/everyday/" },
+  { label: "Escape", to: "list", external: "https://shop.mahidha.com/product-category/escape/" },
+  { label: "Nizam", to: "nizam", external: "https://shop.mahidha.com/product-category/nizam/" },
+  { label: "Collector's Choice", to: "list", external: "https://shop.mahidha.com/product-category/collectors-choice/" },
+  { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Our story", to: "story" },
 ];
 
