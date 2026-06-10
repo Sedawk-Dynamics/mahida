@@ -20,7 +20,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: F.workwear,
+    img: "/img/slider1.jpeg",
     alt: "Pearl bracelet on a wrist beside a laptop and coffee — workwear",
     eyebrow: "The Work Edit",
     headline: "Pearls that mean business.",
@@ -29,7 +29,7 @@ const SLIDES: Slide[] = [
     href: LIVE_SHOP,
   },
   {
-    img: F.vacation,
+    img: "/img/Slider2vacation2026.jpeg",
     alt: "Vacation mood with pearl jewellery in warm light",
     eyebrow: "The Vacation Edit",
     headline: "Pack light. Shine everywhere.",
@@ -56,7 +56,7 @@ const SLIDES: Slide[] = [
     href: hrefFor("nizam"),
   },
   {
-    img: F.karigar,
+    img: "/img/KarigarhandPM.png",
     alt: "A karigar's hands crafting a pearl bracelet",
     eyebrow: "Made by Hand",
     headline: "Born in the hands of skilled karigars.",

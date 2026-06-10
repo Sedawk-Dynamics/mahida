@@ -1,15 +1,15 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
-import { F, ph } from "@/lib/images";
+import { ph } from "@/lib/images";
 import { LIVE_SHOP } from "@/lib/links";
 
 const cats: [string, string][] = [
-  ["Necklace", F.neckRope],
-  ["Earrings", F.earrDrop],
-  ["Choker", F.heroPendant],
-  ["Bracelets", F.braceSilver],
-  ["Rings", F.ringDome],
-  ["Accessories", F.flatCeleb],
+  ["Necklace", "/img/Necklace.jpeg"],
+  ["Earrings", "/img/earring1.jpeg"],
+  ["Choker", "/img/choker.jpeg"],
+  ["Bracelets", "/img/bracelet.jpeg"],
+  ["Rings", "/img/ring.jpeg"],
+  ["Accessories", "/img/Accessories.jpeg"],
 ];
 
 export default function ShopByCategory() {

@@ -77,11 +77,11 @@ export const CARE_TIPS: [string, string, string][] = [
 ];
 
 export const LIFESTYLE: [string, string, string, string][] = [
-  ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", F.heroBlazer, "All Jewellery"],
-  ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", F.heroWoman, "All Jewellery"],
-  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", F.styleScarf, "All Jewellery"],
-  ["Signature Gifts", "Curated treasures designed to be cherished for years.", F.lifeCeleb, "All Jewellery"],
-  ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", F.lifeGreen, "All Jewellery"],
+  ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", "/img/everyday.jpeg", "All Jewellery"],
+  ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", "/img/Bridesmaid.jpeg", "All Jewellery"],
+  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", "/img/Collagegirl.jpeg", "All Jewellery"],
+  ["Signature Gifts", "Curated treasures designed to be cherished for years.", "/img/Signature.jpeg", "All Jewellery"],
+  ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", "/img/Below5000.jpeg", "All Jewellery"],
 ];
 
 export const EDITS: [string, string, string][] = [
