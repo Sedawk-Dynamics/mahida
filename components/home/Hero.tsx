@@ -6,6 +6,7 @@ import SmartImage from "@/components/ui/SmartImage";
 import { Icons } from "@/components/ui/Icons";
 import { F, ph } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
+import { LIVE_SHOP } from "@/lib/links";
 
 interface Slide {
   img: string;
@@ -25,7 +26,7 @@ const SLIDES: Slide[] = [
     headline: "Pearls that mean business.",
     sub: "Minimal pearl layers made for ambitious mornings and everything after.",
     cta: "Shop Workwear",
-    href: hrefFor("list", { cat: "All Jewellery" }),
+    href: LIVE_SHOP,
   },
   {
     img: F.vacation,
@@ -34,7 +35,7 @@ const SLIDES: Slide[] = [
     headline: "Pack light. Shine everywhere.",
     sub: "Lightweight pearls and silver, made to move with your escape.",
     cta: "Shop Vacation",
-    href: hrefFor("style"),
+    href: LIVE_SHOP,
   },
   {
     img: F.coffeeCafe,
@@ -43,7 +44,7 @@ const SLIDES: Slide[] = [
     headline: "For slow mornings and fast lives.",
     sub: "Everyday pieces that turn a coffee run into a moment worth keeping.",
     cta: "Shop Everyday",
-    href: hrefFor("list", { cat: "All Jewellery" }),
+    href: LIVE_SHOP,
   },
   {
     img: F.nizamPhoto,

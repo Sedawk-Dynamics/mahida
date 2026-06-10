@@ -24,15 +24,6 @@ export default function HeritageStrip() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-cover"
           />
-          <div className="absolute -bottom-10 right-5 lg:right-[-44px] w-32 h-40 lg:w-44 lg:h-56 rounded-btn overflow-hidden ring-4 ring-navy shadow-xl hidden sm:block z-10">
-            <SmartImage
-              src={ph("INSET — pearl and silver detail macro")}
-              alt="Inset — pearl and silver detail, macro"
-              fill
-              sizes="176px"
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
         <Reveal className="px-5 sm:px-12 py-16 md:py-24">
           <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">
