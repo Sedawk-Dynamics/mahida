@@ -2,7 +2,6 @@ import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
-import { ph } from "@/lib/images";
 
 const pts: [string, string][] = [
   ["gem", "Heritage"],
@@ -17,8 +16,8 @@ export default function HeritageStrip() {
       <div className="max-w-wrap mx-auto grid lg:grid-cols-2 items-center">
         <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full duo">
           <SmartImage
-            src={ph("HERITAGE — karigar hands crafting pearl jewellery, warm light")}
-            alt="Heritage — karigar hands crafting pearl jewellery in warm light"
+            src="/img/workers.jpeg"
+            alt="Skilled karigars handcrafting pearl jewellery"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-full object-cover"
