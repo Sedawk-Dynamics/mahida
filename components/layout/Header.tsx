@@ -141,8 +141,11 @@ export default function Header() {
           <IconBtn label="Search" href="https://shop.mahidha.com/">
             <Icons.search size={20} />
           </IconBtn>
-          <IconBtn label="Account" href="https://shop.mahidha.com/my-account/?action=register">
-            <Icons.account size={20} />
+          <IconBtn label="Cart" href="https://shop.mahidha.com/cart/" badge={hydrated ? count : 0}>
+            <Icons.bag size={20} />
+          </IconBtn>
+          <IconBtn label="Compare" href="https://shop.mahidha.com/compare/">
+            <Icons.compare size={20} />
           </IconBtn>
           <IconBtn
             label="Wishlist"
@@ -151,12 +154,8 @@ export default function Header() {
           >
             <Icons.heart size={20} />
           </IconBtn>
-          <IconBtn
-            label="Cart"
-            href="https://shop.mahidha.com/cart/"
-            badge={hydrated ? count : 0}
-          >
-            <Icons.bag size={20} />
+          <IconBtn label="Account" href="https://shop.mahidha.com/my-account/?action=register">
+            <Icons.account size={20} />
           </IconBtn>
         </div>
       </div>

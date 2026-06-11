@@ -68,6 +68,14 @@ export const Icons: Record<string, IconFn> = {
       <path d="M9 8V6a3 3 0 0 1 6 0v2" />
     </Ico>
   ),
+  compare: (p) => (
+    <Ico {...p}>
+      <path d="M16 4l4 4-4 4" />
+      <path d="M20 8H8" />
+      <path d="M8 20l-4-4 4-4" />
+      <path d="M4 16h12" />
+    </Ico>
+  ),
   menu: (p) => (
     <Ico {...p}>
       <line x1="3" y1="6" x2="21" y2="6" />
