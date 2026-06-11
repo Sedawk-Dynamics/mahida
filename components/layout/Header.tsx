@@ -59,7 +59,6 @@ function IconBtn({
 
 export default function Header() {
   const pathname = usePathname();
-  const setCartOpen = useStore((s) => s.setCartOpen);
   const wishlist = useStore((s) => s.wishlist);
   const { count } = useCart();
   const hydrated = useHydrated();
@@ -139,20 +138,24 @@ export default function Header() {
 
         {/* Right icons */}
         <div className="flex items-center gap-1 md:gap-2">
-          <IconBtn label="Search" href={hrefFor("list", { cat: "All Jewellery" })}>
+          <IconBtn label="Search" href="https://shop.mahidha.com/">
             <Icons.search size={20} />
           </IconBtn>
-          <IconBtn label="Account" href={hrefFor("contact")}>
+          <IconBtn label="Account" href="https://shop.mahidha.com/my-account/?action=register">
             <Icons.account size={20} />
           </IconBtn>
           <IconBtn
             label="Wishlist"
-            href={hrefFor("list", { cat: "All Jewellery" })}
+            href="https://shop.mahidha.com/wishlist/"
             badge={hydrated ? wishlist.length : 0}
           >
             <Icons.heart size={20} />
           </IconBtn>
-          <IconBtn label="Cart" onClick={() => setCartOpen(true)} badge={hydrated ? count : 0}>
+          <IconBtn
+            label="Cart"
+            href="https://shop.mahidha.com/cart/"
+            badge={hydrated ? count : 0}
+          >
             <Icons.bag size={20} />
           </IconBtn>
         </div>
