@@ -47,17 +47,40 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex gap-3 text-gold">
             <a
-              href="#"
+              href="https://www.facebook.com/lovedbymahidha/"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ivory"
+            >
+              <Icons.fb size={20} />
+            </a>
+            <a
+              href="https://www.instagram.com/lovedbymahidha/"
               aria-label="Instagram @lovedbymahidha"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-ivory"
             >
               <Icons.insta size={20} />
             </a>
-            <a href="#" aria-label="Pinterest" className="hover:text-ivory">
-              <Icons.pinterest size={20} />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-ivory">
+            <a
+              href="https://www.linkedin.com/company/mahidha-global-pvt-ltd"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ivory"
+            >
               <Icons.linkedin size={20} />
+            </a>
+            <a
+              href="https://x.com/Mahidhaofficial"
+              aria-label="X (Twitter)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ivory"
+            >
+              <Icons.xcom size={20} />
             </a>
           </div>
         </div>
@@ -104,14 +127,15 @@ export default function Footer() {
       {/* Contact strip */}
       <div className="max-w-wrap mx-auto px-5 pb-10 grid sm:grid-cols-3 gap-5 text-[13px] text-ivory/70">
         <p className="flex items-start gap-2">
-          <Icons.pin size={16} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna
-          Sarovar Grande, Hyderabad, Telangana 500019
+          <Icons.pin size={16} stroke="#C4A87A" /> SY No. 116, Flat No. 107, Gayatri Nest
+          Apartment, Telecom Nagar, Gachibowli, Hyderabad, Serilingampally, Telangana, India,
+          500032
         </p>
         <p className="flex items-center gap-2">
-          <Icons.mail size={16} stroke="#C4A87A" /> hello@mahidha.com
+          <Icons.mail size={16} stroke="#C4A87A" /> info@mahidha.com
         </p>
         <p className="flex items-center gap-2">
-          <Icons.phone size={16} stroke="#C4A87A" /> +91 72073 61114
+          <Icons.phone size={16} stroke="#C4A87A" /> +91 72073 61114, +91 72073 61115
         </p>
       </div>
 

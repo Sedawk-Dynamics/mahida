@@ -5,7 +5,6 @@ import Button from "@/components/ui/Button";
 import SmartImage from "@/components/ui/SmartImage";
 import { Icons } from "@/components/ui/Icons";
 import { F, ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
 import { LIVE_SHOP } from "@/lib/links";
 
 interface Slide {
@@ -53,7 +52,7 @@ const SLIDES: Slide[] = [
     headline: "Inspired by the Nizam. Designed for now.",
     sub: "Hyderabad's timeless pearl legacy, reimagined for the modern woman.",
     cta: "Explore Heritage",
-    href: hrefFor("nizam"),
+    href: LIVE_SHOP,
   },
   {
     img: "/img/KarigarhandPM.png",
@@ -62,7 +61,7 @@ const SLIDES: Slide[] = [
     headline: "Born in the hands of skilled karigars.",
     sub: "Every piece is thoughtfully made, one at a time — never mass-produced.",
     cta: "Learn More",
-    href: hrefFor("craft"),
+    href: LIVE_SHOP,
   },
 ];
 

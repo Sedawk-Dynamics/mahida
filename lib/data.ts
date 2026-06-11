@@ -61,7 +61,7 @@ export const NAV: NavItem[] = [
   { label: "Nizam", to: "nizam", external: "https://shop.mahidha.com/product-category/nizam/" },
   { label: "S925", to: "list", external: "https://shop.mahidha.com/product-category/s925/" },
   { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
-  { label: "Our story", to: "story" },
+  { label: "Our story", to: "story", external: "https://mahidha.vercel.app/our-story" },
 ];
 
 /* =================================================================

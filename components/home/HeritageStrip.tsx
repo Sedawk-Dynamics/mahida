@@ -3,7 +3,6 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
 
 const pts: [string, string][] = [
   ["gem", "Heritage"],
@@ -53,10 +52,10 @@ export default function HeritageStrip() {
             })}
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button variant="ghostLight" href={hrefFor("story")}>
+            <Button variant="ghostLight" href="https://www.mahidha.com/our-story">
               Our Story
             </Button>
-            <Button variant="ghostLight" href={hrefFor("pearls")}>
+            <Button variant="ghostLight" href="https://www.mahidha.com/know-your-pearls">
               Know Your Pearls
             </Button>
           </div>

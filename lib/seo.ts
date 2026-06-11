@@ -19,26 +19,28 @@ export function organizationJsonLd() {
     logo: abs(LOGO),
     description:
       "MAHIDHA — modern pearl & sterling silver jewellery. Rooted in Hyderabad's Nizam-era pearl heritage, designed for now.",
-    email: "hello@mahidha.com",
+    email: "info@mahidha.com",
     telephone: "+91 72073 61114",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Flat No. 602, Block I, Aparna Sarovar Grande",
+      streetAddress:
+        "SY No. 116, Flat No. 107, Gayatri Nest Apartment, Telecom Nagar, Gachibowli",
       addressLocality: "Hyderabad",
       addressRegion: "Telangana",
-      postalCode: "500019",
+      postalCode: "500032",
       addressCountry: "IN",
     },
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91 72073 61114",
-      email: "hello@mahidha.com",
+      email: "info@mahidha.com",
       contactType: "customer service",
     },
     sameAs: [
-      "https://www.instagram.com/lovedbymahidha",
-      "https://www.pinterest.com/lovedbymahidha",
-      "https://www.linkedin.com/company/mahidha",
+      "https://www.facebook.com/lovedbymahidha/",
+      "https://www.instagram.com/lovedbymahidha/",
+      "https://www.linkedin.com/company/mahidha-global-pvt-ltd",
+      "https://x.com/Mahidhaofficial",
     ],
   };
 }

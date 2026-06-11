@@ -30,25 +30,53 @@ export default function ContactPage() {
             <h3 className="font-serif text-[28px] text-charcoal mb-5">Reach us</h3>
             <ul className="space-y-4 text-[15px] text-taupe">
               <li className="flex items-start gap-3">
-                <Icons.pin size={20} stroke="#C4A87A" /> Flat No. 602, Block I, Aparna Sarovar
-                Grande, Hyderabad, Telangana 500019
+                <Icons.pin size={20} stroke="#C4A87A" /> SY No. 116, Flat No. 107, Gayatri Nest
+                Apartment, Telecom Nagar, Gachibowli, Hyderabad, Serilingampally, Telangana,
+                India, 500032
               </li>
               <li className="flex items-center gap-3">
-                <Icons.mail size={20} stroke="#C4A87A" /> hello@mahidha.com
+                <Icons.mail size={20} stroke="#C4A87A" /> info@mahidha.com
               </li>
               <li className="flex items-center gap-3">
-                <Icons.phone size={20} stroke="#C4A87A" /> +91 72073 61114
+                <Icons.phone size={20} stroke="#C4A87A" /> +91 72073 61114, +91 72073 61115
               </li>
             </ul>
             <div className="mt-6 flex gap-3 text-charcoal">
-              <a href="#" aria-label="Instagram @lovedbymahidha" className="hover:text-gold">
+              <a
+                href="https://www.facebook.com/lovedbymahidha/"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold"
+              >
+                <Icons.fb size={22} />
+              </a>
+              <a
+                href="https://www.instagram.com/lovedbymahidha/"
+                aria-label="Instagram @lovedbymahidha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold"
+              >
                 <Icons.insta size={22} />
               </a>
-              <a href="#" aria-label="Pinterest" className="hover:text-gold">
-                <Icons.pinterest size={22} />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-gold">
+              <a
+                href="https://www.linkedin.com/company/mahidha-global-pvt-ltd"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold"
+              >
                 <Icons.linkedin size={22} />
+              </a>
+              <a
+                href="https://x.com/Mahidhaofficial"
+                aria-label="X (Twitter)"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold"
+              >
+                <Icons.xcom size={22} />
               </a>
             </div>
             <div className="mt-8 relative aspect-[16/10] rounded-btn overflow-hidden bg-beige">
