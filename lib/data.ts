@@ -65,36 +65,66 @@ export const NAV: NavItem[] = [
 ];
 
 // Mega-menu shown under "All Jewelry" in the header.
+// URLs mirror the live WooCommerce category tree on shop.mahidha.com.
 export const ALL_JEWELRY_URL =
   "https://shop.mahidha.com/product-category/all-jewellery/";
 
-export const ALL_JEWELRY_MEGA: { title: string; items: string[] }[] = [
+const S = "https://shop.mahidha.com/product-category";
+
+export interface MegaItem {
+  label: string;
+  href: string;
+}
+export interface MegaGroup {
+  title: string;
+  href: string;
+  items: MegaItem[];
+}
+
+export const ALL_JEWELRY_MEGA: MegaGroup[] = [
   {
     title: "By Jewellery Type",
-    items: ["Necklace", "Earring", "Choker", "Bracelets", "Rings", "Accessories"],
+    href: `${S}/all-jewellery/`,
+    items: [
+      { label: "Necklace", href: `${S}/all-jewellery/necklace/` },
+      { label: "Earring", href: `${S}/all-jewellery/earrings/` },
+      { label: "Choker", href: `${S}/all-jewellery/choker/` },
+      { label: "Bracelets", href: `${S}/all-jewellery/bracelets/` },
+      { label: "Rings", href: `${S}/all-jewellery/rings/` },
+      { label: "Accessories", href: `${S}/all-jewellery/accessories/` },
+    ],
   },
   {
     title: "Gifting",
+    href: `${S}/gifting/`,
     items: [
-      "Everyday Icon",
-      "Bridal Tribe",
-      "For Her",
-      "Signature Gifts",
-      "Elegant Finds Under ₹5000",
+      { label: "Everyday Icon", href: `${S}/gifting/everyday-icon/` },
+      { label: "Bridal Tribe", href: `${S}/gifting/bridal-tribe/` },
+      { label: "For Her", href: `${S}/gifting/for-her/` },
+      { label: "Signature Gifts", href: `${S}/gifting/signature-gifts/` },
+      {
+        label: "Elegant Finds Under ₹5000",
+        href: `${S}/gifting/elegant-finds-under-%e2%82%b95000/`,
+      },
     ],
   },
   {
     title: "By Mood Edit",
+    href: `${S}/by-mood-edit/`,
     items: [
-      "The Everyday Muse",
-      "The Escape",
-      "The Nizam Heritage",
-      "The Silver Atelier",
-      "The Collector's Edition",
-      "The Celebration Edit",
+      { label: "The Everyday Muse", href: `${S}/by-mood-edit/the-everyday-muse/` },
+      { label: "The Escape", href: `${S}/by-mood-edit/the-escape/` },
+      { label: "The Nizam Heritage", href: `${S}/by-mood-edit/the-nizam-heritage/` },
+      { label: "The Silver Atelier", href: `${S}/by-mood-edit/the-silver-atelier/` },
+      { label: "The Collector's Edition", href: `${S}/by-mood-edit/the-collectors-edition/` },
+      { label: "The Celebration Edit", href: `${S}/by-mood-edit/the-celebration-edit/` },
     ],
   },
-  { title: "Featured", items: ["Best Sellers"] },
+  {
+    title: "Featured",
+    href: `${S}/featured/`,
+    items: [{ label: "Best Sellers", href: `${S}/featured/best-sellers/` }],
+  },
 ];
 
 /* =================================================================

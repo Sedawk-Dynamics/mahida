@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
-import { NAV, ALL_JEWELRY_URL, ALL_JEWELRY_MEGA } from "@/lib/data";
+import { NAV, ALL_JEWELRY_MEGA } from "@/lib/data";
 import { LOGO } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
 import { useCart, useHydrated, useStore } from "@/lib/store";
@@ -131,17 +131,20 @@ export default function Header() {
                     <div className="bg-pearl shadow-2xl rounded-btn border border-charcoal/10 p-7 grid grid-cols-4 gap-8 w-[780px]">
                       {ALL_JEWELRY_MEGA.map((g) => (
                         <div key={g.title}>
-                          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3">
+                          <a
+                            href={g.href}
+                            className="ulink block font-sans text-[11px] tracking-nav uppercase text-gold mb-3"
+                          >
                             {g.title}
-                          </p>
+                          </a>
                           <ul className="space-y-2.5">
                             {g.items.map((it) => (
-                              <li key={it}>
+                              <li key={it.label}>
                                 <a
-                                  href={ALL_JEWELRY_URL}
+                                  href={it.href}
                                   className="ulink font-sans text-[14px] text-charcoal/80 hover:text-charcoal"
                                 >
-                                  {it}
+                                  {it.label}
                                 </a>
                               </li>
                             ))}
@@ -249,18 +252,22 @@ export default function Header() {
                       <div className="pb-4 pl-1 space-y-4">
                         {ALL_JEWELRY_MEGA.map((g) => (
                           <div key={g.title}>
-                            <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-1.5">
+                            <a
+                              href={g.href}
+                              onClick={() => setDrawer(false)}
+                              className="block font-sans text-[11px] tracking-nav uppercase text-gold mb-1.5"
+                            >
                               {g.title}
-                            </p>
+                            </a>
                             <ul className="space-y-1.5">
                               {g.items.map((it) => (
-                                <li key={it}>
+                                <li key={it.label}>
                                   <a
-                                    href={ALL_JEWELRY_URL}
+                                    href={it.href}
                                     onClick={() => setDrawer(false)}
                                     className="text-[14px] text-charcoal/80"
                                   >
-                                    {it}
+                                    {it.label}
                                   </a>
                                 </li>
                               ))}
