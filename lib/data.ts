@@ -92,6 +92,7 @@ export const ALL_JEWELRY_MEGA: MegaGroup[] = [
       { label: "Bracelets", href: `${S}/all-jewellery/bracelets/` },
       { label: "Rings", href: `${S}/all-jewellery/rings/` },
       { label: "Accessories", href: `${S}/all-jewellery/accessories/` },
+      { label: "Made to Order", href: `${S}/all-jewellery/made-to-order/` },
     ],
   },
   {
