@@ -55,13 +55,46 @@ export const CATEGORY_INTRO: Record<string, string> = {
    NAVIGATION
    ================================================================= */
 export const NAV: NavItem[] = [
+  { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Latest", to: "list", external: "https://shop.mahidha.com/product-category/latest/" },
   { label: "Everyday", to: "list", external: "https://shop.mahidha.com/product-category/everyday/" },
   { label: "Escape", to: "list", external: "https://shop.mahidha.com/product-category/escape/" },
   { label: "Nizam", to: "nizam", external: "https://shop.mahidha.com/product-category/nizam/" },
   { label: "S925", to: "list", external: "https://shop.mahidha.com/product-category/s925/" },
-  { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Our story", to: "story", external: "https://mahidha.vercel.app/our-story" },
+];
+
+// Mega-menu shown under "All Jewelry" in the header.
+export const ALL_JEWELRY_URL =
+  "https://shop.mahidha.com/product-category/all-jewellery/";
+
+export const ALL_JEWELRY_MEGA: { title: string; items: string[] }[] = [
+  {
+    title: "By Jewellery Type",
+    items: ["Necklace", "Earring", "Choker", "Bracelets", "Rings", "Accessories"],
+  },
+  {
+    title: "Gifting",
+    items: [
+      "Everyday Icon",
+      "Bridal Tribe",
+      "For Her",
+      "Signature Gifts",
+      "Elegant Finds Under ₹5000",
+    ],
+  },
+  {
+    title: "By Mood Edit",
+    items: [
+      "The Everyday Muse",
+      "The Escape",
+      "The Nizam Heritage",
+      "The Silver Atelier",
+      "The Collector's Edition",
+      "The Celebration Edit",
+    ],
+  },
+  { title: "Featured", items: ["Best Sellers"] },
 ];
 
 /* =================================================================

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
-import { NAV } from "@/lib/data";
+import { NAV, ALL_JEWELRY_URL, ALL_JEWELRY_MEGA } from "@/lib/data";
 import { LOGO } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
 import { useCart, useHydrated, useStore } from "@/lib/store";
@@ -64,6 +64,7 @@ export default function Header() {
   const hydrated = useHydrated();
   const [scrolled, setScrolled] = useState(false);
   const [drawer, setDrawer] = useState(false);
+  const [ajOpen, setAjOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -117,6 +118,41 @@ export default function Header() {
             const ext = n.external;
             const cls =
               "ulink font-sans text-[13px] tracking-nav uppercase text-charcoal hover:text-charcoal";
+            if (n.label === "All Jewelry") {
+              return (
+                <div key={n.label} className="relative group/aj">
+                  <a href={ext} className={`${cls} inline-flex items-center gap-1.5`}>
+                    {n.label}
+                    <span className="inline-block rotate-90 text-gold">
+                      <Icons.chevron size={11} />
+                    </span>
+                  </a>
+                  <div className="absolute left-0 top-full pt-4 hidden group-hover/aj:block group-focus-within/aj:block z-50">
+                    <div className="bg-pearl shadow-2xl rounded-btn border border-charcoal/10 p-7 grid grid-cols-4 gap-8 w-[780px]">
+                      {ALL_JEWELRY_MEGA.map((g) => (
+                        <div key={g.title}>
+                          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3">
+                            {g.title}
+                          </p>
+                          <ul className="space-y-2.5">
+                            {g.items.map((it) => (
+                              <li key={it}>
+                                <a
+                                  href={ALL_JEWELRY_URL}
+                                  className="ulink font-sans text-[14px] text-charcoal/80 hover:text-charcoal"
+                                >
+                                  {it}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
             if (ext) {
               return (
                 <a key={n.label} href={ext} className={cls}>
@@ -194,6 +230,48 @@ export default function Header() {
               const ext = n.external;
               const cls =
                 "py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between";
+              if (n.label === "All Jewelry") {
+                return (
+                  <div key={n.label} className="border-b border-charcoal/5">
+                    <button
+                      onClick={() => setAjOpen((o) => !o)}
+                      aria-expanded={ajOpen}
+                      className="w-full py-3.5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between"
+                    >
+                      {n.label}
+                      <span
+                        className={`text-gold transition-transform duration-300 ${ajOpen ? "rotate-45" : ""}`}
+                      >
+                        <Icons.plus size={16} />
+                      </span>
+                    </button>
+                    {ajOpen && (
+                      <div className="pb-4 pl-1 space-y-4">
+                        {ALL_JEWELRY_MEGA.map((g) => (
+                          <div key={g.title}>
+                            <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-1.5">
+                              {g.title}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {g.items.map((it) => (
+                                <li key={it}>
+                                  <a
+                                    href={ALL_JEWELRY_URL}
+                                    onClick={() => setDrawer(false)}
+                                    className="text-[14px] text-charcoal/80"
+                                  >
+                                    {it}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
               if (ext) {
                 return (
                   <a
