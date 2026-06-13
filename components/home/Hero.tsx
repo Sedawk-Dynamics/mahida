@@ -19,7 +19,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: "/img/slider1.jpeg",
+    img: "/img/workday2.png",
     alt: "Pearl bracelet on a wrist beside a laptop and coffee — workwear",
     eyebrow: "The Work Edit",
     headline: "Pearls that mean business.",
@@ -65,7 +65,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const DURATION = 6000;
+const DURATION = 3000;
 
 export default function Hero() {
   const [i, setI] = useState(0);

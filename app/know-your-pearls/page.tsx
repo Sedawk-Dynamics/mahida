@@ -143,8 +143,8 @@ export default function KnowYourPearlsPage() {
           <Reveal>
             <div className="relative w-full aspect-[4/5] rounded-btn overflow-hidden bg-beige duo">
               <SmartImage
-                src={ph(F.nizamSet)}
-                alt="Nizam-era pearl heritage — Hyderabad, the City of Pearls"
+                src="/img/charminar2.png"
+                alt="Charminar — Hyderabad, the City of Pearls"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
