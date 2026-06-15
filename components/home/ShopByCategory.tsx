@@ -1,15 +1,17 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
-import { LIVE_SHOP } from "@/lib/links";
 
-const cats: [string, string][] = [
-  ["Necklace", "/img/Necklace.jpeg"],
-  ["Earrings", "/img/earring1.jpeg"],
-  ["Choker", "/img/choker.jpeg"],
-  ["Bracelets", "/img/bracelet.jpeg"],
-  ["Rings", "/img/ring.jpeg"],
-  ["Accessories", "/img/Accessories.jpeg"],
+const CAT = "https://shop.mahidha.com/product-category/all-jewellery";
+
+// [label, image, href]
+const cats: [string, string, string][] = [
+  ["Necklace", "/img/Necklace.jpeg", `${CAT}/necklace/`],
+  ["Earrings", "/img/earring1.jpeg", `${CAT}/earrings/`],
+  ["Choker", "/img/choker.jpeg", `${CAT}/choker/`],
+  ["Bracelets", "/img/bracelet.jpeg", `${CAT}/bracelets/`],
+  ["Rings", "/img/ring.jpeg", `${CAT}/rings/`],
+  ["Accessories", "/img/Accessories.jpeg", `${CAT}/accessories/`],
 ];
 
 export default function ShopByCategory() {
@@ -22,8 +24,8 @@ export default function ShopByCategory() {
           sub="Everyday elegance, reimagined."
         />
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-          {cats.map(([style, img]) => (
-            <a key={style} href={LIVE_SHOP} className="group text-center">
+          {cats.map(([style, img, href]) => (
+            <a key={style} href={href} className="group text-center">
               <div className="relative aspect-square overflow-hidden rounded-full bg-pearl mx-auto max-w-[220px]">
                 <SmartImage
                   src={ph(img)}

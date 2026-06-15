@@ -4,7 +4,6 @@ import EditCard from "@/components/product/EditCard";
 import ProductRail from "@/components/product/ProductRail";
 import Reveal from "@/components/ui/Reveal";
 import { CATEGORY_INTRO, EDITS, PRODUCTS } from "@/lib/data";
-import { hrefFor } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Shop by Style",
@@ -22,14 +21,14 @@ export default function StylePage() {
       />
       <section className="max-w-wrap mx-auto px-5 py-16 md:py-24">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EDITS.map(([title, line, img]) => (
+          {EDITS.map(([title, line, img, href]) => (
             <Reveal key={title}>
               <EditCard
                 title={title}
                 line={line}
                 img={img}
                 tone="navy"
-                href={hrefFor("list", { cat: "All Jewellery" })}
+                href={href}
                 className="h-full"
               />
             </Reveal>

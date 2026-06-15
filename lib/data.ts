@@ -140,21 +140,23 @@ export const CARE_TIPS: [string, string, string][] = [
   ["feather", "Clean Softly", "Use a soft dry cloth to gently clean after every wear."],
 ];
 
+// [title, line, image, href]
 export const LIFESTYLE: [string, string, string, string][] = [
-  ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", "/img/everyday.jpeg", "All Jewellery"],
-  ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", "/img/Bridesmaid.jpeg", "All Jewellery"],
-  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", "/img/Collagegirl.jpeg", "All Jewellery"],
-  ["Signature Gifts", "Curated treasures designed to be cherished for years.", "/img/Signature.jpeg", "All Jewellery"],
-  ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", "/img/Below5000.jpeg", "All Jewellery"],
+  ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", "/img/everyday.jpeg", `${S}/gifting/everyday-icon/`],
+  ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", "/img/Bridesmaid.jpeg", `${S}/gifting/bridal-tribe/`],
+  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", "/img/Collagegirl.jpeg", `${S}/gifting/for-her/`],
+  ["Signature Gifts", "Curated treasures designed to be cherished for years.", "/img/Signature.jpeg", `${S}/gifting/signature-gifts/`],
+  ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", "/img/Below5000.jpeg", `${S}/gifting/elegant-finds-under-%e2%82%b95000/`],
 ];
 
-export const EDITS: [string, string, string][] = [
-  ["The Everyday Muse", "Effortless pieces for work, coffee runs, and everyday elegance.", F.heroBlazer],
-  ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", F.styleScarf],
-  ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", F.nizamSet],
-  ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", F.flatSilver],
-  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatGold],
-  ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", F.lifeCeleb],
+// [title, line, image, href]
+export const EDITS: [string, string, string, string][] = [
+  ["The Everyday Muse", "Effortless pieces for work, coffee runs, and everyday elegance.", F.heroBlazer, `${S}/by-mood-edit/the-everyday-muse/`],
+  ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", F.styleScarf, `${S}/by-mood-edit/the-escape/`],
+  ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", F.nizamSet, `${S}/by-mood-edit/the-nizam-heritage/`],
+  ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", F.flatSilver, `${S}/by-mood-edit/the-silver-atelier/`],
+  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatGold, `${S}/by-mood-edit/the-collectors-edition/`],
+  ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", F.lifeCeleb, `${S}/by-mood-edit/the-celebration-edit/`],
 ];
 
 export const TRUST6: [string, string, string][] = [
