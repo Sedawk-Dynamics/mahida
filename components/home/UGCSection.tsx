@@ -46,10 +46,15 @@ export default function UGCSection() {
           ))}
         </div>
         <div className="text-center mt-10 flex flex-wrap items-center justify-center gap-4">
-          <span className="font-sans text-[13px] tracking-nav uppercase text-taupe">
+          <a
+            href="https://www.instagram.com/lovedbymahidha/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ulink font-sans text-[13px] tracking-nav uppercase text-taupe hover:text-charcoal"
+          >
             Tag us @lovedbymahidha
-          </span>
-          <Button variant="secondary">
+          </a>
+          <Button variant="secondary" href="https://www.instagram.com/lovedbymahidha/">
             <Icons.insta size={16} /> Follow Us
           </Button>
         </div>
