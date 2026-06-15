@@ -131,14 +131,16 @@ export default function Hero() {
             fill
             sizes="100vw"
             priority={idx === 0}
-            className={`w-full h-full object-cover ${idx === i ? "kenburns" : ""}`}
+            className={`w-full h-full object-cover object-[center_30%] ${
+              idx === i ? "kenburns" : ""
+            }`}
           />
           <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy/55 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
         </div>
       ))}
 
-      {/* Content overlay (keyed so it re-fades per slide) */}
+      {/* Content overlay — left aligned (keyed so it re-fades per slide) */}
       <div className="relative h-full max-w-wrap mx-auto px-5 flex flex-col justify-center items-start text-left">
         <div key={i} className="reveal in max-w-2xl">
           <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4 flex items-center gap-3">
@@ -180,7 +182,7 @@ export default function Hero() {
       </button>
 
       {/* Dot / line indicators */}
-      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-7 left-5 flex gap-2">
         {SLIDES.map((s, idx) => (
           <button
             key={idx}
