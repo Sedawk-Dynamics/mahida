@@ -50,14 +50,26 @@ export default function HeritageStrip() {
               );
             })}
           </div>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button variant="ghostLight" href="https://www.mahidha.com/our-story">
+          <div className="mt-10 flex flex-nowrap items-center gap-3 overflow-x-auto no-bar">
+            <Button
+              variant="ghostLight"
+              href="https://www.mahidha.com/our-story"
+              className="shrink-0 whitespace-nowrap !px-5"
+            >
               Our Story
             </Button>
-            <Button variant="ghostLight" href="https://www.mahidha.com/know-your-pearls">
+            <Button
+              variant="ghostLight"
+              href="https://www.mahidha.com/know-your-pearls"
+              className="shrink-0 whitespace-nowrap !px-5"
+            >
               Know Your Pearls
             </Button>
-            <Button variant="ghostLight" href="https://www.mahidha.com/our-story">
+            <Button
+              variant="ghostLight"
+              href="https://www.mahidha.com/our-story"
+              className="shrink-0 whitespace-nowrap !px-5"
+            >
               Artisan Story
             </Button>
           </div>
