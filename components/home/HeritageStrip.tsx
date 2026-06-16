@@ -57,6 +57,9 @@ export default function HeritageStrip() {
             <Button variant="ghostLight" href="https://www.mahidha.com/know-your-pearls">
               Know Your Pearls
             </Button>
+            <Button variant="ghostLight" href="https://www.mahidha.com/our-story">
+              Artisan Story
+            </Button>
           </div>
         </Reveal>
       </div>

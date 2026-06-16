@@ -36,8 +36,8 @@ const SLIDES: Slide[] = [
     href: "https://shop.mahidha.com/product-category/all-jewellery/",
   },
   {
-    img: F.coffeeCafe,
-    alt: "Two women in a café wearing pearls, coffee in hand",
+    img: "/img/rakhi.jpeg",
+    alt: "Everyday pearls for slow mornings and fast lives",
     eyebrow: "Everyday Moments",
     headline: "For slow mornings and fast lives.",
     sub: "Everyday pieces that turn a coffee run into a moment worth keeping.",
@@ -131,9 +131,7 @@ export default function Hero() {
             fill
             sizes="100vw"
             priority={idx === 0}
-            className={`w-full h-full object-cover object-[center_30%] ${
-              idx === i ? "kenburns" : ""
-            }`}
+            className="w-full h-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
           <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
