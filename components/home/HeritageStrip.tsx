@@ -67,7 +67,7 @@ export default function HeritageStrip() {
             </Button>
             <Button
               variant="ghostLight"
-              href="https://www.mahidha.com/our-story"
+              href="https://www.mahidha.com/artisan-story"
               className="shrink-0 whitespace-nowrap !px-5"
             >
               Artisan Story

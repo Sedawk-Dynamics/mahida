@@ -60,7 +60,7 @@ const SLIDES: Slide[] = [
     headline: "Born in the hands of skilled karigars.",
     sub: "Every piece is thoughtfully made, one at a time — never mass-produced.",
     cta: "Learn More",
-    href: "https://www.mahidha.com/our-story",
+    href: "https://www.mahidha.com/artisan-story",
   },
 ];
 

@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/our-story",
     "/the-craft",
     "/know-your-pearls",
+    "/artisan-story",
     "/jewellery-care",
     "/faqs",
     "/gift-guide",
