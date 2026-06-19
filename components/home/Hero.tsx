@@ -36,11 +36,11 @@ const SLIDES: Slide[] = [
     href: "https://shop.mahidha.com/product-category/all-jewellery/",
   },
   {
-    img: "/img/rakhi.jpeg",
-    alt: "Everyday pearls for slow mornings and fast lives",
-    eyebrow: "Everyday Moments",
-    headline: "For slow mornings and fast lives.",
-    sub: "Everyday pieces that turn a coffee run into a moment worth keeping.",
+    img: "/img/rakhi22.png",
+    alt: "Rakhi gifts — pearls and silver for cherished bonds",
+    eyebrow: "Rakhi Moments",
+    headline: "For bonds that feel like home.",
+    sub: "Rakhi gifts that carry love, warmth, and a little sparkle.",
     cta: "Shop Everyday",
     href: "https://shop.mahidha.com/product-category/everyday/",
   },
@@ -145,7 +145,7 @@ export default function Hero() {
             <span className="inline-block h-px w-8 bg-gold" />
             <Icons.sparkle size={14} stroke="#C4A87A" /> {active.eyebrow}
           </p>
-          <h1 className="font-serif text-ivory leading-[0.95] text-[42px] sm:text-[56px] md:text-[72px] lg:text-[80px]">
+          <h1 className="font-serif text-ivory leading-[1.0] text-[34px] sm:text-[46px] md:text-[58px] lg:text-[66px]">
             {active.headline}
           </h1>
           <p className="mt-6 text-ivory/80 text-[16px] md:text-[20px] leading-relaxed max-w-xl">

@@ -145,7 +145,7 @@ export const CARE_TIPS: [string, string, string][] = [
 export const LIFESTYLE: [string, string, string, string][] = [
   ["Everyday Icons", "Easy-to-wear favorites designed to become part of her daily rotation.", "/img/everyday.jpeg", `${S}/gifting/everyday-icon/`],
   ["The Bride Tribe", "Beautiful keepsakes to thank your bridal team with style.", "/img/Bridesmaid.jpeg", `${S}/gifting/bridal-tribe/`],
-  ["For Her", "Thoughtful pieces chosen to feel personal, elegant, and unforgettable.", "/img/Collagegirl.jpeg", `${S}/gifting/for-her/`],
+  ["Rakhi Gifts for Her", "Curated gifts to celebrate the sister who has always been your constant.", "/img/rakhi.jpeg", `${S}/gifting/for-her/`],
   ["Signature Gifts", "Curated treasures designed to be cherished for years.", "/img/Signature.jpeg", `${S}/gifting/signature-gifts/`],
   ["Elegant Finds Under ₹5000", "Beautiful jewellery pieces that feel special without stretching your budget.", "/img/Below5000.jpeg", `${S}/gifting/elegant-finds-under-%e2%82%b95000/`],
 ];
