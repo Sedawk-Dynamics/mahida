@@ -156,7 +156,7 @@ export const EDITS: [string, string, string, string][] = [
   ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", F.styleScarf, `${S}/by-mood-edit/the-escape/`],
   ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", F.nizamSet, `${S}/by-mood-edit/the-nizam-heritage/`],
   ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", F.flatSilver, `${S}/by-mood-edit/the-silver-atelier/`],
-  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatGold, `${S}/by-mood-edit/the-collectors-edition/`],
+  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatCeleb, `${S}/by-mood-edit/the-collectors-edition/`],
   ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", F.lifeCeleb, `${S}/by-mood-edit/the-celebration-edit/`],
 ];
 

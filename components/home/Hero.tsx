@@ -64,7 +64,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const DURATION = 3000;
+const DURATION = 2000;
 
 export default function Hero() {
   const [i, setI] = useState(0);
@@ -139,19 +139,19 @@ export default function Hero() {
       ))}
 
       {/* Content overlay — left aligned (keyed so it re-fades per slide) */}
-      <div className="relative h-full max-w-wrap mx-auto px-5 flex flex-col justify-center items-start text-left">
-        <div key={i} className="reveal in max-w-2xl">
-          <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4 flex items-center gap-3">
-            <span className="inline-block h-px w-8 bg-gold" />
-            <Icons.sparkle size={14} stroke="#C4A87A" /> {active.eyebrow}
+      <div className="relative h-full px-6 sm:px-10 lg:px-16 flex flex-col justify-center items-start text-left">
+        <div key={i} className="reveal in max-w-lg">
+          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
+            <span className="inline-block h-px w-7 bg-gold" />
+            <Icons.sparkle size={13} stroke="#C4A87A" /> {active.eyebrow}
           </p>
-          <h1 className="font-serif text-ivory leading-[1.0] text-[34px] sm:text-[46px] md:text-[58px] lg:text-[66px]">
+          <h1 className="font-serif text-ivory leading-[1.05] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px]">
             {active.headline}
           </h1>
-          <p className="mt-6 text-ivory/80 text-[16px] md:text-[20px] leading-relaxed max-w-xl">
+          <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">
             {active.sub}
           </p>
-          <div className="mt-9">
+          <div className="mt-7">
             <Button variant="light" href={active.href}>
               {active.cta}
             </Button>

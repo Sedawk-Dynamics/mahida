@@ -99,7 +99,8 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0"
+          aria-label="MAHIDHA — home"
+          className="lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex items-center"
         >
           <SmartImage
             src={LOGO}
@@ -107,7 +108,7 @@ export default function Header() {
             width={2048}
             height={804}
             priority
-            className="h-11 md:h-14 w-auto"
+            className="block h-10 md:h-12 w-auto"
             style={{ filter: "brightness(0.62) saturate(1.5)" }}
           />
         </Link>

@@ -26,7 +26,7 @@ export default function EditCard({
       <div className="relative aspect-[3/4] overflow-hidden bg-beige">
         <SmartImage
           src={ph(img)}
-          alt={`${img} — editorial mood image`}
+          alt={`${title} — ${line}`}
           fill
           sizes="(max-width: 1024px) 80vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
