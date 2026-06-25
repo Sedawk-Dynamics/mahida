@@ -115,11 +115,11 @@ export default function Footer() {
           links={[
             ["Jewellery Care", "care"],
             ["FAQs", "faqs"],
-            ["Gift Guide", "gift"],
-            ["Track Order", "contact"],
-            ["Shipping & Returns", "shipping"],
-            ["Privacy Policy", "contact"],
-            ["Terms & Conditions", "contact"],
+            ["Shipping & Delivery", "shippingPolicy"],
+            ["Returns & Refunds", "returns"],
+            ["Warranty", "warranty"],
+            ["Privacy Policy", "privacy"],
+            ["Terms & Conditions", "terms"],
           ]}
         />
       </div>
@@ -143,15 +143,15 @@ export default function Footer() {
       <div className="border-t border-ivory/10">
         <div className="max-w-wrap mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-ivory/55">
           <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
-            <a href="#" className="ulink hover:text-ivory">
+            <Link href={hrefFor("terms")} className="ulink hover:text-ivory">
               Terms &amp; Conditions
-            </a>
-            <a href="#" className="ulink hover:text-ivory">
+            </Link>
+            <Link href={hrefFor("privacy")} className="ulink hover:text-ivory">
               Privacy Policy
-            </a>
-            <a href="#" className="ulink hover:text-ivory">
+            </Link>
+            <Link href={hrefFor("returns")} className="ulink hover:text-ivory">
               Return &amp; Refund Policy
-            </a>
+            </Link>
           </div>
           <p>© 2026 MAHIDHA. All rights reserved.</p>
         </div>

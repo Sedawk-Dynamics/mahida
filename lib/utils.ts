@@ -53,6 +53,16 @@ export function hrefFor(to: string, params: { cat?: string; style?: string; id?:
       return "/know-your-pearls";
     case "artisan":
       return "/artisan-story";
+    case "privacy":
+      return "/policies/privacy-policy";
+    case "terms":
+      return "/policies/terms-and-conditions";
+    case "shippingPolicy":
+      return "/policies/shipping-and-delivery";
+    case "returns":
+      return "/policies/returns-and-refunds";
+    case "warranty":
+      return "/policies/warranty";
     case "care":
       return "/jewellery-care";
     case "faqs":

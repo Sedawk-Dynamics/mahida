@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* =================================================================
    DESIGN TOKENS — ported from the original tailwind.config (CSS-first)
