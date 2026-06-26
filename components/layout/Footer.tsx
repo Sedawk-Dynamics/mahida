@@ -37,8 +37,8 @@ export default function Footer() {
           <SmartImage
             src={LOGO}
             alt="MAHIDHA — Elevated Everyday"
-            width={2048}
-            height={804}
+            width={704}
+            height={264}
             className="h-16 w-auto"
           />
           <p className="mt-4 text-[14px] text-ivory/70 leading-[1.8]">

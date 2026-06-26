@@ -50,7 +50,7 @@ export const F = {
   karigar: A + "karigar.jpeg", // a karigar's hands crafting a pearl bracelet
 } as const;
 
-export const LOGO = A + "mahidalogo.png";
+export const LOGO = A + "mahidha-logo1.png";
 
 // Subject pools for descriptive-label fallback (deterministic by label).
 const POOL = {

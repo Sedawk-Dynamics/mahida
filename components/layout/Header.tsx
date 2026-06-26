@@ -105,11 +105,10 @@ export default function Header() {
           <SmartImage
             src={LOGO}
             alt="MAHIDHA — Elevated Everyday"
-            width={2048}
-            height={804}
+            width={704}
+            height={264}
             priority
-            className="block h-10 md:h-12 w-auto"
-            style={{ filter: "brightness(0.62) saturate(1.5)" }}
+            className="block h-11 md:h-14 w-auto"
           />
         </Link>
 
@@ -220,10 +219,9 @@ export default function Header() {
             <SmartImage
               src={LOGO}
               alt="MAHIDHA — Elevated Everyday"
-              width={2048}
-              height={804}
+              width={704}
+              height={264}
               className="h-10 w-auto"
-              style={{ filter: "brightness(0.62) saturate(1.5)" }}
             />
             <button aria-label="Close menu" onClick={() => setDrawer(false)} className="p-1.5">
               <Icons.close />
