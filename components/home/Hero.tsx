@@ -145,7 +145,7 @@ export default function Hero() {
             <span className="inline-block h-px w-7 bg-gold" />
             <Icons.sparkle size={13} stroke="#C4A87A" /> {active.eyebrow}
           </p>
-          <h1 className="font-serif text-ivory leading-[1.05] text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px]">
+          <h1 className="font-serif text-ivory leading-[1.1] text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
             {active.headline}
           </h1>
           <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">

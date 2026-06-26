@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
+<title>Holistic Healing Pathways Foundation — Realign Your Inner Universe</title>
+<meta name="description" content="Holistic Healing Pathways Foundation weaves Nadi Astrology, Bach Flower Therapy, and modern psychology into one pathway — decoding emotional patterns for deep healing and clarity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0C0518; --night:#150A2B; --plum:#241043; --line:rgba(184,165,229,.16);
+    --purple:#3D1578; --violet:#6B35C4; --lav:#B8A5E5;
+    --gold:#E5B53C; --gold-deep:#C89A2B; --green:#76C043;
+    --cream:#F5F0E6; --ink:#1A0A35;
+    --txt:#EDE7F7; --mut:#A99BCC;
+    --disp:'Cormorant Garamond',Georgia,serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'Space Grotesk',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--void);color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:var(--disp);font-weight:500;line-height:1.05;letter-spacing:-.02em}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+  .ital{font-style:italic}
+  .gold{color:var(--gold)}
+  section{position:relative}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.03em;padding:15px 30px;border-radius:2px;cursor:pointer;border:none;transition:.35s;position:relative;overflow:hidden}
+  .btn-gold{background:var(--gold);color:#1a0e00}
+  .btn-gold:hover{background:#fff;transform:translateY(-2px)}
+  .btn-line{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn-line:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--purple);transform:translateY(-2px)}
+
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;background:var(--gold)}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:150;transition:.4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(12,5,24,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+  .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;height:80px;gap:30px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:46px;filter:brightness(0) invert(1)}
+  .brand b{font-family:var(--disp);font-size:18px;font-weight:600;letter-spacing:0;line-height:1}
+  .brand small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+  nav.links{display:flex;gap:6px;justify-self:center}
+  nav.links a{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--mut);padding:8px 14px;transition:.25s;position:relative}
+  nav.links a:hover,nav.links a.active{color:var(--txt)}
+  nav.links a.active::before{content:"◆";position:absolute;left:-2px;top:50%;transform:translateY(-50%);font-size:7px;color:var(--gold)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:3px;padding:9px;cursor:pointer}
+  @media(max-width:1024px){nav.links{display:none}.menu-btn{display:inline-flex}.nav{grid-template-columns:auto auto}.nav-cta .btn{display:none}}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse 80% 60% at 75% 40%,#1d0f3c 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%,#2a1150 0%,transparent 55%),var(--void)}
+  #stars{position:absolute;inset:0;z-index:0}
+  .star{position:absolute;background:#fff;border-radius:50%;animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;width:100%}
+  .hero .label{margin-bottom:26px;display:flex;align-items:center;gap:12px}
+  .hero .label::before{content:"";width:42px;height:1px;background:var(--gold)}
+  .hero h1{font-size:clamp(3.2rem,7vw,6.2rem);color:#fff}
+  .hero h1 .l2{display:block;font-style:italic;color:transparent;background:linear-gradient(100deg,var(--gold),var(--lav));-webkit-background-clip:text;background-clip:text}
+  .hero p.sub{font-size:18px;color:var(--mut);max-width:480px;margin:30px 0 38px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-legend{margin-top:50px;display:flex;gap:26px;flex-wrap:wrap}
+  .hero-legend div{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--mut)}
+  .hero-legend i{width:8px;height:8px;border-radius:50%;box-shadow:0 0 10px currentColor}
+
+  /* orbital system */
+  .orbit-wrap{position:relative;aspect-ratio:1/1;max-width:520px;margin:0 auto;width:100%}
+  .orbit{position:absolute;border:1px solid var(--line);border-radius:50%}
+  .o1{inset:0}.o2{inset:13%}.o3{inset:27%}
+  .orbit.dash{border-style:dashed;border-color:rgba(229,181,60,.22)}
+  .core{position:absolute;inset:39%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--gold) 40%,var(--violet) 120%);box-shadow:0 0 50px rgba(229,181,60,.55),0 0 100px rgba(108,53,196,.4);display:flex;align-items:center;justify-content:center;animation:pulse 6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .core span{font-family:var(--disp);font-style:italic;font-size:clamp(13px,2vw,17px);color:#1a0e00;font-weight:600}
+  .layer{position:absolute;inset:0;animation:spin linear infinite}
+  .layer.a{inset:0;animation-duration:26s}
+  .layer.b{inset:13%;animation-duration:19s;animation-direction:reverse}
+  .layer.c{inset:27%;animation-duration:14s}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .node{position:absolute;top:0;left:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.18)}
+  .node-spin{animation:spin linear infinite}
+  .node.a .node-spin{animation-duration:26s;animation-direction:reverse}
+  .node.b .node-spin{animation-duration:19s}
+  .node.c .node-spin{animation-duration:14s;animation-direction:reverse}
+  .node svg{display:block}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:36px}.orbit-wrap{max-width:380px;order:-1}}
+  @media(prefers-reduced-motion:reduce){.layer,.node-spin,.core,.star{animation:none!important}}
+
+  /* ticker */
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--night);overflow:hidden;padding:18px 0}
+  .ticker-track{display:flex;gap:50px;width:max-content;animation:slide 30s linear infinite;font-family:var(--disp);font-style:italic;font-size:26px;color:var(--lav);white-space:nowrap}
+  .ticker-track b{color:var(--gold);font-weight:500}
+  .ticker-track span{opacity:.4}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ===== PATHWAYS (expanding panels) ===== */
+  #pathways{background:var(--void);padding:120px 0}
+  .sec-head{max-width:760px;margin:0 auto 60px;text-align:center}
+  .sec-head h2{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;margin:16px 0 14px}
+  .sec-head p{color:var(--mut);font-size:17px}
+  .panels{display:flex;gap:16px;height:480px}
+  .panel{position:relative;flex:1;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;transition:flex .6s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;justify-content:flex-end;padding:34px;min-width:0}
+  .panel::before{content:"";position:absolute;inset:0;opacity:.9;transition:.5s;z-index:0}
+  .panel.p1::before{background:linear-gradient(180deg,rgba(61,21,120,.15),rgba(61,21,120,.75)),radial-gradient(circle at 50% 20%,#4a1c8f,#160a2b)}
+  .panel.p2::before{background:linear-gradient(180deg,rgba(200,154,43,.1),rgba(20,8,30,.8)),radial-gradient(circle at 50% 20%,#5a3a0e,#160a2b)}
+  .panel.p3::before{background:linear-gradient(180deg,rgba(118,192,67,.12),rgba(20,8,30,.8)),radial-gradient(circle at 50% 20%,#1f4a12,#160a2b)}
+  .panel>*{position:relative;z-index:1}
+  .panel .pnum{font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);margin-bottom:auto}
+  .panel .pico{width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .panel h3{font-size:30px;color:#fff;margin-bottom:10px;writing-mode:vertical-rl;transform:rotate(180deg);transition:.4s;height:230px}
+  .panel .pdetail{max-height:0;opacity:0;overflow:hidden;transition:.5s;color:var(--mut)}
+  .panel .pdetail p{font-size:14.5px;margin-bottom:16px}
+  .panel .pdetail .more{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--gold);display:inline-flex;align-items:center;gap:7px}
+  .panel:hover{flex:3.2}
+  .panel:hover h3{writing-mode:horizontal-tb;transform:none;height:auto}
+  .panel:hover .pdetail{max-height:240px;opacity:1}
+  @media(max-width:860px){
+    .panels{flex-direction:column;height:auto}
+    .panel{flex:none}
+    .panel h3{writing-mode:horizontal-tb;transform:none;height:auto}
+    .panel .pdetail{max-height:none;opacity:1}
+    .panel:hover{flex:none}
+  }
+
+  /* ===== RITUAL band ===== */
+  .ritual{background:linear-gradient(180deg,var(--void),#0a0414);text-align:center;padding:90px 0;border-top:1px solid var(--line)}
+  .ritual .seed{width:90px;height:90px;margin:0 auto 30px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,var(--gold) 50%,transparent 75%);position:relative;animation:breathe 12s ease-in-out infinite}
+  .ritual .seed::after{content:"";position:absolute;inset:-22px;border-radius:50%;border:1px solid rgba(229,181,60,.3);animation:breathe 12s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:scale(.85);opacity:.7}50%{transform:scale(1.15);opacity:1}}
+  .ritual h3{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff}
+  .ritual #ritualText{font-family:var(--disp);font-style:italic;font-size:20px;color:var(--gold);margin-top:14px;min-height:28px}
+
+  /* ===== PHILOSOPHY (light break) ===== */
+  .philo{background:var(--cream);color:var(--ink);padding:130px 0}
+  .philo-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:60px;align-items:center}
+  .philo .vline{background:rgba(26,10,53,.12)}
+  .philo .label{color:var(--gold-deep)}
+  .philo blockquote{font-family:var(--disp);font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.12;color:var(--ink);font-weight:500}
+  .philo blockquote .ital{color:var(--purple)}
+  .philo cite{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-top:24px;font-style:normal}
+  .philo .body p{color:rgba(26,10,53,.72);font-size:16px;margin-bottom:18px}
+  .vlist{margin-top:26px;border-top:1px solid rgba(26,10,53,.12)}
+  .vlist div{display:flex;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid rgba(26,10,53,.12)}
+  .vlist .n{font-family:var(--mono);font-size:12px;color:var(--gold-deep)}
+  .vlist h4{font-family:var(--disp);font-size:24px;color:var(--ink)}
+  .vlist p{font-size:14px;color:rgba(26,10,53,.6);margin-left:auto;max-width:300px;text-align:right}
+  @media(max-width:860px){.philo-grid{grid-template-columns:1fr;gap:40px}.philo .vline{display:none}.vlist p{display:none}}
+
+  /* ===== FOUNDER ===== */
+  .founder{background:var(--void);padding:130px 0;overflow:hidden}
+  .founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+  .mono-portrait{position:relative;aspect-ratio:4/5;border-radius:8px;background:linear-gradient(160deg,var(--purple),#160a2b);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--line)}
+  .mono-portrait .ini{font-family:var(--disp);font-size:140px;color:rgba(229,181,60,.9);line-height:1}
+  .mono-portrait .ring{position:absolute;inset:14%;border:1px dashed rgba(229,181,60,.3);border-radius:50%;animation:spin 40s linear infinite}
+  .mono-portrait .cap{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(12,5,24,.92))}
+  .mono-portrait .cap b{font-family:var(--disp);font-size:24px;color:#fff;display:block}
+  .mono-portrait .cap span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .founder-body .label{margin-bottom:20px}
+  .founder-body blockquote{font-family:var(--disp);font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.25;color:#fff;font-weight:500}
+  .founder-body .sig{margin-top:28px;font-family:var(--disp);font-size:26px;color:var(--gold)}
+  .founder-body .rolep{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  @media(max-width:820px){.founder-grid{grid-template-columns:1fr;gap:36px}.mono-portrait{max-width:320px}}
+
+  /* ===== VOICES (horizontal rail) ===== */
+  .voices{background:linear-gradient(180deg,var(--void),var(--night));padding:120px 0}
+  .voices .sec-head{margin-bottom:44px}
+  .rail{display:flex;gap:22px;overflow-x:auto;padding:8px 28px 28px;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none}
+  .rail::-webkit-scrollbar{display:none}
+  .vcard{scroll-snap-align:start;flex:0 0 380px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:34px;transition:.35s}
+  .vcard:hover{border-color:rgba(229,181,60,.4);background:rgba(255,255,255,.05)}
+  .vcard .qm{font-family:var(--disp);font-size:60px;color:var(--gold);line-height:.3;opacity:.5}
+  .vcard blockquote{font-family:var(--disp);font-style:italic;font-size:20px;color:var(--txt);line-height:1.45;margin:16px 0 24px}
+  .vcard .who{display:flex;align-items:center;gap:13px}
+  .vcard .av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:500;font-size:13px;color:#1a0e00}
+  .vcard .who b{font-family:var(--body);font-size:15px;color:#fff}
+  .vcard .who span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mut)}
+  .rail-hint{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-top:8px}
+
+  /* ===== CTA ===== */
+  .cta{padding:140px 0;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 80% at 50% 0%,#2a1150,var(--void))}
+  .cta .label{justify-content:center;display:flex}
+  .cta h2{font-size:clamp(2.6rem,6vw,4.6rem);color:#fff;margin:18px 0 22px}
+  .cta h2 .ital{color:var(--gold)}
+  .cta p{color:var(--mut);max-width:520px;margin:0 auto 36px;font-size:17px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--night);padding:120px 0;border-top:1px solid var(--line)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact-left h2{font-size:clamp(2rem,4vw,3rem);color:#fff;margin:16px 0 18px}
+  .contact-left .lead{color:var(--mut);font-size:16px;margin-bottom:30px}
+  .ci{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .ci .b{width:40px;height:40px;border-radius:4px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ci a,.ci span{color:var(--mut);font-size:14.5px;transition:.2s}.ci a:hover{color:var(--gold)}
+  .form{border:1px solid var(--line);border-radius:8px;padding:36px;background:rgba(255,255,255,.02)}
+  .form h3{font-size:24px;color:#fff;margin-bottom:4px}
+  .form .s{font-family:var(--mono);font-size:12px;color:var(--mut);margin-bottom:22px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{margin-bottom:15px}
+  .field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:4px;padding:13px 14px;color:#fff;font-family:var(--body);font-size:14px;transition:.2s}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(169,155,204,.5)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+  .field select option{background:var(--night)}
+  .form .btn{width:100%;justify-content:center}
+  @media(max-width:840px){.contact-grid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}}
+
+  /* ===== FOOTER ===== */
+  footer{background:#080310;padding:70px 0 0;border-top:1px solid var(--line)}
+  .fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+  .fbrand img{height:44px;filter:brightness(0) invert(1);opacity:.85;margin-bottom:18px}
+  .fbrand p{color:var(--mut);font-size:14px;max-width:280px;margin-bottom:22px}
+  .socials{display:flex;gap:10px}
+  .socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--mut);transition:.25s}
+  .socials a:hover{border-color:var(--gold);color:var(--gold)}
+  .fcol h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:18px}
+  .fcol a{display:block;color:var(--mut);font-size:14px;margin-bottom:11px;transition:.2s}.fcol a:hover{color:var(--gold)}
+  .fbar{border-top:1px solid var(--line);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .fbar p,.fbar a{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mut)}
+  .fbar .fl{display:flex;gap:18px}.fbar a:hover{color:var(--gold)}
+  @media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+  #toTop{position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--gold);color:#1a0e00;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s;z-index:120}
+  #toTop.show{opacity:1;visibility:visible;transform:none}
+
+  .reveal{opacity:1;transform:none}
+  .has-js .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .has-js .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.has-js .reveal{opacity:1;transform:none}}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#home"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HH%20Color%20PNG-8hoYnvCnTetRXVMP35vxOBSfugxLiW.png" alt="HHPF"><span><b>Holistic Healing</b><small>Pathways Foundation</small></span></a>
+    <nav class="links">
+      <a href="#home" class="active">Home</a>
+      <a href="#pathways">Pathways</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#founder">Founder</a>
+      <a href="#voices">Voices</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta" style="display:flex;align-items:center;gap:12px">
+      <a href="#contact" class="btn btn-gold">Book a Session</a>
+      <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('nav.links').classList.toggle('open')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EDE7F7" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div id="stars"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label">Healing · Astrology · Psychology</span>
+      <h1>Heal from within.<span class="l2">Realign your universe.</span></h1>
+      <p class="sub">We weave Nadi Astrology, Bach Flower Therapy, and modern psychology into a single pathway — decoding your emotional patterns so you can heal deeply and live in alignment.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold">Book a Session</a>
+        <a href="#pathways" class="btn btn-line">Explore the Pathways</a>
+      </div>
+      <div class="hero-legend">
+        <div><i class="gold" style="background:var(--violet);color:var(--violet)"></i>Bach Flower Therapy</div>
+        <div><i style="background:var(--gold);color:var(--gold)"></i>Nadi Astrology</div>
+        <div><i style="background:var(--green);color:var(--green)"></i>Mind &amp; Psychology</div>
+      </div>
+    </div>
+    <div class="orbit-wrap" aria-hidden="true">
+      <div class="orbit o1"></div>
+      <div class="orbit o2 dash"></div>
+      <div class="orbit o3"></div>
+      <div class="core"><span>Inner Self</span></div>
+      <div class="layer a"><div class="node a" style="background:rgba(108,53,196,.4);box-shadow:0 0 24px rgba(108,53,196,.7)"><div class="node-spin"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/></svg></div></div></div>
+      <div class="layer b"><div class="node b" style="background:rgba(229,181,60,.35);box-shadow:0 0 24px rgba(229,181,60,.7)"><div class="node-spin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="m12 2 3 6.5 7 1-5 5 1 7-6-3.3L6 21.5l1-7-5-5 7-1z"/></svg></div></div></div>
+      <div class="layer c"><div class="node c" style="background:rgba(118,192,67,.35);box-shadow:0 0 24px rgba(118,192,67,.7)"><div class="node-spin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 18V5"/><path d="M15 13a4 4 0 0 1-3-4 4 4 0 0 1-3 4"/><path d="M17.6 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.6 1.5"/><path d="M18 18a4 4 0 0 0 2-7.46"/><path d="M6 18a4 4 0 0 1-2-7.46"/></svg></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>✦</span> Emotional Balance <b>·</b> Life Direction <span>✦</span> Inner Clarity <b>·</b> Mental Resilience <span>✦</span> Conscious Living <b>·</b> Deep Healing <span>✦</span> Self Alignment <b>·</b>
+    <span>✦</span> Emotional Balance <b>·</b> Life Direction <span>✦</span> Inner Clarity <b>·</b> Mental Resilience <span>✦</span> Conscious Living <b>·</b> Deep Healing <span>✦</span> Self Alignment <b>·</b>
+  </div>
+</div>
+
+<!-- PATHWAYS -->
+<section id="pathways">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Three Pathways, One Self</span>
+      <h2>Choose where your healing begins</h2>
+      <p>Each pathway is practiced with its own depth and methodology — together they decode the mind, emotion, and body connection. Hover to explore.</p>
+    </div>
+    <div class="panels reveal">
+      <article class="panel p1">
+        <span class="pnum">01</span>
+        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/></svg></div>
+        <h3>Bach Flower Therapy</h3>
+        <div class="pdetail">
+          <p>A gentle, natural system using 38 flower essences to ease fear, anxiety, stress, anger, and low confidence — restoring emotional balance from the root.</p>
+          <a href="#contact" class="more">Consultation &amp; Training (L1–Advanced) →</a>
+        </div>
+      </article>
+      <article class="panel p2">
+        <span class="pnum">02</span>
+        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="m12 2 3 6.5 7 1-5 5 1 7-6-3.3L6 21.5l1-7-5-5 7-1z"/></svg></div>
+        <h3>Nadi Nakshatra Astrology</h3>
+        <div class="pdetail">
+          <p>Deep insight into your life path, timing, and key decisions — career, marriage, health, finances — drawn from your birth details, with auspicious muhurat guidance.</p>
+          <a href="#contact" class="more">Consultation &amp; Courses →</a>
+        </div>
+      </article>
+      <article class="panel p3">
+        <span class="pnum">03</span>
+        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 18V5"/><path d="M15 13a4 4 0 0 1-3-4 4 4 0 0 1-3 4"/><path d="M17.6 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.6 1.5"/><path d="M18 18a4 4 0 0 0 2-7.46"/><path d="M6 18a4 4 0 0 1-2-7.46"/></svg></div>
+        <h3>Mind &amp; Mental Wellness</h3>
+        <div class="pdetail">
+          <p>Professional, confidential psychological therapy for anxiety, stress, and low confidence — building clarity, resilience, and lasting emotional strength.</p>
+          <a href="#contact" class="more">One-on-one Therapy →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section class="ritual">
+  <div class="wrap">
+    <div class="seed reveal"></div>
+    <h3 class="reveal">Pause. Breathe. Begin.</h3>
+    <div id="ritualText" class="reveal">Breathe in slowly…</div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philo" id="philosophy">
+  <div class="wrap philo-grid">
+    <div class="reveal">
+      <span class="label">Our Philosophy</span>
+      <blockquote style="margin-top:18px">Health depends on being in <span class="ital">harmony</span> with our souls.</blockquote>
+      <cite>— Dr. Edward Bach</cite>
+    </div>
+    <div class="vline reveal"></div>
+    <div class="body reveal d1">
+      <p>We believe true healing begins within. Unresolved emotions and inner conflicts quietly shape our health, our choices, and our path through life.</p>
+      <p>By decoding the mind–emotion–body connection, we help you realign your inner state and move forward with clarity and purpose.</p>
+      <div class="vlist">
+        <div><span class="n">01</span><h4>Compassion</h4><p>A non-judgmental space to be heard.</p></div>
+        <div><span class="n">02</span><h4>Awareness</h4><p>Understanding the root, not just the symptom.</p></div>
+        <div><span class="n">03</span><h4>Authenticity</h4><p>Ancient wisdom, practiced with integrity.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="mono-portrait reveal">
+      <div class="ring"></div>
+      <div class="ini">NW</div>
+      <div class="cap"><b>Dr. Nikunj Walia</b><span>Founder &amp; Director</span></div>
+    </div>
+    <div class="founder-body reveal d1">
+      <span class="label">A Word from the Founder</span>
+      <blockquote>“This foundation is not just about healing — it is about awakening awareness, empowering individuals, and creating a more conscious, balanced society.”</blockquote>
+      <div class="sig">Dr. Nikunj Walia</div>
+      <div class="rolep">Founder &amp; Director · Nadi Astrology &amp; Bach Flower Therapy</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="voices" id="voices">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Voices of Healing</span>
+      <h2>Real people, real transformation</h2>
+    </div>
+  </div>
+  <div class="rail reveal">
+    <div class="vcard"><div class="qm">“</div><blockquote>The Bach Flower consultation helped me understand emotions I'd carried for years. Within weeks I felt calmer and far more in control.</blockquote><div class="who"><div class="av" style="background:var(--lav)">RS</div><div><b>Ritu S.</b><span>Emotional Wellness</span></div></div></div>
+    <div class="vcard"><div class="qm">“</div><blockquote>The Nadi session gave me clarity on a career decision I'd been stuck on for months. Honest, warm, genuinely practical guidance.</blockquote><div class="who"><div class="av" style="background:var(--gold)">AK</div><div><b>Arjun K.</b><span>Life Guidance</span></div></div></div>
+    <div class="vcard"><div class="qm">“</div><blockquote>Therapy gave me a safe, non-judgmental space to finally talk. I left each session feeling lighter and truly supported.</blockquote><div class="who"><div class="av" style="background:var(--green)">MP</div><div><b>Meera P.</b><span>Mental Wellness</span></div></div></div>
+    <div class="vcard"><div class="qm">“</div><blockquote>I walked in feeling lost. The personalized remedy and warmth of the practitioner helped me find my footing again.</blockquote><div class="who"><div class="av" style="background:var(--violet);color:#fff">DT</div><div><b>Deepa T.</b><span>Personal Growth</span></div></div></div>
+  </div>
+  <p class="rail-hint">← scroll to read more · sample testimonials, replace before launch</p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <span class="label">Begin Your Pathway</span>
+    <h2>You don't have to walk<br>this path <span class="ital">alone.</span></h2>
+    <p>Every journey begins with a single, brave step. Reach out for a warm, judgment-free conversation about where your healing can begin.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn btn-gold">Start Your Journey</a>
+      <a href="#pathways" class="btn btn-line">See the Pathways</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-left reveal">
+      <span class="label">Get in Touch</span>
+      <h2>Book a free consultation</h2>
+      <p class="lead">Online or in person, in Noida. No prior knowledge needed — just bring what you're carrying.</p>
+      <div class="ci"><div class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B53C" stroke-width="2"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39"/></svg></div><a href="tel:+919871468883">+91 98714 68883</a></div>
+      <div class="ci"><div class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B53C" stroke-width="2"><path d="m22 7-8.99 5.73a2 2 0 0 1-2.01 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div><a href="mailto:nikunjhhp@gmail.com">nikunjhhp@gmail.com</a></div>
+      <div class="ci"><div class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B53C" stroke-width="2"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div><span>E-26, Sector-41, Noida — 201301, UP</span></div>
+      <div class="ci"><div class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B53C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><span>Daily · 10:00 AM – 8:00 PM</span></div>
+    </div>
+    <div class="reveal d1">
+      <div class="form">
+        <h3>Send a message</h3>
+        <p class="s">We reply within 24 hours.</p>
+        <div class="frow">
+          <div class="field"><label>Full Name *</label><input type="text" placeholder="Your name"></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="field"><label>Email *</label><input type="email" placeholder="your@email.com"></div>
+        <div class="field"><label>Pathway of interest</label><select><option>Bach Flower Therapy</option><option>Nadi Nakshatra Astrology</option><option>Mental Health Therapy</option><option>Training / Courses</option><option>General Inquiry</option></select></div>
+        <div class="field"><label>Message</label><textarea rows="3" placeholder="What would you like to work on?"></textarea></div>
+        <button class="btn btn-gold" onclick="alert('Thank you! Connect this form to your email or a service like Formspree to receive enquiries at nikunjhhp@gmail.com');return false;">Send Request →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HH%20Color%20PNG-8hoYnvCnTetRXVMP35vxOBSfugxLiW.png" alt="HHPF">
+        <p>Realign your inner universe — integrating ancient sciences with modern psychology for deep, lasting healing.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.99 16.34a2 2 0 0 1 .1 1.17l-1.07 3.29a1 1 0 0 0 1.24 1.17l3.41-1a2 2 0 0 1 1.1.09 10 10 0 1 0-4.78-4.72"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 9a1 1 0 0 1 1.52-.86l4.99 3a1 1 0 0 1 0 1.72l-4.99 3A1 1 0 0 1 9 15z"/><circle cx="12" cy="12" r="10"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Pathways</h4><a href="#pathways">Bach Flower Therapy</a><a href="#pathways">Nadi Astrology</a><a href="#pathways">Mental Wellness</a><a href="#contact">Training &amp; Courses</a></div>
+      <div class="fcol"><h4>Explore</h4><a href="#philosophy">Philosophy</a><a href="#founder">Founder</a><a href="#voices">Voices</a><a href="#contact">Contact</a></div>
+      <div class="fcol"><h4>Visit</h4><a href="tel:+919871468883">+91 98714 68883</a><a href="mailto:nikunjhhp@gmail.com">nikunjhhp@gmail.com</a><a href="#">Noida, UP · India</a><a href="#">10 AM – 8 PM</a></div>
+    </div>
+    <div class="fbar">
+      <p>© 2026 Holistic Healing Pathways Foundation</p>
+      <div class="fl"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  var hdr=document.getElementById('hdr'),prog=document.getElementById('progress'),toTopBtn=document.getElementById('toTop');
+  var secs=[].slice.call(document.querySelectorAll('section[id]')),navLinks=[].slice.call(document.querySelectorAll('nav.links a'));
+  function onScroll(){
+    var y=window.scrollY,h=document.body.scrollHeight-window.innerHeight;
+    hdr.classList.toggle('scrolled',y>20);
+    prog.style.width=(h>0?(y/h*100):0)+'%';
+    toTopBtn.classList.toggle('show',y>700);
+    var id='home';for(var i=0;i<secs.length;i++){if(secs[i].offsetTop-160<=y)id=secs[i].id}
+    navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id)});
+  }
+  window.addEventListener('scroll',onScroll);onScroll();
+  toTopBtn.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+
+  var st=document.createElement('style');
+  st.textContent='nav.links.open{display:flex;position:absolute;top:80px;left:14px;right:14px;flex-direction:column;background:rgba(12,5,24,.97);border:1px solid var(--line);border-radius:6px;padding:12px;gap:2px}';
+  document.head.appendChild(st);
+
+  // starfield
+  var sky=document.getElementById('stars');
+  if(sky){for(var s=0;s<70;s++){var d=document.createElement('span');d.className='star';var sz=Math.random()*2+1;d.style.width=sz+'px';d.style.height=sz+'px';d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=(Math.random()*4)+'s';sky.appendChild(d)}}
+
+  // ritual text cycle (~4s in / 4s hold / 6s out — synced to 12s? use 4/4/4 = 12s loop)
+  var phases=['Breathe in slowly…','Hold gently…','Breathe out…'];
+  var rt=document.getElementById('ritualText'),pi=0;
+  function cyc(){ if(!rt)return; rt.textContent=phases[pi]; pi=(pi+1)%phases.length; setTimeout(cyc,4000); }
+  cyc();
+</script>
+</body>
+</html>

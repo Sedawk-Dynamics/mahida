@@ -19,11 +19,11 @@ export default function EditCard({
   href,
   className = "",
 }: EditCardProps) {
-  const cls = `group relative block text-left overflow-hidden rounded-btn ${className}`;
+  const cls = `group block text-left ${className}`;
   const external = /^https?:\/\//.test(href);
   const inner = (
     <>
-      <div className="relative aspect-[3/4] overflow-hidden bg-beige">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-btn bg-beige">
         <SmartImage
           src={ph(img)}
           alt={`${title} — ${line}`}
@@ -32,17 +32,13 @@ export default function EditCard({
           className="w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
         />
       </div>
-      <div className="absolute inset-0 bg-linear-to-t from-navy/70 via-navy/10 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <h3 className="font-serif text-[22px] md:text-[24px] text-ivory leading-tight">
+      <div className="pt-4">
+        <h3 className="font-serif text-[21px] md:text-[22px] text-charcoal leading-tight group-hover:text-taupe transition-colors">
           {title}
         </h3>
-        <p className="mt-1 text-ivory/80 text-[14px] leading-snug">{line}</p>
-        <span className="mt-3 inline-flex items-center gap-2 font-sans text-[12px] tracking-nav uppercase text-gold">
-          Shop Now{" "}
-          <span className="ulink relative">
-            <Icons.arrow size={14} />
-          </span>
+        <p className="mt-1 text-taupe text-[13px] leading-snug">{line}</p>
+        <span className="mt-2.5 inline-flex items-center gap-1.5 font-sans text-[11px] tracking-nav uppercase text-gold">
+          Shop Now <Icons.arrow size={13} stroke="#C4A87A" />
         </span>
       </div>
     </>
