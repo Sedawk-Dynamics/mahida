@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -17,17 +16,12 @@ export default function ProductCard({ p }: { p: Product }) {
   const toggleWish = useStore((s) => s.toggleWish);
   const wishlist = useStore((s) => s.wishlist);
   const hydrated = useHydrated();
-  const [hover, setHover] = useState(false);
   const sold = p.status === "sold";
   const wished = hydrated && wishlist.includes(p.id);
   const href = hrefFor("pdp", { id: p.id });
 
   return (
-    <div
-      className="group"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
+    <div className="group">
       <div className="relative overflow-hidden rounded-btn bg-beige aspect-[4/5]">
         <Link href={href} aria-label={`View ${p.name}`}>
           <SmartImage
@@ -35,18 +29,7 @@ export default function ProductCard({ p }: { p: Product }) {
             alt={`${p.img[0]} — editorial product shot`}
             fill
             sizes="(max-width: 1024px) 50vw, 33vw"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              hover ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <SmartImage
-            src={ph((p.pics && p.pics[1]) || (p.pics && p.pics[0]) || p.img[1] || p.img[0])}
-            alt={`${p.img[1] || p.name} — lifestyle / second angle`}
-            fill
-            sizes="(max-width: 1024px) 50vw, 33vw"
-            className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ${
-              hover ? "opacity-100 scale-105" : "opacity-0"
-            }`}
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </Link>
         <div className="absolute top-3 left-3 flex flex-col gap-2">
@@ -67,12 +50,8 @@ export default function ProductCard({ p }: { p: Product }) {
         >
           <Icons.heart size={16} fill={wished ? "#C4A87A" : "none"} />
         </button>
-        {/* Hover action bar */}
-        <div
-          className={`absolute inset-x-0 bottom-0 p-3 transition-all duration-300 ${
-            hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-          }`}
-        >
+        {/* Action bar */}
+        <div className="absolute inset-x-0 bottom-0 p-3">
           {sold ? (
             <Button variant="light" className="w-full" disabled>
               Sold Out
