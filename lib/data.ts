@@ -152,12 +152,12 @@ export const LIFESTYLE: [string, string, string, string][] = [
 
 // [title, line, image, href]
 export const EDITS: [string, string, string, string][] = [
-  ["The Everyday Muse", "Effortless pieces for work, coffee runs, and everyday elegance.", F.heroBlazer, `${S}/by-mood-edit/the-everyday-muse/`],
-  ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", F.styleScarf, `${S}/by-mood-edit/the-escape/`],
-  ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", F.nizamSet, `${S}/by-mood-edit/the-nizam-heritage/`],
-  ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", F.flatSilver, `${S}/by-mood-edit/the-silver-atelier/`],
-  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", F.flatCeleb, `${S}/by-mood-edit/the-collectors-edition/`],
-  ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", F.lifeCeleb, `${S}/by-mood-edit/the-celebration-edit/`],
+  ["The Everyday Muse", "Effortless pieces for work, coffee runs, and everyday elegance.", "/img/The-Everyday-Muse-4.5.png", `${S}/by-mood-edit/the-everyday-muse/`],
+  ["The Escape", "Inspired jewellery for sunlit days and memorable getaways.", "/img/The-Escape-Edit-1.png", `${S}/by-mood-edit/the-escape/`],
+  ["The Nizam Heritage", "Inspired by Hyderabad's pearl legacy and timeless craftsmanship.", "/img/The-Nizam-Heritage.png", `${S}/by-mood-edit/the-nizam-heritage/`],
+  ["The Silver Atelier", "925 sterling silver essentials and contemporary classics.", "/img/The-Silver-Atelier.png", `${S}/by-mood-edit/the-silver-atelier/`],
+  ["The Collector's Edition", "Limited quantities, special creations, and statement pieces.", "/img/The-Collectors-Edit.png", `${S}/by-mood-edit/the-collectors-edition/`],
+  ["The Celebration Edit", "For weddings, festivities, special occasions, and cherished moments.", "/img/Celebration-Edit.png", `${S}/by-mood-edit/the-celebration-edit/`],
 ];
 
 export const TRUST6: [string, string, string][] = [
