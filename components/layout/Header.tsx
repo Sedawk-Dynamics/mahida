@@ -16,12 +16,14 @@ function IconBtn({
   href,
   children,
   badge,
+  className = "inline-flex",
 }: {
   label: string;
   onClick?: () => void;
   href?: string;
   children: ReactNode;
   badge?: number;
+  className?: string;
 }) {
   const inner = (
     <>
@@ -33,8 +35,7 @@ function IconBtn({
       )}
     </>
   );
-  const cls =
-    "relative p-1.5 text-charcoal hover:text-gold transition-colors inline-flex";
+  const cls = `relative p-1.5 text-charcoal hover:text-gold transition-colors ${className}`;
   if (href) {
     const external = /^https?:\/\//.test(href);
     if (external) {
@@ -87,13 +88,14 @@ export default function Header() {
       }`}
     >
       <div className="max-w-wrap mx-auto px-5 flex items-center justify-between h-16 md:h-20">
-        {/* Left: hamburger (mobile) */}
+        {/* Left: hamburger + MENU label (mobile) */}
         <button
-          className="lg:hidden p-1.5 text-charcoal"
+          className="lg:hidden flex items-center gap-2 p-1.5 text-charcoal font-sans text-[12px] tracking-nav uppercase"
           aria-label="Open menu"
           onClick={() => setDrawer(true)}
         >
           <Icons.menu />
+          <span>Menu</span>
         </button>
 
         {/* Logo */}
@@ -175,25 +177,38 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right icons */}
+        {/* Right icons — only Cart on mobile; full set from desktop up */}
         <div className="flex items-center gap-1 md:gap-2">
-          <IconBtn label="Search" href="https://shop.mahidha.com/">
+          <IconBtn
+            label="Search"
+            href="https://shop.mahidha.com/"
+            className="hidden lg:inline-flex"
+          >
             <Icons.search size={20} />
           </IconBtn>
           <IconBtn label="Cart" href="https://shop.mahidha.com/cart/" badge={hydrated ? count : 0}>
             <Icons.bag size={20} />
           </IconBtn>
-          <IconBtn label="Compare" href="https://shop.mahidha.com/compare/">
+          <IconBtn
+            label="Compare"
+            href="https://shop.mahidha.com/compare/"
+            className="hidden lg:inline-flex"
+          >
             <Icons.compare size={20} />
           </IconBtn>
           <IconBtn
             label="Wishlist"
             href="https://shop.mahidha.com/wishlist/"
             badge={hydrated ? wishlist.length : 0}
+            className="hidden lg:inline-flex"
           >
             <Icons.heart size={20} />
           </IconBtn>
-          <IconBtn label="Account" href="https://shop.mahidha.com/my-account/?action=register">
+          <IconBtn
+            label="Account"
+            href="https://shop.mahidha.com/my-account/?action=register"
+            className="hidden lg:inline-flex"
+          >
             <Icons.account size={20} />
           </IconBtn>
         </div>
