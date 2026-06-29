@@ -8,7 +8,7 @@ const TABS: { label: string; href: string; icon: string; badge?: boolean }[] = [
   { label: "Wishlist", href: "https://shop.mahidha.com/wishlist/", icon: "heart" },
   { label: "Cart", href: "https://shop.mahidha.com/cart/", icon: "bag", badge: true },
   {
-    label: "My account",
+    label: "Account",
     href: "https://shop.mahidha.com/my-account/?action=register",
     icon: "account",
   },
