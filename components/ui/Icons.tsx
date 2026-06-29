@@ -76,6 +76,12 @@ export const Icons: Record<string, IconFn> = {
       <path d="M4 16h12" />
     </Ico>
   ),
+  home: (p) => (
+    <Ico {...p}>
+      <path d="M4 11l8-7 8 7" />
+      <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" />
+    </Ico>
+  ),
   menu: (p) => (
     <Ico {...p}>
       <line x1="3" y1="6" x2="21" y2="6" />
