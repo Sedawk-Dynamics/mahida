@@ -56,7 +56,7 @@ export const CATEGORY_INTRO: Record<string, string> = {
    ================================================================= */
 export const NAV: NavItem[] = [
   { label: "Home", to: "home", external: "https://mahidha.com/" },
-  { label: "All Jewelry", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
+  { label: "All Jewellery", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Latest", to: "list", external: "https://shop.mahidha.com/product-category/latest/" },
   { label: "Everyday", to: "list", external: "https://shop.mahidha.com/product-category/everyday/" },
   { label: "Escape", to: "list", external: "https://shop.mahidha.com/product-category/escape/" },

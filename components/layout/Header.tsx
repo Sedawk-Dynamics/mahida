@@ -29,13 +29,13 @@ function IconBtn({
     <>
       {children}
       {badge !== undefined && badge > 0 && (
-        <span className="absolute -top-1 -right-1 bg-navy text-pearl text-[10px] font-sans rounded-full w-[18px] h-[18px] flex items-center justify-center">
+        <span className="absolute -top-1 -right-1 bg-navy text-pearl text-[10px] font-sans font-medium rounded-full w-[18px] h-[18px] flex items-center justify-center">
           {badge}
         </span>
       )}
     </>
   );
-  const cls = `relative p-1.5 text-charcoal hover:text-gold transition-colors ${className}`;
+  const cls = `relative p-1.5 text-[#2E2A28] hover:text-gold transition-colors ${className}`;
   if (href) {
     const external = /^https?:\/\//.test(href);
     if (external) {
@@ -83,76 +83,96 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-pearl/95 backdrop-blur shadow-[0_1px_0_rgba(43,43,43,0.06)]"
+          ? "bg-pearl shadow-[0_1px_0_rgba(43,43,43,0.06)]"
           : "bg-pearl"
       }`}
     >
-      <div className="max-w-wrap mx-auto px-5 flex items-center justify-between h-16 md:h-20">
-        {/* Left: hamburger + MENU label (mobile) */}
-        <button
-          className="lg:hidden flex items-center gap-2 p-1.5 text-charcoal font-sans text-[12px] tracking-nav uppercase"
-          aria-label="Open menu"
-          onClick={() => setDrawer(true)}
-        >
-          <Icons.menu />
-          <span>Menu</span>
-        </button>
+      <div className="w-[95%] mx-auto px-[15px] grid grid-cols-[1fr_auto_1fr] items-stretch h-16 md:h-20">
+        {/* Left column — hamburger + MENU (mobile) · logo (desktop) */}
+        <div className="flex items-center justify-start">
+          <button
+            className="lg:hidden flex items-center gap-2 p-1.5 text-charcoal font-sans text-[12px] tracking-nav uppercase"
+            aria-label="Open menu"
+            onClick={() => setDrawer(true)}
+          >
+            <Icons.menu />
+            <span>Menu</span>
+          </button>
+          <Link
+            href="/"
+            aria-label="MAHIDHA — home"
+            className="hidden lg:flex items-center"
+          >
+            <SmartImage
+              src={LOGO}
+              alt="MAHIDHA — Elevated Everyday"
+              width={704}
+              height={264}
+              priority
+              className="block h-12 w-auto brightness-[0.62] saturate-150"
+            />
+          </Link>
+        </div>
 
-        {/* Logo */}
-        <Link
-          href="/"
-          aria-label="MAHIDHA — home"
-          className="lg:flex-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex items-center"
-        >
-          <SmartImage
-            src={LOGO}
-            alt="MAHIDHA — Elevated Everyday"
-            width={704}
-            height={264}
-            priority
-            className="block h-11 md:h-14 w-auto"
-          />
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Center column — logo (mobile, centered) · nav (desktop, centered) */}
+        <div className="flex items-center justify-center">
+          <Link
+            href="/"
+            aria-label="MAHIDHA — home"
+            className="lg:hidden flex items-center"
+          >
+            <SmartImage
+              src={LOGO}
+              alt="MAHIDHA — Elevated Everyday"
+              width={704}
+              height={264}
+              priority
+              className="block h-12 w-auto brightness-[0.62] saturate-150"
+            />
+          </Link>
+          <nav className="hidden lg:flex items-center gap-5 h-full">
           {NAV.map((n) => {
             const ext = n.external;
             const cls =
-              "ulink font-sans text-[13px] tracking-nav uppercase text-charcoal hover:text-charcoal";
-            if (n.label === "All Jewelry") {
+              "ulink font-sans text-[13px] tracking-nav uppercase text-[#2E2A28] hover:text-gold";
+            if (n.label === "All Jewellery") {
               return (
-                <div key={n.label} className="relative group/aj">
+                <div key={n.label} className="group/aj flex items-center h-full">
                   <a href={ext} className={`${cls} inline-flex items-center gap-1.5`}>
                     {n.label}
                     <span className="inline-block rotate-90 text-gold">
                       <Icons.chevron size={11} />
                     </span>
                   </a>
-                  <div className="absolute left-0 top-full pt-4 hidden group-hover/aj:block group-focus-within/aj:block z-50">
-                    <div className="bg-pearl shadow-2xl rounded-btn border border-charcoal/10 p-7 grid grid-cols-4 gap-8 w-[780px]">
-                      {ALL_JEWELRY_MEGA.map((g) => (
-                        <div key={g.title}>
-                          <a
-                            href={g.href}
-                            className="ulink block font-sans text-[11px] tracking-nav uppercase text-gold mb-3"
-                          >
-                            {g.title}
-                          </a>
-                          <ul className="space-y-2.5">
-                            {g.items.map((it) => (
-                              <li key={it.label}>
-                                <a
-                                  href={it.href}
-                                  className="ulink font-sans text-[14px] text-charcoal/80 hover:text-charcoal"
-                                >
-                                  {it.label}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
+                  {/* Full-width mega — spans header, content constrained to the container (matches live wd-design-full-width) */}
+                  <div className="absolute left-0 right-0 top-full hidden group-hover/aj:block group-focus-within/aj:block z-50">
+                    <div className="bg-[#F5F0E8] border-t border-charcoal/10 shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
+                      <div className="w-[95%] mx-auto px-[15px] py-8.5">
+                        <div className="flex gap-14">
+                          {ALL_JEWELRY_MEGA.map((g) => (
+                            <div key={g.title}>
+                              <a
+                                href={g.href}
+                                className="ulink block font-sans text-[12px] tracking-nav uppercase text-[#B8985C] mb-3"
+                              >
+                                {g.title}
+                              </a>
+                              <ul className="space-y-2.5">
+                                {g.items.map((it) => (
+                                  <li key={it.label}>
+                                    <a
+                                      href={it.href}
+                                      className="ulink font-sans text-[16px] text-[#33302B] hover:text-[#B8985C] whitespace-nowrap"
+                                    >
+                                      {it.label}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -175,10 +195,11 @@ export default function Header() {
               </Link>
             );
           })}
-        </nav>
+          </nav>
+        </div>
 
-        {/* Right icons — only Cart on mobile; full set from desktop up */}
-        <div className="flex items-center gap-1 md:gap-2">
+        {/* Right column — Cart only on mobile; full set from desktop up */}
+        <div className="flex items-center justify-end gap-1 md:gap-2">
           <IconBtn
             label="Search"
             href="https://shop.mahidha.com/"
@@ -236,7 +257,7 @@ export default function Header() {
               alt="MAHIDHA — Elevated Everyday"
               width={704}
               height={264}
-              className="h-10 w-auto"
+              className="h-12 w-auto brightness-[0.62] saturate-150"
             />
             <button aria-label="Close menu" onClick={() => setDrawer(false)} className="p-1.5">
               <Icons.close />
@@ -247,7 +268,7 @@ export default function Header() {
               const ext = n.external;
               const cls =
                 "py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between";
-              if (n.label === "All Jewelry") {
+              if (n.label === "All Jewellery") {
                 return (
                   <div key={n.label} className="border-b border-charcoal/5">
                     <button
