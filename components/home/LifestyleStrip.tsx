@@ -13,10 +13,10 @@ export default function LifestyleStrip() {
           title="Thoughtful gifts chosen to be worn, loved, and cherished."
           sub="Elegant pearl and silver jewellery for everyday wear, special occasions, and meaningful gifting."
         />
-        <div className="mt-12 flex lg:grid lg:grid-cols-5 gap-5 overflow-x-auto no-bar -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
+        <div className="mt-10 md:mt-12 grid grid-cols-2 gap-x-4 gap-y-9 sm:gap-5 lg:grid-cols-5">
           {LIFESTYLE.map(([title, line, img, href]) => {
             return (
-              <div key={title} className="snap-start shrink-0 w-[72%] sm:w-[44%] lg:w-auto">
+              <div key={title}>
                 <a href={href} className="group block text-left w-full">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-btn bg-beige">
                     <SmartImage

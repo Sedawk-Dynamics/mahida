@@ -14,9 +14,9 @@ export default function ProductRail({ title, overline, items, sub }: ProductRail
     <section className="bg-pearl">
       <div className="max-w-wrap mx-auto px-5 py-20 md:py-28">
         <SectionHeading overline={overline} title={title} sub={sub} />
-        <div className="mt-12 flex md:grid md:grid-cols-4 gap-x-6 gap-y-12 overflow-x-auto no-bar -mx-5 px-5 md:mx-0 md:px-0 snap-x">
+        <div className="mt-10 md:mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-6">
           {items.map((p) => (
-            <div key={p.id} className="snap-start shrink-0 w-[70%] sm:w-[44%] md:w-auto">
+            <div key={p.id}>
               <ProductCard p={p} />
             </div>
           ))}

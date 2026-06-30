@@ -11,9 +11,9 @@ export default function StyleEditsHome() {
           title="Style edits for every you"
           sub="Soft details. Strong presence. Curated to mix, styled to express."
         />
-        <div className="mt-12 flex lg:grid lg:grid-cols-3 gap-5 overflow-x-auto no-bar -mx-5 px-5 lg:mx-0 lg:px-0 snap-x">
+        <div className="mt-10 md:mt-12 grid grid-cols-2 gap-x-4 gap-y-9 sm:gap-5 lg:grid-cols-3">
           {EDITS.map(([title, line, img, href]) => (
-            <div key={title} className="snap-start shrink-0 w-[78%] sm:w-[48%] lg:w-auto">
+            <div key={title}>
               <EditCard title={title} line={line} img={img} tone="navy" href={href} />
             </div>
           ))}

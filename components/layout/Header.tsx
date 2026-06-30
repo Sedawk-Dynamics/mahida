@@ -337,20 +337,6 @@ export default function Header() {
                 </Link>
               );
             })}
-            <Link
-              href={hrefFor("gift")}
-              onClick={() => setDrawer(false)}
-              className="py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal"
-            >
-              Gift Guide
-            </Link>
-            <Link
-              href={hrefFor("contact")}
-              onClick={() => setDrawer(false)}
-              className="py-3.5 font-sans text-[14px] tracking-nav uppercase text-charcoal"
-            >
-              Contact Us
-            </Link>
           </nav>
         </div>
       </div>

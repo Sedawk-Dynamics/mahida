@@ -50,7 +50,7 @@ export default function HeritageStrip() {
               );
             })}
           </div>
-          <div className="mt-10 flex flex-nowrap items-center gap-3 overflow-x-auto no-bar">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button
               variant="ghostLight"
               href="https://www.mahidha.com/our-story"
