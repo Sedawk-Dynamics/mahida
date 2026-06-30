@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import EditCard from "@/components/product/EditCard";
 import { ph } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Gift Guide",
   description:
     "Celebrate milestones, birthdays and everyday wins with jewellery designed to be cherished.",
-  alternates: { canonical: "/gift-guide" },
-};
+  path: "/gift-guide",
+});
 
 const tiles: [string, string][] = [
   ["Gifts For Her", "GIFT — for her"],

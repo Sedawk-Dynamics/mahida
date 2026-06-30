@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
 import ContactForm from "@/components/product/ContactForm";
 import { ph } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Contact Us",
   description:
     "Questions, styling help or a special request — we'd love to hear from you.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

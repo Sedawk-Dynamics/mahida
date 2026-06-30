@@ -32,7 +32,20 @@ export const metadata: Metadata = {
   description:
     "MAHIDHA — modern pearl & sterling silver jewellery. Rooted in Hyderabad's Nizam-era pearl heritage, designed for now. Elevating everyday.",
   applicationName: "MAHIDHA",
+  creator: "MAHIDHA",
+  publisher: "MAHIDHA",
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     siteName: "MAHIDHA",
@@ -45,6 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Mahidhaofficial",
+    creator: "@Mahidhaofficial",
     title: "MAHIDHA — Pearls reimagined for modern everyday wear",
     description:
       "Modern pearl & sterling silver jewellery, rooted in Hyderabad's Nizam-era heritage.",

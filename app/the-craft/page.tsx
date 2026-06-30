@@ -1,17 +1,21 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
+import JsonLd from "@/components/ui/JsonLd";
 import { F, ph } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
+import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const SEO = {
   title: "The Craft",
   description:
     "Made by hand. Made to last. How every MAHIDHA piece travels from a quiet idea to a piece you'll cherish — designed with care, crafted by skilled karigars, inspected with honesty.",
-  alternates: { canonical: "/the-craft" },
+  path: "/the-craft",
+  image: F.karigar,
 };
+
+export const metadata = pageMeta(SEO);
 
 const stages: { n: string; title: string; body: string; img: string }[] = [
   {
@@ -49,6 +53,15 @@ const stages: { n: string; title: string; body: string; img: string }[] = [
 export default function CraftPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          articleJsonLd(SEO),
+          breadcrumbJsonLd([
+            { label: "Home", href: "/" },
+            { label: SEO.title, href: SEO.path },
+          ]),
+        ]}
+      />
       {/* Hero band */}
       <section className="relative h-[62vh] min-h-[420px] bg-navy text-ivory overflow-hidden">
         <SmartImage

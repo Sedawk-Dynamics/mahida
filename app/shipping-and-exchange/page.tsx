@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import PageHero from "@/components/layout/PageHero";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Shipping & Exchange",
   description:
     "Thoughtfully packed, carefully shipped, and supported every step of the way.",
-  alternates: { canonical: "/shipping-and-exchange" },
-};
+  path: "/shipping-and-exchange",
+});
 
 const blocks: [string, string, string][] = [
   ["truck", "Pan-India Shipping", "We ship across India, with free shipping on all orders."],

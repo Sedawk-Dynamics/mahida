@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import PageHero from "@/components/layout/PageHero";
 import { POLICIES, getPolicy } from "@/lib/legal";
+import { pageMeta } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
@@ -14,12 +15,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const p = getPolicy(slug);
-  if (!p) return { title: "Policy not found" };
-  return {
+  if (!p) return { title: "Policy not found", robots: { index: false, follow: false } };
+  return pageMeta({
     title: p.title,
     description: p.description,
-    alternates: { canonical: `/policies/${slug}` },
-  };
+    path: `/policies/${slug}`,
+  });
 }
 
 export default async function PolicyPage({ params }: { params: Params }) {

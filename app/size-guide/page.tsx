@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import PageHero from "@/components/layout/PageHero";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Size Guide",
   description: "A simple guide to finding your perfect fit at MAHIDHA.",
-  alternates: { canonical: "/size-guide" },
-};
+  path: "/size-guide",
+});
 
 const tables: [string, string[], string[][]][] = [
   ["Ring Sizes", ["Size", "Diameter (mm)", "Circumference (mm)"], [["6", "16.5", "51.9"], ["8", "18.1", "57.0"], ["10", "19.8", "62.1"], ["12", "21.4", "67.2"]]],

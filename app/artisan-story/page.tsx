@@ -1,17 +1,21 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
+import JsonLd from "@/components/ui/JsonLd";
 import { F, ph } from "@/lib/images";
 import { LIVE_SHOP } from "@/lib/links";
+import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const SEO = {
   title: "Artisan Story",
   description:
     "Born in the hands of skilled karigars. How every MAHIDHA piece travels from idea to refined adornment — designed with care, crafted with intention, inspected with honesty.",
-  alternates: { canonical: "/artisan-story" },
+  path: "/artisan-story",
+  image: F.karigar,
 };
+
+export const metadata = pageMeta(SEO);
 
 const stages: { n: string; title: string; body: string; img: string }[] = [
   {
@@ -49,6 +53,15 @@ const stages: { n: string; title: string; body: string; img: string }[] = [
 export default function ArtisanStoryPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          articleJsonLd(SEO),
+          breadcrumbJsonLd([
+            { label: "Home", href: "/" },
+            { label: SEO.title, href: SEO.path },
+          ]),
+        ]}
+      />
       {/* Hero band */}
       <section className="relative h-[62vh] min-h-[420px] bg-navy text-ivory overflow-hidden">
         <SmartImage

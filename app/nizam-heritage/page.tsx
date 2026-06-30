@@ -1,15 +1,19 @@
-import type { Metadata } from "next";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import ProductRail from "@/components/product/ProductRail";
+import JsonLd from "@/components/ui/JsonLd";
 import { CATEGORY_INTRO, PRODUCTS } from "@/lib/data";
-import { ph } from "@/lib/images";
+import { F, ph } from "@/lib/images";
+import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const SEO = {
   title: "The Nizam Heritage",
   description: CATEGORY_INTRO["The Nizam Heritage"],
-  alternates: { canonical: "/nizam-heritage" },
+  path: "/nizam-heritage",
+  image: F.nizamSet,
 };
+
+export const metadata = pageMeta(SEO);
 
 export default function NizamPage() {
   const items = PRODUCTS.filter(
@@ -18,6 +22,15 @@ export default function NizamPage() {
   const list = items.length ? items : PRODUCTS.slice(0, 4);
   return (
     <>
+      <JsonLd
+        data={[
+          articleJsonLd(SEO),
+          breadcrumbJsonLd([
+            { label: "Home", href: "/" },
+            { label: SEO.title, href: SEO.path },
+          ]),
+        ]}
+      />
       <section className="relative bg-navy text-ivory overflow-hidden">
         <SmartImage
           src={ph("NIZAM — heritage editorial, ornate pearl, deep navy & gold")}

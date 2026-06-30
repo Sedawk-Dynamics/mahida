@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
 import Accordion from "@/components/ui/Accordion";
 import PageHero from "@/components/layout/PageHero";
 import JsonLd from "@/components/ui/JsonLd";
 import { FAQ_GROUPS } from "@/lib/data";
-import { faqJsonLd } from "@/lib/seo";
+import { faqJsonLd, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Frequently Asked Questions",
   description:
     "Everything you need to know about Mahidha — materials, care, orders and more.",
-  alternates: { canonical: "/faqs" },
-};
+  path: "/faqs",
+});
 
 const anchor = (title: string) => `faq-${title.replace(/\W+/g, "-").toLowerCase()}`;
 

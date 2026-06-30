@@ -1,20 +1,24 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
+import JsonLd from "@/components/ui/JsonLd";
 import { F, ph } from "@/lib/images";
 import { LIVE_SHOP } from "@/lib/links";
 import { hrefFor } from "@/lib/utils";
+import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const SEO = {
   title: "Know Your Pearls",
   description:
     "The timeless legacy of pearls — their types and origins, their history from the Nizams to today, why they endure, and how to care for them. A MAHIDHA guide.",
-  alternates: { canonical: "/know-your-pearls" },
+  path: "/know-your-pearls",
+  image: F.pearlVintage,
 };
+
+export const metadata = pageMeta(SEO);
 
 const TYPES: { name: string; img: string; body: string }[] = [
   {
@@ -62,6 +66,15 @@ const CARE: string[] = [
 export default function KnowYourPearlsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          articleJsonLd(SEO),
+          breadcrumbJsonLd([
+            { label: "Home", href: "/" },
+            { label: SEO.title, href: SEO.path },
+          ]),
+        ]}
+      />
       <PageHero
         overline="Know Your Pearls"
         title="The Timeless Legacy of Pearls"

@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
 import { CARE_TIPS } from "@/lib/data";
 import { ph } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Jewellery Care",
   description:
     "A little care keeps your Mahidha pieces beautiful, timeless and made to be cherished for years.",
-  alternates: { canonical: "/jewellery-care" },
-};
+  path: "/jewellery-care",
+});
 
 export default function CarePage() {
   return (

@@ -1,19 +1,23 @@
-import type { Metadata } from "next";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
+import JsonLd from "@/components/ui/JsonLd";
 import { F, ph } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
+import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const SEO = {
   title: "Our Story",
   description:
     "Jewellery designed for women who do it all. Sterling silver. Freshwater pearls. Elevated everyday. The story of two sisters behind MAHIDHA.",
-  alternates: { canonical: "/our-story" },
+  path: "/our-story",
+  image: F.editFeminist,
 };
+
+export const metadata = pageMeta(SEO);
 
 const promise: [string, string, string][] = [
   ["shield", "925 Sterling Silver", "Hallmarked, durable and restorable."],
@@ -26,6 +30,15 @@ const promise: [string, string, string][] = [
 export default function StoryPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          articleJsonLd(SEO),
+          breadcrumbJsonLd([
+            { label: "Home", href: "/" },
+            { label: SEO.title, href: SEO.path },
+          ]),
+        ]}
+      />
       <PageHero
         overline="Elevated Everyday"
         title="Our Story"

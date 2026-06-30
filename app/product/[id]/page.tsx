@@ -6,7 +6,7 @@ import ProductRail from "@/components/product/ProductRail";
 import JsonLd from "@/components/ui/JsonLd";
 import { PRODUCTS } from "@/lib/data";
 import { ph } from "@/lib/images";
-import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 
 type Params = Promise<{ id: string }>;
 
@@ -17,20 +17,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { id } = await params;
   const p = PRODUCTS.find((x) => x.id === id);
-  if (!p) return { title: "Product not found" };
-  const image = ph((p.pics && p.pics[0]) || p.img[0]);
-  return {
+  if (!p) return { title: "Product not found", robots: { index: false, follow: false } };
+  // Placeholder catalogue — the real shop is on shop.mahidha.com, so noindex.
+  return pageMeta({
     title: p.name,
     description: p.desc,
-    alternates: { canonical: `/product/${p.id}` },
-    openGraph: {
-      type: "website",
-      title: `${p.name} · MAHIDHA`,
-      description: p.desc,
-      url: `/product/${p.id}`,
-      images: [{ url: image, alt: p.name }],
-    },
-  };
+    path: `/product/${p.id}`,
+    image: ph((p.pics && p.pics[0]) || p.img[0]),
+    noindex: true,
+  });
 }
 
 export default async function ProductPage({ params }: { params: Params }) {
@@ -48,14 +43,11 @@ export default async function ProductPage({ params }: { params: Params }) {
   return (
     <>
       <JsonLd
-        data={[
-          productJsonLd(p),
-          breadcrumbJsonLd([
-            { label: "Home", href: "/" },
-            { label: "All Jewellery", href: "/collections/all-jewellery" },
-            { label: p.name, href: `/product/${p.id}` },
-          ]),
-        ]}
+        data={breadcrumbJsonLd([
+          { label: "Home", href: "/" },
+          { label: "All Jewellery", href: "/collections/all-jewellery" },
+          { label: p.name, href: `/product/${p.id}` },
+        ])}
       />
       <div className="max-w-wrap mx-auto px-5 py-6 border-b border-charcoal/10">
         <Breadcrumb

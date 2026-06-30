@@ -1,33 +1,52 @@
 import type { MetadataRoute } from "next";
-import { PRODUCTS } from "@/lib/data";
 import { POLICIES } from "@/lib/legal";
-import { KNOWN_CATEGORIES, catToSlug } from "@/lib/utils";
 import { SITE_URL } from "@/lib/seo";
 
+// Only canonical, indexable pages belong in the sitemap.
+// The placeholder /product/* and /collections/* pages are noindex (the real
+// catalogue lives on shop.mahidha.com), and /cart is a utility page — all excluded.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = [
-    "/",
+  const now = new Date();
+
+  // Priority tiers by importance.
+  const primary = ["/our-story", "/nizam-heritage", "/the-craft"];
+  const secondary = [
     "/shop-by-style",
-    "/nizam-heritage",
-    "/our-story",
-    "/the-craft",
     "/know-your-pearls",
     "/artisan-story",
+    "/gift-guide",
     "/jewellery-care",
     "/faqs",
-    "/gift-guide",
-    "/shipping-and-exchange",
-    "/size-guide",
-    "/contact",
-    "/cart",
   ];
-  const collections = KNOWN_CATEGORIES.map((c) => `/collections/${catToSlug(c)}`);
-  const products = PRODUCTS.map((p) => `/product/${p.id}`);
-  const policies = POLICIES.map((p) => `/policies/${p.slug}`);
+  const utility = ["/shipping-and-exchange", "/size-guide", "/contact"];
 
-  return [...staticPaths, ...collections, ...products, ...policies].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    changeFrequency: "weekly",
-    priority: path === "/" ? 1 : 0.7,
-  }));
+  const entries: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    ...primary.map((p) => ({
+      url: `${SITE_URL}${p}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...secondary.map((p) => ({
+      url: `${SITE_URL}${p}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...utility.map((p) => ({
+      url: `${SITE_URL}${p}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.4,
+    })),
+    ...POLICIES.map((p) => ({
+      url: `${SITE_URL}/policies/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    })),
+  ];
+
+  return entries;
 }

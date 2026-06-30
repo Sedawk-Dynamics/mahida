@@ -5,7 +5,7 @@ import ListingView from "@/components/product/ListingView";
 import JsonLd from "@/components/ui/JsonLd";
 import { CATEGORY_INTRO } from "@/lib/data";
 import { KNOWN_CATEGORIES, catToSlug, slugToCat } from "@/lib/utils";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 
 type Params = Promise<{ cat: string }>;
 type Search = Promise<{ [k: string]: string | string[] | undefined }>;
@@ -18,12 +18,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { cat: slug } = await params;
   const cat = slugToCat(slug);
   const description = CATEGORY_INTRO[cat] || `Shop ${cat} — pearls reimagined at MAHIDHA.`;
-  return {
+  // Placeholder listings — the real catalogue is on shop.mahidha.com, so noindex.
+  return pageMeta({
     title: cat,
     description,
-    alternates: { canonical: `/collections/${slug}` },
-    openGraph: { title: `${cat} · MAHIDHA`, description, url: `/collections/${slug}` },
-  };
+    path: `/collections/${slug}`,
+    noindex: true,
+  });
 }
 
 export default async function CollectionsPage({

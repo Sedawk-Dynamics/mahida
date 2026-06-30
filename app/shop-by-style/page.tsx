@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import EditCard from "@/components/product/EditCard";
 import ProductRail from "@/components/product/ProductRail";
 import Reveal from "@/components/ui/Reveal";
 import { CATEGORY_INTRO, EDITS, PRODUCTS } from "@/lib/data";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Shop by Style",
   description: CATEGORY_INTRO["Shop by Style"],
-  alternates: { canonical: "/shop-by-style" },
-};
+  path: "/shop-by-style",
+});
 
 export default function StylePage() {
   return (
