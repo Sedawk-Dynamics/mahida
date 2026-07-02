@@ -102,6 +102,65 @@ export const BESTSELLERS: Product[] = [
   },
 ];
 
+/* Real "New In" products — cards link out to their live pages on shop.mahidha.com. */
+export const NEW_IN: Product[] = [
+  {
+    id: "saumya-bracelet",
+    name: "Saumya Bracelet",
+    category: "The Escape",
+    style: "Bracelets",
+    material: "925 Sterling Silver",
+    price: 7599,
+    oldPrice: 8359,
+    rating: 5,
+    desc: "A single strand of naturally luminous freshwater pearls with an adjustable sterling silver slider closure — timeless and effortlessly wearable.",
+    img: ["Saumya Bracelet"],
+    pics: ["/img/Saumya-Bracelet-2.png"],
+    shopUrl: "https://shop.mahidha.com/product/saumya-bracelet/",
+  },
+  {
+    id: "ira-pearl-necklace",
+    name: "Ira Pearl Necklace",
+    category: "The Everyday Muse",
+    style: "Necklaces",
+    material: "925 Sterling Silver",
+    price: 10999,
+    oldPrice: 12099,
+    rating: 5,
+    desc: "A luminous freshwater pearl suspended from a fine sterling silver chain with a warm gold-polished finish — understated everyday elegance.",
+    img: ["Ira Pearl Necklace"],
+    pics: ["/img/Ira-Pearl-Necklace-5.png"],
+    shopUrl:
+      "https://shop.mahidha.com/product/ira-pearl-necklaceminimal-timeless-and-quietly-elegant-this-freshwater-pearl-necklace-is-designed-for-the-woman-who-finds-beauty-in-simplicity/",
+  },
+  {
+    id: "noor-jhalar-necklace",
+    name: "Noor Jhalar Necklace",
+    category: "Statement Necklace",
+    style: "Necklaces",
+    material: "925 Sterling Silver",
+    price: 19999,
+    rating: 5,
+    desc: "Inspired by traditional jhalar jewellery — cascading freshwater pearls in warm gold, silver and ivory tones on a sterling silver chain.",
+    img: ["Noor Jhalar Necklace"],
+    pics: ["/img/Noor-Jhalar-Necklace-2.png"],
+    shopUrl: "https://shop.mahidha.com/product/noor-jhalar-necklace/",
+  },
+  {
+    id: "rashi-suidhaga-drops",
+    name: "Rashi Suidhaga Drops",
+    category: "Threader Earrings",
+    style: "Earrings",
+    material: "925 Sterling Silver",
+    price: 0,
+    rating: 5,
+    desc: "Delicate gold-plated sterling silver threader earrings with luminous freshwater pearls that float effortlessly from a fine chain.",
+    img: ["Rashi Suidhaga Drops"],
+    pics: ["/img/Rashi-Suidhaga-Drops-2-1.png"],
+    shopUrl: "https://shop.mahidha.com/product/rashi-suidhaga-drops/",
+  },
+];
+
 export const CATEGORY_INTRO: Record<string, string> = {
   "All Jewellery": "Browse the complete Mahidha universe — thoughtfully designed jewellery crafted to complement every moment, mood, and occasion.",
   "New Arrivals": "Discover the latest additions to Mahidha — fresh designs curated for modern women who love timeless elegance with a contemporary edge.",

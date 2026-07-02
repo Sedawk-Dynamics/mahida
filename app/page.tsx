@@ -10,12 +10,10 @@ import Testimonials from "@/components/home/Testimonials";
 import CarePreview from "@/components/home/CarePreview";
 import ProductRail from "@/components/product/ProductRail";
 import JsonLd from "@/components/ui/JsonLd";
-import { PRODUCTS, BESTSELLERS } from "@/lib/data";
+import { NEW_IN, BESTSELLERS } from "@/lib/data";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
-  const news = PRODUCTS.filter((p) => p.status === "new");
-  const best = PRODUCTS.slice(0, 4);
   return (
     <>
       <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
@@ -30,7 +28,7 @@ export default function HomePage() {
         overline="New In"
         title="Fresh arrivals"
         sub="The latest additions to Mahidha — timeless elegance with a contemporary edge."
-        items={news.length ? news : best}
+        items={NEW_IN}
       />
       <UGCSection />
       <ProductRail
