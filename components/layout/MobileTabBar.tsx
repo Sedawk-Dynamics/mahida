@@ -4,7 +4,7 @@ import { Icons } from "@/components/ui/Icons";
 import { useCart, useHydrated } from "@/lib/store";
 
 const TABS: { label: string; href: string; icon: string; badge?: boolean }[] = [
-  { label: "Home", href: "https://mahidha.vercel.app/", icon: "home" },
+  { label: "Home", href: "/", icon: "home" },
   { label: "Wishlist", href: "https://shop.mahidha.com/wishlist/", icon: "heart" },
   { label: "Cart", href: "https://shop.mahidha.com/cart/", icon: "bag", badge: true },
   {

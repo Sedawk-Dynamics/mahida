@@ -108,14 +108,14 @@ export default function Footer() {
         <Column
           title="Shop"
           links={[
-            ["New Arrivals", "list", { cat: "New Arrivals" }],
-            ["Earrings", "list", { cat: "All Jewellery", style: "Earrings" }],
-            ["Necklaces", "list", { cat: "All Jewellery", style: "Necklaces" }],
-            ["Bracelets", "list", { cat: "All Jewellery", style: "Bracelets" }],
+            ["New Arrivals", "https://shop.mahidha.com/product-category/latest/"],
+            ["Earrings", "https://shop.mahidha.com/product-category/all-jewellery/earrings/"],
+            ["Necklaces", "https://shop.mahidha.com/product-category/all-jewellery/necklace/"],
+            ["Bracelets", "https://shop.mahidha.com/product-category/all-jewellery/bracelets/"],
             ["Rings", "https://shop.mahidha.com/product-category/all-jewellery/rings/"],
-            ["The Nizam Edit", "nizam"],
-            ["Workday Edit", "style"],
-            ["Shop by Style", "style"],
+            ["The Nizam Edit", "https://shop.mahidha.com/product-category/by-mood-edit/the-nizam-heritage/"],
+            ["Workday Edit", "https://shop.mahidha.com/product-category/everyday/"],
+            ["Shop by Style", "https://shop.mahidha.com/product-category/gifting/everyday-icon/"],
           ]}
         />
         <Column

@@ -55,14 +55,14 @@ export const CATEGORY_INTRO: Record<string, string> = {
    NAVIGATION
    ================================================================= */
 export const NAV: NavItem[] = [
-  { label: "Home", to: "home", external: "https://mahidha.com/" },
+  { label: "Home", to: "home" },
   { label: "All Jewellery", to: "list", external: "https://shop.mahidha.com/product-category/all-jewellery/" },
   { label: "Latest", to: "list", external: "https://shop.mahidha.com/product-category/latest/" },
   { label: "Everyday", to: "list", external: "https://shop.mahidha.com/product-category/everyday/" },
   { label: "Escape", to: "list", external: "https://shop.mahidha.com/product-category/escape/" },
   { label: "Nizam", to: "nizam", external: "https://shop.mahidha.com/product-category/nizam/" },
   { label: "S925", to: "list", external: "https://shop.mahidha.com/product-category/s925/" },
-  { label: "Our story", to: "story", external: "https://mahidha.vercel.app/our-story" },
+  { label: "Our story", to: "story" },
 ];
 
 // Mega-menu shown under "All Jewelry" in the header.
