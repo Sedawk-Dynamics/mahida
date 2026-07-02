@@ -2,7 +2,6 @@ import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
 import ContactForm from "@/components/product/ContactForm";
-import { ph } from "@/lib/images";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -81,8 +80,8 @@ export default function ContactPage() {
             </div>
             <div className="mt-8 relative aspect-[16/10] rounded-btn overflow-hidden bg-beige">
               <SmartImage
-                src={ph("MAP — Hyderabad store location placeholder")}
-                alt="Map placeholder — Hyderabad location"
+                src="/img/coffee_in_cafe.jpeg"
+                alt="Friends wearing MAHIDHA pearls over coffee"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="w-full h-full object-cover"
