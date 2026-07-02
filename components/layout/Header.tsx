@@ -337,29 +337,6 @@ export default function Header() {
                 </Link>
               );
             })}
-
-            {/* Tool items — collapse into the mobile menu (mirrors WordPress) */}
-            {[
-              { label: "Wishlist", href: "https://shop.mahidha.com/cart/", icon: "heart" },
-              { label: "Compare", href: "https://shop.mahidha.com/compare/", icon: "compare" },
-              {
-                label: "Login / Register",
-                href: "https://shop.mahidha.com/my-account/?action=register",
-                icon: "account",
-              },
-            ].map((t) => {
-              const I = Icons[t.icon];
-              return (
-                <a
-                  key={t.label}
-                  href={t.href}
-                  onClick={() => setDrawer(false)}
-                  className="py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center gap-3"
-                >
-                  <I size={18} /> {t.label}
-                </a>
-              );
-            })}
           </nav>
         </div>
       </div>
