@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import Stars from "@/components/ui/Stars";
 import SmartImage from "@/components/ui/SmartImage";
 import { ph } from "@/lib/images";
-import { inr, hrefFor } from "@/lib/utils";
+import { inr } from "@/lib/utils";
 import { LIVE_SHOP } from "@/lib/links";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
@@ -18,12 +17,11 @@ export default function ProductCard({ p }: { p: Product }) {
   const hydrated = useHydrated();
   const sold = p.status === "sold";
   const wished = hydrated && wishlist.includes(p.id);
-  const href = hrefFor("pdp", { id: p.id });
 
   return (
     <div className="group">
       <div className="relative overflow-hidden rounded-btn bg-beige aspect-[4/5]">
-        <Link href={href} aria-label={`View ${p.name}`}>
+        <a href={LIVE_SHOP} aria-label={`Shop ${p.name}`}>
           <SmartImage
             src={ph((p.pics && p.pics[0]) || p.img[0])}
             alt={`${p.img[0]} — editorial product shot`}
@@ -31,7 +29,7 @@ export default function ProductCard({ p }: { p: Product }) {
             sizes="(max-width: 1024px) 50vw, 33vw"
             className="absolute inset-0 w-full h-full object-cover"
           />
-        </Link>
+        </a>
         <div className="absolute top-3 left-3 flex flex-col gap-2">
           {p.status === "new" && <Badge tone="gold">New</Badge>}
           {sold && <Badge tone="sold">Sold out</Badge>}
@@ -64,8 +62,8 @@ export default function ProductCard({ p }: { p: Product }) {
               <Button
                 variant="light"
                 className="!px-3"
-                href={href}
-                aria-label={`View ${p.name}`}
+                href={LIVE_SHOP}
+                aria-label={`Shop ${p.name}`}
               >
                 <Icons.arrow size={16} />
               </Button>
@@ -75,12 +73,12 @@ export default function ProductCard({ p }: { p: Product }) {
       </div>
       <div className="pt-4 text-center">
         <p className="font-sans text-[11px] tracking-nav uppercase text-gold">{p.category}</p>
-        <Link
-          href={href}
+        <a
+          href={LIVE_SHOP}
           className="block font-serif text-[21px] leading-tight text-charcoal mt-1 hover:text-taupe transition-colors"
         >
           {p.name}
-        </Link>
+        </a>
         <p className="mt-1.5 font-sans text-[15px] text-charcoal">
           {p.price ? inr(p.price) : <span className="text-taupe">Price on enquiry</span>}
         </p>
