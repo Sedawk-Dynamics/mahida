@@ -99,7 +99,7 @@ export default function Footer() {
             ["The Craft", "craft"],
             ["Know Your Pearls", "pearls"],
             ["Founders", "story"],
-            ["Journal", "contact"],
+            ["Journal", "journal"],
             ["Contact Us", "contact"],
           ]}
 

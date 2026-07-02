@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Priority tiers by importance.
   const primary = ["/our-story", "/nizam-heritage", "/the-craft"];
   const secondary = [
+    "/journal",
     "/shop-by-style",
     "/know-your-pearls",
     "/artisan-story",
