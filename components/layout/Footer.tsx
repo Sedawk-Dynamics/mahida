@@ -13,16 +13,24 @@ function Column({ title, links }: { title: string; links: LinkDef[] }) {
         {title}
       </h4>
       <ul className="space-y-3">
-        {links.map(([label, to, params]) => (
-          <li key={label}>
-            <Link
-              href={hrefFor(to, params)}
-              className="ulink font-sans text-[14px] text-ivory/75 hover:text-ivory"
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
+        {links.map(([label, to, params]) => {
+          const external = /^https?:\/\//.test(to);
+          const cls =
+            "ulink font-sans text-[14px] text-ivory/75 hover:text-ivory";
+          return (
+            <li key={label}>
+              {external ? (
+                <a href={to} className={cls}>
+                  {label}
+                </a>
+              ) : (
+                <Link href={hrefFor(to, params)} className={cls}>
+                  {label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -104,7 +112,7 @@ export default function Footer() {
             ["Earrings", "list", { cat: "All Jewellery", style: "Earrings" }],
             ["Necklaces", "list", { cat: "All Jewellery", style: "Necklaces" }],
             ["Bracelets", "list", { cat: "All Jewellery", style: "Bracelets" }],
-            ["Rings", "list", { cat: "All Jewellery", style: "Rings" }],
+            ["Rings", "https://shop.mahidha.com/product-category/all-jewellery/rings/"],
             ["The Nizam Edit", "nizam"],
             ["Workday Edit", "style"],
             ["Shop by Style", "style"],
