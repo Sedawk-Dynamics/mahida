@@ -7,11 +7,15 @@ export interface Product {
   style: string;
   material: string;
   price: number;
+  /** Original (pre-discount) price — when set, shown struck-through with a sale badge. */
+  oldPrice?: number;
   rating: number;
   status?: ProductStatus;
   desc: string;
   img: string[];
   pics?: string[];
+  /** Absolute link to the live product page on shop.mahidha.com (overrides the default shop link). */
+  shopUrl?: string;
 }
 
 export interface NavItem {

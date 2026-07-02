@@ -10,7 +10,7 @@ import Testimonials from "@/components/home/Testimonials";
 import CarePreview from "@/components/home/CarePreview";
 import ProductRail from "@/components/product/ProductRail";
 import JsonLd from "@/components/ui/JsonLd";
-import { PRODUCTS } from "@/lib/data";
+import { PRODUCTS, BESTSELLERS } from "@/lib/data";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
@@ -37,7 +37,7 @@ export default function HomePage() {
         overline="Bestsellers"
         title="Loved by many"
         sub="Pieces that move with your everyday."
-        items={best}
+        items={BESTSELLERS}
       />
       <Testimonials />
       <CarePreview />

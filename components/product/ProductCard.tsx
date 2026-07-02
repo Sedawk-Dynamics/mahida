@@ -17,11 +17,14 @@ export default function ProductCard({ p }: { p: Product }) {
   const hydrated = useHydrated();
   const sold = p.status === "sold";
   const wished = hydrated && wishlist.includes(p.id);
+  const shopHref = p.shopUrl || LIVE_SHOP;
+  const discount =
+    p.oldPrice && p.price ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 
   return (
     <div className="group">
       <div className="relative overflow-hidden rounded-btn bg-beige aspect-[4/5]">
-        <a href={LIVE_SHOP} aria-label={`Shop ${p.name}`}>
+        <a href={shopHref} aria-label={`Shop ${p.name}`}>
           <SmartImage
             src={ph((p.pics && p.pics[0]) || p.img[0])}
             alt={`${p.img[0]} — editorial product shot`}
@@ -31,6 +34,7 @@ export default function ProductCard({ p }: { p: Product }) {
           />
         </a>
         <div className="absolute top-3 left-3 flex flex-col gap-2">
+          {discount > 0 && <Badge tone="gold">-{discount}%</Badge>}
           {p.status === "new" && <Badge tone="gold">New</Badge>}
           {sold && <Badge tone="sold">Sold out</Badge>}
           {p.status === "star" && (
@@ -56,13 +60,13 @@ export default function ProductCard({ p }: { p: Product }) {
             </Button>
           ) : (
             <div className="flex gap-2">
-              <Button variant="light" className="flex-1 !px-3" href={LIVE_SHOP}>
+              <Button variant="light" className="flex-1 !px-3" href={shopHref}>
                 Add to Cart
               </Button>
               <Button
                 variant="light"
                 className="!px-3"
-                href={LIVE_SHOP}
+                href={shopHref}
                 aria-label={`Shop ${p.name}`}
               >
                 <Icons.arrow size={16} />
@@ -74,13 +78,22 @@ export default function ProductCard({ p }: { p: Product }) {
       <div className="pt-4 text-center">
         <p className="font-sans text-[11px] tracking-nav uppercase text-gold">{p.category}</p>
         <a
-          href={LIVE_SHOP}
+          href={shopHref}
           className="block font-serif text-[21px] leading-tight text-charcoal mt-1 hover:text-taupe transition-colors"
         >
           {p.name}
         </a>
         <p className="mt-1.5 font-sans text-[15px] text-charcoal">
-          {p.price ? inr(p.price) : <span className="text-taupe">Price on enquiry</span>}
+          {p.price ? (
+            <>
+              {p.oldPrice && (
+                <span className="text-taupe line-through mr-2">{inr(p.oldPrice)}</span>
+              )}
+              {inr(p.price)}
+            </>
+          ) : (
+            <span className="text-taupe">Price on enquiry</span>
+          )}
         </p>
       </div>
     </div>
