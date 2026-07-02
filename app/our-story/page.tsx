@@ -42,7 +42,7 @@ const CHAPTERS: { title: string; img: string; body: string[] }[] = [
   },
   {
     title: "Growing Up Together",
-    img: "/img/growup.jpeg.jpeg",
+    img: "/img/growup.jpeg",
     body: [
       "As children, we believed growing up meant becoming completely different people. Life had other plans. Over the years, we followed different paths, built our own careers, and discovered our individual strengths.",
       "While our personalities evolved, the values we were raised with never changed. Kindness, curiosity, family, and an appreciation for beauty that is quiet rather than loud have always been at the heart of who we are.",
