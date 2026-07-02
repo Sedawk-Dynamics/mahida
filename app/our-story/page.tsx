@@ -259,15 +259,15 @@ export default function StoryPage() {
           <div className="mt-12 grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {(
               [
-                ["Mahima", "Co-Founder & Head of Operations", "FOUNDER — Mahima portrait"],
-                ["Medha", "Co-Founder & Head of Product & Digital", "FOUNDER — Medha portrait"],
+                ["Mahima", "Co-Founder & Head of Operations", "/img/mahima.jpeg"],
+                ["Medha", "Co-Founder & Head of Product & Digital", "/img/medha.jpeg"],
               ] as [string, string, string][]
             ).map(([name, role, img]) => (
               <Reveal key={name} className="text-center">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-btn bg-beige">
                   <SmartImage
-                    src={ph(img)}
-                    alt={img}
+                    src={img}
+                    alt={`${name} — Co-Founder of MAHIDHA`}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className="w-full h-full object-cover"
