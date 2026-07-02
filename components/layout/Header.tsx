@@ -266,23 +266,34 @@ export default function Header() {
           <nav className="px-5 py-6 flex flex-col">
             {NAV.map((n) => {
               const ext = n.external;
-              const cls =
-                "py-3.5 border-b border-charcoal/5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between";
+              const active = !ext && isActive(n.to, n.params);
+              const rowCls = `block py-3.5 border-b border-charcoal/10 font-sans text-[14px] tracking-nav uppercase ${
+                active ? "text-gold" : "text-charcoal"
+              }`;
               if (n.label === "All Jewellery") {
                 return (
-                  <div key={n.label} className="border-b border-charcoal/5">
-                    <button
-                      onClick={() => setAjOpen((o) => !o)}
-                      aria-expanded={ajOpen}
-                      className="w-full py-3.5 font-sans text-[14px] tracking-nav uppercase text-charcoal flex items-center justify-between"
-                    >
-                      {n.label}
-                      <span
-                        className={`text-gold transition-transform duration-300 ${ajOpen ? "rotate-45" : ""}`}
+                  <div key={n.label} className="border-b border-charcoal/10">
+                    <div className="flex items-stretch">
+                      <a
+                        href={ext}
+                        onClick={() => setDrawer(false)}
+                        className="flex-1 py-3.5 font-sans text-[14px] tracking-nav uppercase text-charcoal"
                       >
-                        <Icons.plus size={16} />
-                      </span>
-                    </button>
+                        {n.label}
+                      </a>
+                      <button
+                        onClick={() => setAjOpen((o) => !o)}
+                        aria-expanded={ajOpen}
+                        aria-label="Toggle All Jewellery submenu"
+                        className="w-14 flex items-center justify-center border-l border-charcoal/10 text-gold"
+                      >
+                        <span
+                          className={`transition-transform duration-300 ${ajOpen ? "rotate-90" : ""}`}
+                        >
+                          <Icons.chevron size={16} />
+                        </span>
+                      </button>
+                    </div>
                     {ajOpen && (
                       <div className="pb-4 pl-1 space-y-4">
                         {ALL_JEWELRY_MEGA.map((g) => (
@@ -320,9 +331,9 @@ export default function Header() {
                     key={n.label}
                     href={ext}
                     onClick={() => setDrawer(false)}
-                    className={cls}
+                    className={rowCls}
                   >
-                    {n.label} <Icons.chevron size={16} stroke="#C4A87A" />
+                    {n.label}
                   </a>
                 );
               }
@@ -331,9 +342,9 @@ export default function Header() {
                   key={n.label}
                   href={hrefFor(n.to, n.params)}
                   onClick={() => setDrawer(false)}
-                  className={cls}
+                  className={rowCls}
                 >
-                  {n.label} <Icons.chevron size={16} stroke="#C4A87A" />
+                  {n.label}
                 </Link>
               );
             })}
