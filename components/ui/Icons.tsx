@@ -143,6 +143,36 @@ export const Icons: Record<string, IconFn> = {
       <path d="M9 12l2 2 4-4" />
     </Ico>
   ),
+  /* Trust-strip icons — mirror the shop.mahidha.com set */
+  pearlString: (p) => (
+    <Ico {...p}>
+      <path d="M5 6C5 12 8 15 12 15S19 12 19 6" />
+      <circle cx="8.4" cy="14.2" r="0.9" />
+      <circle cx="15.6" cy="14.2" r="0.9" />
+      <path d="M12 15.2v0.7" />
+      <circle cx="12" cy="18.2" r="2.3" />
+    </Ico>
+  ),
+  shieldCheck: (p) => (
+    <Ico {...p}>
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      <path d="m9 12 2 2 4-4" />
+    </Ico>
+  ),
+  hammer: (p) => (
+    <Ico {...p}>
+      <path d="m15 12-8.5 8.5a2.121 2.121 0 1 1-3-3L12 9" />
+      <path d="M17.64 15 22 10.64" />
+      <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h.86c.85 0 1.65.33 2.25.93l1.25 1.25" />
+    </Ico>
+  ),
+  medal: (p) => (
+    <Ico {...p}>
+      <path d="M6 3h12l4 6-10 12L2 9Z" />
+      <path d="M2 9h20" />
+      <path d="m10 3-2 6 4 12 4-12-2-6" />
+    </Ico>
+  ),
   gift: (p) => (
     <Ico {...p}>
       <rect x="4" y="9" width="16" height="11" rx="1" />
