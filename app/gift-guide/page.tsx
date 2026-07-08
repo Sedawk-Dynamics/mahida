@@ -2,8 +2,6 @@ import { Icons } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import EditCard from "@/components/product/EditCard";
-import { ph } from "@/lib/images";
-import { hrefFor } from "@/lib/utils";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -13,14 +11,18 @@ export const metadata = pageMeta({
   path: "/gift-guide",
 });
 
+// Every "Shop Now" on the gift guide points to the live gifting shop.
+const GIFT_SHOP = "https://shop.mahidha.com/product-category/gifting/signature-gifts/";
+
+// [title, image]
 const tiles: [string, string][] = [
-  ["Gifts For Her", "GIFT — for her"],
-  ["Birthday Gifting", "GIFT — birthday"],
-  ["Bridesmaid Gifts", "GIFT — bridesmaid"],
-  ["Everyday Staples", "GIFT — everyday"],
-  ["Timeless Pearls", "GIFT — pearls"],
-  ["Under ₹5000", "GIFT — under 5000"],
-  ["Modern Minimal Pieces", "GIFT — minimal"],
+  ["Gifts For Her", "/img/rakhi.jpeg"],
+  ["Birthday Gifting", "/img/Collagegirl.jpeg"],
+  ["Bridesmaid Gifts", "/img/Bridesmaid.jpeg"],
+  ["Everyday Staples", "/img/everyday.jpeg"],
+  ["Timeless Pearls", "/img/whypearl.jpeg"],
+  ["Under ₹5000", "/img/Below5000.jpeg"],
+  ["Modern Minimal Pieces", "/img/stirsilver.jpeg"],
 ];
 
 export default function GiftPage() {
@@ -28,8 +30,8 @@ export default function GiftPage() {
     <>
       <section className="relative bg-navy text-ivory overflow-hidden">
         <SmartImage
-          src={ph("GIFT — editorial, gift box with pearls, warm glow")}
-          alt="Gift guide editorial — gift box with pearls in warm glow"
+          src="/img/Signature.jpeg"
+          alt="Gift guide editorial — MAHIDHA jewellery, thoughtfully packed for gifting"
           fill
           sizes="100vw"
           priority
@@ -58,7 +60,7 @@ export default function GiftPage() {
                   line="Thoughtfully packed for gifting"
                   img={img}
                   tone="navy"
-                  href={hrefFor("list", { cat: "All Jewellery" })}
+                  href={GIFT_SHOP}
                 />
               </Reveal>
             ))}
