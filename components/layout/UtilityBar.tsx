@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Icons } from "@/components/ui/Icons";
 
 const msgs = [
+  "Free Delivery Across India",
   "Jewelry for quiet confidence",
   "Luxury delivered to your doorstep",
   "Worn. Lived in. Loved.",
