@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      // The brand journal lives at /journal — send any /blog path there.
+      { source: "/blog", destination: "/journal", permanent: true },
+      { source: "/blog/:path*", destination: "/journal", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
