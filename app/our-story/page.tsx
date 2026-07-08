@@ -206,19 +206,19 @@ export default function StoryPage() {
       {/* Narrative chapters — alternating image + text */}
       {CHAPTERS.map((c, i) => (
         <section key={c.title} className={i % 2 === 0 ? "bg-beige" : "bg-pearl"}>
-          <div className="max-w-wrap mx-auto px-5 py-16 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <Reveal className={i % 2 === 0 ? "lg:order-1" : "lg:order-2"}>
+          <div className="max-w-wrap mx-auto px-5 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+            <Reveal className={i % 2 === 0 ? "md:order-1" : "md:order-2"}>
               <div className="relative w-full aspect-[4/5] rounded-btn overflow-hidden bg-pearl">
                 <SmartImage
                   src={c.img}
                   alt={c.title}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
             </Reveal>
-            <Reveal className={i % 2 === 0 ? "lg:order-2" : "lg:order-1"}>
+            <Reveal className={i % 2 === 0 ? "md:order-2" : "md:order-1"}>
               <h2 className="font-serif text-[28px] md:text-[42px] leading-[1.1] text-charcoal">
                 {c.title}
               </h2>

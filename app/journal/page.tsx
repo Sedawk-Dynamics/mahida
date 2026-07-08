@@ -99,7 +99,7 @@ export default function JournalPage() {
 
       {/* Why Pearls */}
       <section className="bg-pearl">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
           <Reveal>
             <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">
               Why pearls
@@ -132,8 +132,8 @@ export default function JournalPage() {
 
       {/* Why Sterling Silver */}
       <section className="bg-beige">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal className="order-2 lg:order-1">
+        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+          <Reveal className="order-2 md:order-1">
             <div className="relative w-full aspect-[8/7] rounded-btn overflow-hidden">
               <SmartImage
                 src={ph("WHY SILVER — sterling silver layering flatlay on marble")}
@@ -144,7 +144,7 @@ export default function JournalPage() {
               />
             </div>
           </Reveal>
-          <Reveal className="order-1 lg:order-2">
+          <Reveal className="order-1 md:order-2">
             <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">
               Why sterling silver
             </p>
