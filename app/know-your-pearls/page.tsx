@@ -1,67 +1,204 @@
-import { Icons } from "@/components/ui/Icons";
+import type { ReactNode } from "react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartImage from "@/components/ui/SmartImage";
 import PageHero from "@/components/layout/PageHero";
 import JsonLd from "@/components/ui/JsonLd";
-import { F, ph } from "@/lib/images";
+import { F } from "@/lib/images";
 import { LIVE_SHOP } from "@/lib/links";
 import { hrefFor } from "@/lib/utils";
 import { pageMeta, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import {
+  INTRO,
+  VARIETIES,
+  SHAPES_INTRO,
+  SHAPES,
+  SHAPES_OUTRO,
+  SHAPES_TABLE,
+  COLOURS_INTRO,
+  COLOURS,
+  COLOURS_OUTRO,
+  COLOURS_TABLE,
+  COLOURS_DYK,
+  LUSTRE_IMAGES,
+  LUSTRE_BODY,
+  LUSTRE_TABLE,
+  CARE_IMAGES,
+  CARE_BODY,
+  CARE_TABLE,
+  type GalleryImage,
+} from "./content";
 
 const SEO = {
   title: "Know Your Pearls",
   description:
-    "The timeless legacy of pearls — their types and origins, their history from the Nizams to today, why they endure, and how to care for them. A MAHIDHA guide.",
+    "The complete MAHIDHA pearl guide — freshwater, South Sea, Akoya, Tahitian, baroque, Keshi and Basra-toned pearls, plus pearl shapes, colours, lustre and care.",
   path: "/know-your-pearls",
   image: F.pearlVintage,
 };
 
 export const metadata = pageMeta(SEO);
 
-const TYPES: { name: string; img: string; body: string }[] = [
-  {
-    name: "Natural Pearls",
-    img: F.pearlVintage,
-    body: "The rarest of all — formed entirely without human intervention when an irritant enters a mollusc. Historically found in the Persian Gulf, Red Sea, India and Sri Lanka, and once reserved for royalty.",
-  },
-  {
-    name: "Cultured Pearls",
-    img: F.flatGold,
-    body: "Formed with gentle human assistance, where a nucleus begins the pearl-forming process. Today they are produced in Japan, China, Australia, Indonesia and French Polynesia.",
-  },
-  {
-    name: "Freshwater Pearls",
-    img: F.neckRope,
-    body: "Grown in lakes and rivers, most famously in China. Loved for their soft lustre, broad range of shapes and versatility — ideal for everyday and modern designs.",
-  },
-  {
-    name: "Akoya Pearls",
-    img: F.flatCeleb,
-    body: "Classic saltwater pearls, traditionally cultivated in Japan. Known for their round shape, brilliant reflection and refined white or cream tones — timeless and formal.",
-  },
-  {
-    name: "South Sea Pearls",
-    img: F.neckLariat,
-    body: "Among the largest and most luxurious in the world, cultivated mainly in Australia, the Philippines and Indonesia. Their white, silver and golden hues feel rich and elevated.",
-  },
-  {
-    name: "Tahitian Pearls",
-    img: F.flatCelest,
-    body: "Produced in French Polynesia and famous for dramatic darker colours — grey, green, peacock and black. Bold, modern and especially distinctive.",
-  },
+/* Jump links shown under the intro. */
+const NAV: { id: string; label: string }[] = [
+  { id: "freshwater", label: "Freshwater" },
+  { id: "south-sea", label: "South Sea" },
+  { id: "akoya", label: "Akoya" },
+  { id: "tahitian", label: "Tahitian" },
+  { id: "baroque", label: "Baroque" },
+  { id: "keshi", label: "Keshi" },
+  { id: "basra-toned", label: "Basra-Toned" },
+  { id: "shapes", label: "Shapes" },
+  { id: "colours", label: "Colours" },
+  { id: "lustre", label: "Lustre" },
+  { id: "care", label: "Care" },
 ];
 
-const CARE: string[] = [
-  "Wear pearls after applying perfume, lotion and makeup — never before.",
-  "Avoid contact with harsh chemicals, cleaning agents and excessive moisture.",
-  "Wipe them gently with a soft cloth after wearing.",
-  "Store them separately from harder jewellery to prevent scratches.",
-  "Keep them in a soft pouch or lined box, not airtight plastic for long periods.",
-  "Avoid rough handling, high heat and frequent abrasion.",
-  "If strung on thread, have the string checked or restrung periodically.",
-];
+/* ---- Content renderers ------------------------------------------------ */
+
+/* Renders the light-markup body arrays from content.ts:
+   "### " → h3, "#### " → h4, "- " → bullet (consecutive items group
+   into one list), anything else → paragraph. */
+function Prose({ body }: { body: string[] }) {
+  const out: ReactNode[] = [];
+  let items: string[] = [];
+
+  const flushList = () => {
+    if (!items.length) return;
+    out.push(
+      <ul key={`ul-${out.length}`} className="space-y-2.5 pl-1">
+        {items.map((it) => (
+          <li key={it} className="flex items-start gap-3 text-taupe text-[16px] md:text-[17px] leading-[1.8]">
+            <span className="mt-[12px] h-[5px] w-[5px] rounded-full bg-gold shrink-0" aria-hidden />
+            {it}
+          </li>
+        ))}
+      </ul>,
+    );
+    items = [];
+  };
+
+  for (const line of body) {
+    if (line.startsWith("- ")) {
+      items.push(line.slice(2));
+      continue;
+    }
+    flushList();
+    if (line.startsWith("### ")) {
+      out.push(
+        <h3 key={`h-${out.length}`} className="font-serif text-[24px] md:text-[28px] leading-tight text-charcoal pt-5">
+          {line.slice(4)}
+        </h3>,
+      );
+    } else if (line.startsWith("#### ")) {
+      out.push(
+        <h4 key={`h-${out.length}`} className="font-serif text-[19px] md:text-[21px] leading-tight text-charcoal pt-2">
+          {line.slice(5)}
+        </h4>,
+      );
+    } else {
+      out.push(
+        <p key={`p-${out.length}`} className="text-taupe text-[16px] md:text-[17px] leading-[1.85]">
+          {line}
+        </p>,
+      );
+    }
+  }
+  flushList();
+  return <div className="space-y-4">{out}</div>;
+}
+
+/* Three-image strip: first (lifestyle) image goes wide on mobile,
+   all three sit side by side from md up. */
+function Gallery({ images }: { images: GalleryImage[] }) {
+  if (!images.length) return null;
+  return (
+    <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      {images.map((im, i) => (
+        <Reveal key={im.src} delay={i * 80} className={i === 0 ? "col-span-2 md:col-span-1" : ""}>
+          <div
+            className={`relative rounded-btn overflow-hidden bg-beige duo ${
+              i === 0 ? "aspect-[16/9] md:aspect-square" : "aspect-square"
+            }`}
+          >
+            <SmartImage
+              src={im.src}
+              alt={im.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+function QuickFacts({ facts }: { facts: [string, string][] }) {
+  return (
+    <div className="rounded-btn bg-white/60 border border-charcoal/10 overflow-hidden h-full">
+      <p className="px-6 pt-6 pb-2 font-sans text-[12px] tracking-nav uppercase text-gold">Quick Facts</p>
+      <dl className="divide-y divide-charcoal/10">
+        {facts.map(([k, v]) => (
+          <div key={k} className="grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4 px-6 py-3.5">
+            <dt className="text-charcoal text-[14px] font-medium leading-[1.6]">{k}</dt>
+            <dd className="text-taupe text-[14px] leading-[1.7]">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+function DidYouKnow({ text }: { text: string }) {
+  return (
+    <div className="rounded-btn bg-navy text-ivory p-7 md:p-9 h-full">
+      <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">Did You Know?</p>
+      <p className="text-ivory/85 text-[15px] md:text-[16px] leading-[1.9]">{text}</p>
+    </div>
+  );
+}
+
+function GuideTable({ title, head, rows }: { title: string; head: string[]; rows: string[][] }) {
+  return (
+    <div className="rounded-btn bg-white/60 border border-charcoal/10 overflow-hidden">
+      <p className="px-6 pt-6 pb-2 font-sans text-[12px] tracking-nav uppercase text-gold">{title}</p>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] text-left">
+          <thead>
+            <tr className="border-b border-charcoal/10">
+              {head.map((h) => (
+                <th key={h} className="px-6 py-3 font-sans text-[12px] tracking-nav uppercase text-charcoal/60 font-normal">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-charcoal/10">
+            {rows.map((r) => (
+              <tr key={r[0]}>
+                {r.map((c, i) => (
+                  <td
+                    key={c}
+                    className={`px-6 py-3.5 text-[14px] leading-[1.7] align-top ${
+                      i === 0 ? "text-charcoal font-medium" : "text-taupe"
+                    }`}
+                  >
+                    {c}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+/* ---- Page -------------------------------------------------------------- */
 
 export default function KnowYourPearlsPage() {
   return (
@@ -76,178 +213,176 @@ export default function KnowYourPearlsPage() {
         ]}
       />
       <PageHero
-        overline="Know Your Pearls"
-        title="The Timeless Legacy of Pearls"
-        sub="Long before diamonds became symbols of luxury, there were pearls."
+        overline="The Mahidha Guide"
+        title="Know Your Pearls"
+        sub="Every pearl tells a different story."
         img={F.flatGold}
       />
 
-      {/* Intro */}
+      {/* Intro + jump links */}
       <section className="bg-pearl">
-        <div className="max-w-3xl mx-auto px-5 py-20 md:py-24 space-y-6 text-charcoal text-[16px] md:text-[18px] leading-[1.85]">
-          <p>
-            Pearls have held a special place in jewellery for centuries because they are unlike
-            any other gemstone. Formed inside living molluscs, they carry a natural softness, glow
-            and elegance that make them feel both deeply traditional and eternally modern. Their
-            beauty has crossed cultures, eras and fashion movements, which is why they remain one
-            of the most loved materials in fine jewellery today.
-          </p>
-          <p className="font-serif text-[24px] md:text-[30px] leading-[1.4] text-charcoal">
-            No two pearls are ever exactly alike.
-          </p>
+        <div className="max-w-3xl mx-auto px-5 py-16 md:py-24 text-center">
+          <p className="text-charcoal text-[16px] md:text-[18px] leading-[1.85]">{INTRO}</p>
+          <nav aria-label="Guide sections" className="mt-10 flex flex-wrap justify-center gap-2.5">
+            {NAV.map((l) => (
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                className="px-4 py-2 rounded-full border border-charcoal/15 text-charcoal/75 font-sans text-[13px] tracking-wide hover:border-gold hover:text-charcoal transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </section>
 
-      {/* Types of pearls */}
-      <section className="bg-beige">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28">
-          <SectionHeading
-            overline="A field guide"
-            title="Types of pearls and their origin"
-            sub="Pearls are grouped into several major types, each with its own origin and character."
-          />
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TYPES.map((t) => (
-              <Reveal key={t.name} className="bg-pearl rounded-btn overflow-hidden">
-                <div className="relative aspect-[4/3] bg-beige duo">
+      {/* Pearl varieties */}
+      {VARIETIES.map((v, i) => (
+        <section key={v.id} id={v.id} className={`scroll-mt-24 ${i % 2 === 0 ? "bg-beige" : "bg-pearl"}`}>
+          <div className="max-w-wrap mx-auto px-5 py-16 md:py-24">
+            <SectionHeading overline="Pearl Varieties" title={v.name} sub={v.tagline} />
+            <Gallery images={v.images} />
+            <Reveal className="mt-12 max-w-3xl mx-auto">
+              <Prose body={v.body} />
+            </Reveal>
+            <div className="mt-14 max-w-5xl mx-auto grid lg:grid-cols-2 gap-6 items-stretch">
+              <Reveal>
+                <QuickFacts facts={v.facts} />
+              </Reveal>
+              <Reveal delay={100}>
+                <DidYouKnow text={v.didYouKnow} />
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* Pearl shapes */}
+      <section id="shapes" className="scroll-mt-24 bg-pearl">
+        <div className="max-w-wrap mx-auto px-5 py-16 md:py-24">
+          <SectionHeading overline="A Field Guide" title="Pearl Shapes" sub="Every Shape Tells a Different Story" />
+          <Reveal className="mt-10 max-w-3xl mx-auto">
+            <Prose body={SHAPES_INTRO} />
+          </Reveal>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {SHAPES.map((s, i) => (
+              <Reveal key={s.name} delay={(i % 4) * 70} className="bg-white/60 border border-charcoal/10 rounded-btn overflow-hidden flex flex-col">
+                <div className="relative aspect-square bg-beige duo">
                   <SmartImage
-                    src={ph(t.img)}
-                    alt={`${t.name} — pearl type`}
+                    src={s.img.src}
+                    alt={s.img.alt}
                     fill
-                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
                 </div>
-                <div className="p-7">
-                  <h3 className="font-serif text-[24px] text-charcoal leading-tight">{t.name}</h3>
-                  <p className="mt-3 text-taupe text-[15px] leading-[1.8]">{t.body}</p>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="font-serif text-[22px] text-charcoal leading-tight">{s.name}</h3>
+                  <p className="mt-1 font-sans text-[11px] tracking-nav uppercase text-gold">{s.tagline}</p>
+                  <div className="mt-3 space-y-3">
+                    {s.paras.map((p) => (
+                      <p key={p} className="text-taupe text-[14px] leading-[1.75]">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-charcoal/10">
+                    <p className="font-sans text-[11px] tracking-nav uppercase text-charcoal/60">Best suited for</p>
+                    <ul className="mt-2 space-y-1.5">
+                      {s.bestFor.map((b) => (
+                        <li key={b} className="flex items-start gap-2.5 text-taupe text-[13.5px] leading-[1.6]">
+                          <span className="mt-[9px] h-[4px] w-[4px] rounded-full bg-gold shrink-0" aria-hidden />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Pearl legacy through history */}
-      <section className="bg-pearl">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal>
-            <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">
-              Pearl legacy through history
-            </p>
-            <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal">
-              The City of Pearls
-            </h2>
-            <p className="mt-5 text-taupe text-[16px] md:text-[18px] leading-[1.85]">
-              Pearls have adorned jewellery for thousands of years. Ancient civilizations — Egypt,
-              Rome, Persia, China and India — prized them for their beauty and symbolism, linking
-              them to purity, power, wealth and divine favour. European aristocrats and British
-              royalty were enchanted by pearls through the Victorian and Edwardian eras, layering
-              strands worn by queens, duchesses and noblewomen.
-            </p>
-            <p className="mt-4 text-taupe text-[16px] md:text-[18px] leading-[1.85]">
-              Known historically as the &ldquo;City of Pearls,&rdquo; Hyderabad became one of the
-              world&apos;s most important trading centres for fine pearls during the reign of the
-              Nizams. Their collections became legendary — layered necklaces, satladas, chokers and
-              regal strands that became hallmarks of royal elegance. Today, that heritage continues
-              to inspire Mahidha.
-            </p>
+          <Reveal className="mt-14 max-w-3xl mx-auto">
+            <Prose body={SHAPES_OUTRO} />
           </Reveal>
-          <Reveal>
-            <div className="relative w-full aspect-[4/5] rounded-btn overflow-hidden bg-beige duo">
-              <SmartImage
-                src="/img/charminar2.png"
-                alt="Charminar — Hyderabad, the City of Pearls"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+          <Reveal className="mt-12 max-w-4xl mx-auto">
+            <GuideTable title="Quick Guide to Pearl Shapes" head={SHAPES_TABLE.head} rows={SHAPES_TABLE.rows} />
           </Reveal>
         </div>
       </section>
 
-      {/* Why pearls remain popular */}
-      <section className="bg-beige">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal className="order-2 lg:order-1">
-            <div className="relative w-full aspect-[4/5] rounded-btn overflow-hidden bg-pearl duo">
-              <SmartImage
-                src={ph(F.heroBlazer)}
-                alt="Pearls styled for the modern woman"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+      {/* Pearl colours */}
+      <section id="colours" className="scroll-mt-24 bg-beige">
+        <div className="max-w-wrap mx-auto px-5 py-16 md:py-24">
+          <SectionHeading overline="A Field Guide" title="Pearl Colours" sub="Nature's Most Elegant Palette" />
+          <Reveal className="mt-10 max-w-3xl mx-auto">
+            <Prose body={COLOURS_INTRO} />
           </Reveal>
-          <Reveal className="order-1 lg:order-2">
-            <p className="font-sans text-[12px] tracking-nav uppercase text-gold mb-4">
-              Why pearls remain popular
-            </p>
-            <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal">
-              Grace and simplicity, in equal measure.
-            </h2>
-            <p className="mt-5 text-taupe text-[16px] md:text-[18px] leading-[1.85]">
-              Pearls endure because they are both versatile and emotionally meaningful — beautiful
-              with traditional clothing, contemporary fashion, bridal wear and everyday outfits.
-              From old Hollywood stars to modern red-carpet icons, pearls have long expressed
-              refinement, quiet confidence and timeless taste.
-            </p>
-            <p className="mt-4 text-taupe text-[16px] md:text-[18px] leading-[1.85]">
-              And they feel personal. No two pearls are exactly alike, and that slight variation
-              gives each piece a human, organic charm — elegant without being loud, luxurious
-              without being inaccessible, classic without ever feeling outdated.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* What makes pearls unique */}
-      <section className="bg-pearl">
-        <div className="max-w-3xl mx-auto px-5 py-20 md:py-24 space-y-6 text-charcoal text-[16px] md:text-[18px] leading-[1.85]">
-          <p className="font-sans text-[12px] tracking-nav uppercase text-gold">
-            What makes pearls unique
-          </p>
-          <h2 className="font-serif text-[30px] md:text-[44px] leading-tight text-charcoal !mt-3">
-            Made by living organisms — not mined from the earth.
-          </h2>
-          <p>
-            This gives pearls a softer, more organic identity. Their surface has a gentle glow
-            rather than sharp brilliance, which is why they are described as luminous instead of
-            flashy. They pair beautifully with silver, which adds a cooler, cleaner, contemporary
-            edge — elegant yet light, polished yet effortless, and especially suited to daily wear.
-          </p>
-          <p>
-            Pearls are often passed down through families because they are deeply personal. Unlike
-            trends that come and go, pearls carry stories — worn during celebrations, milestones,
-            weddings and everyday moments that become memories. With proper care, they remain
-            beautiful for decades, even generations.
-          </p>
-          <p className="font-serif text-[22px] md:text-[26px] leading-[1.4] text-charcoal">
-            The soft glow of a pearl does not fade with time. Instead, it gathers meaning.
-          </p>
-        </div>
-      </section>
-
-      {/* How to care for pearls */}
-      <section className="bg-beige">
-        <div className="max-w-wrap mx-auto px-5 py-20 md:py-24">
-          <SectionHeading
-            overline="Care"
-            title="How to care for your pearls"
-            sub="Pearls are beautiful but delicate — a little thoughtful care preserves their lustre for years."
-          />
-          <ul className="mt-12 max-w-3xl mx-auto grid sm:grid-cols-2 gap-x-10 gap-y-4">
-            {CARE.map((c) => (
-              <li key={c} className="flex items-start gap-3 text-taupe text-[16px] leading-[1.7]">
-                <span className="mt-1 shrink-0 text-gold">
-                  <Icons.sparkle size={16} stroke="#C4A87A" />
-                </span>
-                {c}
-              </li>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {COLOURS.map((c, i) => (
+              <Reveal key={c.name} delay={(i % 3) * 70} className="bg-white/60 border border-charcoal/10 rounded-btn overflow-hidden flex flex-col">
+                <div className="relative aspect-[4/3] bg-pearl duo">
+                  <SmartImage
+                    src={c.img.src}
+                    alt={c.img.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <h3 className="font-serif text-[22px] text-charcoal leading-tight">{c.name}</h3>
+                  <p className="mt-1 font-sans text-[11px] tracking-nav uppercase text-gold">{c.tagline}</p>
+                  <div className="mt-3 space-y-3">
+                    {c.body.map((p) => (
+                      <p key={p} className="text-taupe text-[14px] leading-[1.75]">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
             ))}
-          </ul>
+          </div>
+          <Reveal className="mt-14 max-w-3xl mx-auto">
+            <Prose body={COLOURS_OUTRO} />
+          </Reveal>
+          <div className="mt-12 max-w-5xl mx-auto space-y-6">
+            <Reveal>
+              <GuideTable title="Quick Guide to Pearl Colours" head={COLOURS_TABLE.head} rows={COLOURS_TABLE.rows} />
+            </Reveal>
+            <Reveal>
+              <DidYouKnow text={COLOURS_DYK} />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Pearl lustre */}
+      <section id="lustre" className="scroll-mt-24 bg-pearl">
+        <div className="max-w-wrap mx-auto px-5 py-16 md:py-24">
+          <SectionHeading overline="A Field Guide" title="Pearl Lustre" sub="The Secret Behind a Pearl's Beauty" />
+          <Gallery images={LUSTRE_IMAGES} />
+          <Reveal className="mt-12 max-w-3xl mx-auto">
+            <Prose body={LUSTRE_BODY} />
+          </Reveal>
+          <Reveal className="mt-12 max-w-4xl mx-auto">
+            <GuideTable title="Quick Guide to Pearl Lustre" head={LUSTRE_TABLE.head} rows={LUSTRE_TABLE.rows} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Pearl care */}
+      <section id="care" className="scroll-mt-24 bg-beige">
+        <div className="max-w-wrap mx-auto px-5 py-16 md:py-24">
+          <SectionHeading overline="Care" title="Pearl Care Guide" sub="Simple Care for a Lifetime of Beauty" />
+          <Gallery images={CARE_IMAGES} />
+          <Reveal className="mt-12 max-w-3xl mx-auto">
+            <Prose body={CARE_BODY} />
+          </Reveal>
+          <Reveal className="mt-12 max-w-4xl mx-auto">
+            <GuideTable title="Pearl Care Checklist" head={CARE_TABLE.head} rows={CARE_TABLE.rows} />
+          </Reveal>
         </div>
       </section>
 
