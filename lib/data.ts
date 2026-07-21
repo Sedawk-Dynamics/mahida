@@ -290,10 +290,23 @@ export const TRUST6: [string, string, string][] = [
   ["gift", "Thoughtful Packaging", "Beautifully packed"],
 ];
 
-export const TESTIMONIALS: [string, string][] = [
-  ['"Lightweight, lustrous and genuinely everyday. I haven\'t taken my Celeste studs off in weeks."', "Ananya R."],
-  ['"The pearls feel modern, not old-fashioned. Exactly what I was searching for."', "Meera K."],
-  ['"From desk to dinner without a second thought. Mahidha gets the modern woman."', "Sara T."],
+/* Real customer testimonials — [quote, name, image]. */
+export const TESTIMONIALS: [string, string, string][] = [
+  [
+    "\"I don't usually buy jewellery online, so I was a little unsure at first. But when I received this necklace, I was pleasantly surprised. The pearls are beautiful, the finish is neat, and it sits comfortably around my neck. It has become one of my favourite pieces because it is simple, graceful, and goes well with almost everything I wear.\"",
+    "Madhu Sharma",
+    "/img/testimonial1.jpg",
+  ],
+  [
+    "\"This necklace has quickly become one of my favourite pieces. I wore it for an entire day of meetings and later for an evening catch-up with colleagues, and it felt just as appropriate for both. It's lightweight, timeless, and instantly elevates even a simple outfit. I appreciate jewellery that's both beautiful and practical, and this is exactly\"",
+    "Anju",
+    "/img/testimonial2.jpg",
+  ],
+  [
+    "\"I wanted jewellery that would stand out without overpowering my outfit, and this necklace was exactly that. It added the perfect touch to my saree and was surprisingly comfortable to wear for hours. The quality is beautiful, and the pearls have such a lovely shine. One of my favourite pieces in my collection.\"",
+    "Jyotsna",
+    "/img/testimonial3.jpg",
+  ],
 ];
 
 /* =================================================================

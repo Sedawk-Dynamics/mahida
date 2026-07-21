@@ -138,7 +138,7 @@ const FOUNDERS: { name: string; role: string; img: string; body: string[] }[] = 
     img: "/img/medha.jpeg",
     body: [
       "Medha is the quiet force behind Mahidha's creative soul. With experience spanning technology, legal, and digital innovation, she brings analytical thinking and creative vision to every decision.",
-      "As Mahidha's Chief Product & Digital Officer, she leads product design, digital strategy, and brand storytelling, ensuring every collection reflects timeless craftsmanship and thoughtful detail. Working closely with artisans and partners, she builds lasting relationships while upholding exceptional quality, authenticity, and elegance.",
+      "As Mahidha's Chief Product & Digital Officer, she leads product design, digital strategy, and brand storytelling, ensuring every collection reflects timeless craftsmanship and thoughtful detail. Working closely with artisans and partners, she builds lasting relationships while upholding exceptional quality, authenticity, and elegance. Medha thrives on giving every creation its distinctive soul.",
     ],
   },
 ];
@@ -269,7 +269,7 @@ export default function StoryPage() {
           />
           <div className="mt-14 grid md:grid-cols-2 gap-12 lg:gap-16 max-w-4xl mx-auto">
             {FOUNDERS.map((f) => (
-              <Reveal key={f.name}>
+              <Reveal key={f.name} className="h-full flex flex-col">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-btn bg-beige">
                   <SmartImage
                     src={f.img}
@@ -283,7 +283,7 @@ export default function StoryPage() {
                 <p className="font-sans text-[12px] tracking-nav uppercase text-gold mt-1">
                   {f.role}
                 </p>
-                <div className="mt-4 space-y-3 text-taupe text-[15px] leading-[1.8]">
+                <div className="mt-4 space-y-3 text-taupe text-[15px] leading-[1.8] grow">
                   {f.body.map((p, j) => (
                     <p key={j}>{p}</p>
                   ))}
