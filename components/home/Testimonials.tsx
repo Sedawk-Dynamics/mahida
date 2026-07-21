@@ -1,8 +1,6 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Stars from "@/components/ui/Stars";
-import SmartImage from "@/components/ui/SmartImage";
-import { ph } from "@/lib/images";
 import { TESTIMONIALS } from "@/lib/data";
 
 export default function Testimonials() {
@@ -22,15 +20,6 @@ export default function Testimonials() {
               >
                 &ldquo;
               </span>
-              <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4 ring-1 ring-gold/40">
-                <SmartImage
-                  src={ph(`${name} — customer portrait, woman in soft light`)}
-                  alt={`${name} — customer portrait`}
-                  fill
-                  sizes="64px"
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <Stars value={5} />
               <p className="mt-5 font-serif text-[22px] leading-[1.4] text-charcoal">{quote}</p>
               <p className="mt-5 font-sans text-[12px] tracking-nav uppercase text-taupe">
