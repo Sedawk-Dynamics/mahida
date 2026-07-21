@@ -290,10 +290,10 @@ export const TRUST6: [string, string, string][] = [
   ["gift", "Thoughtful Packaging", "Beautifully packed"],
 ];
 
-export const TESTIMONIALS: [string, string, string][] = [
-  ['"Lightweight, lustrous and genuinely everyday. I haven\'t taken my Celeste studs off in weeks."', "Ananya R.", "Hyderabad"],
-  ['"The pearls feel modern, not old-fashioned. Exactly what I was searching for."', "Meera K.", "Bengaluru"],
-  ['"From desk to dinner without a second thought. Mahidha gets the modern woman."', "Sara T.", "Mumbai"],
+export const TESTIMONIALS: [string, string][] = [
+  ['"Lightweight, lustrous and genuinely everyday. I haven\'t taken my Celeste studs off in weeks."', "Ananya R."],
+  ['"The pearls feel modern, not old-fashioned. Exactly what I was searching for."', "Meera K."],
+  ['"From desk to dinner without a second thought. Mahidha gets the modern woman."', "Sara T."],
 ];
 
 /* =================================================================

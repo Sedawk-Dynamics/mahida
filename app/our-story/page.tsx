@@ -137,7 +137,8 @@ const FOUNDERS: { name: string; role: string; img: string; body: string[] }[] = 
     role: "Co-Founder & Chief Product & Digital Officer",
     img: "/img/medha.jpeg",
     body: [
-      "Medha is the quiet force behind Mahidha's creative soul. With experience spanning technology, legal, and digital innovation, she brings analytical thinking and creative vision to every decision. As Mahidha's Chief Product & Digital Officer, she leads product design, digital strategy, and brand storytelling, ensuring every collection reflects timeless craftsmanship and thoughtful detail. Working closely with artisans and partners, she builds lasting relationships while upholding exceptional quality, authenticity, and elegance.",
+      "Medha is the quiet force behind Mahidha's creative soul. With experience spanning technology, legal, and digital innovation, she brings analytical thinking and creative vision to every decision.",
+      "As Mahidha's Chief Product & Digital Officer, she leads product design, digital strategy, and brand storytelling, ensuring every collection reflects timeless craftsmanship and thoughtful detail. Working closely with artisans and partners, she builds lasting relationships while upholding exceptional quality, authenticity, and elegance.",
     ],
   },
 ];

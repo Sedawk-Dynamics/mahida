@@ -11,7 +11,7 @@ export default function Testimonials() {
       <div className="max-w-wrap mx-auto px-5 py-20 md:py-28">
         <SectionHeading overline="What our clients say" title="Loved in real life" />
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map(([quote, name, city]) => (
+          {TESTIMONIALS.map(([quote, name]) => (
             <Reveal
               key={name}
               className="relative bg-pearl rounded-btn p-8 pt-10 text-center flex flex-col items-center"
@@ -34,7 +34,7 @@ export default function Testimonials() {
               <Stars value={5} />
               <p className="mt-5 font-serif text-[22px] leading-[1.4] text-charcoal">{quote}</p>
               <p className="mt-5 font-sans text-[12px] tracking-nav uppercase text-taupe">
-                {name} · {city}
+                {name}
               </p>
             </Reveal>
           ))}
