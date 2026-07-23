@@ -336,7 +336,7 @@ export default function StoryPage() {
           <h2 className="font-serif text-[30px] md:text-[48px] leading-[1.15] text-ivory max-w-3xl mx-auto">
             For the meetings, the memories, the milestones and everything in between.
           </h2>
-          <Button variant="light" className="mt-9" href={hrefFor("list", { cat: "All Jewellery" })}>
+          <Button variant="light" className="mt-9" href="https://shop.mahidha.com/product-category/all-jewellery/">
             Shop the Collection
           </Button>
         </div>

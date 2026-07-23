@@ -21,7 +21,7 @@ const tiles: [string, string][] = [
   ["Bridesmaid Gifts", "/img/Bridesmaid.jpeg"],
   ["Everyday Staples", "/img/everyday.jpeg"],
   ["Timeless Pearls", "/img/whypearl.jpeg"],
-  ["Under ₹5000", "/img/Below5000.jpeg"],
+  ["Under ₹7000", "/img/Below5000.jpeg"],
   ["Modern Minimal Pieces", "/img/stirsilver.jpeg"],
 ];
 
