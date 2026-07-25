@@ -29,6 +29,7 @@ export default function HomePage() {
         title="Fresh arrivals"
         sub="The latest additions to Mahidha — timeless elegance with a contemporary edge."
         items={NEW_IN}
+        badge="New"
       />
       <UGCSection />
       <ProductRail

@@ -11,7 +11,7 @@ import { LIVE_SHOP } from "@/lib/links";
 import { useHydrated, useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
 
-export default function ProductCard({ p }: { p: Product }) {
+export default function ProductCard({ p, badge }: { p: Product; badge?: string }) {
   const toggleWish = useStore((s) => s.toggleWish);
   const wishlist = useStore((s) => s.wishlist);
   const hydrated = useHydrated();
@@ -34,7 +34,11 @@ export default function ProductCard({ p }: { p: Product }) {
           />
         </a>
         <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {discount > 0 && <Badge tone="gold">-{discount}%</Badge>}
+          {badge ? (
+            <Badge tone="gold">{badge}</Badge>
+          ) : (
+            discount > 0 && <Badge tone="gold">-{discount}%</Badge>
+          )}
           {p.status === "new" && <Badge tone="gold">New</Badge>}
           {sold && <Badge tone="sold">Sold out</Badge>}
           {p.status === "star" && (
