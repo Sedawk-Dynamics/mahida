@@ -18,6 +18,36 @@
       "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
       "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\banaras", "--", "-p", "3001"],
       "port": 3001
+    },
+    {
+      "name": "gravity-dev",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\Gravity", "--", "-p", "3003"],
+      "port": 3003
+    },
+    {
+      "name": "wp-skin-preview",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npx.cmd",
+      "runtimeArgs": ["-y", "http-server", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\Gravity\\wordpress", "-p", "3009", "-c-1"],
+      "port": 3009
+    },
+    {
+      "name": "hhpf-dev",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\holistic-healing-website", "--", "-p", "3004"],
+      "port": 3004
+    },
+    {
+      "name": "kopahi-dev",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\Aiba\\kopahi-frontend", "--", "-p", "3006"],
+      "port": 3006
+    },
+    {
+      "name": "smalltalk-dev",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\small talk", "--", "-p", "3002"],
+      "port": 3002
     }
   ]
 }
