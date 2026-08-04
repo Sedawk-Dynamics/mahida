@@ -14,6 +14,9 @@ interface Slide {
   sub: string;
   cta: string;
   href: string;
+  /* object-position classes when the mobile crop needs a different focal
+     point than the default center (subjects off-center in the source image) */
+  pos?: string;
 }
 
 const SLIDES: Slide[] = [
@@ -34,6 +37,7 @@ const SLIDES: Slide[] = [
     sub: "Lightweight pearls and silver, made to move with your escape.",
     cta: "Shop Vacation",
     href: "https://shop.mahidha.com/product-category/all-jewellery/",
+    pos: "object-[68%_25%] md:object-[center_30%]",
   },
   {
     img: "/img/rakhi22.png",
@@ -131,7 +135,7 @@ export default function Hero() {
             fill
             sizes="100vw"
             priority={idx === 0}
-            className="w-full h-full object-cover object-[center_30%]"
+            className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
           />
           <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
           <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
