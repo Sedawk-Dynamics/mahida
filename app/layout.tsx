@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/layout/CartDrawer";
 import MobileTabBar from "@/components/layout/MobileTabBar";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import { SITE_URL } from "@/lib/seo";
 
 const cormorant = Cormorant_Garamond({
@@ -79,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
+        <MetaPixel />
         <div className="min-h-screen flex flex-col bg-pearl pb-[60px] lg:pb-0">
           <UtilityBar />
           <Header />

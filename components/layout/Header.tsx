@@ -211,6 +211,13 @@ export default function Header() {
             <Icons.bag size={20} />
           </IconBtn>
           <IconBtn
+            label="Search"
+            href="https://shop.mahidha.com/"
+            className="inline-flex lg:hidden"
+          >
+            <Icons.search size={20} />
+          </IconBtn>
+          <IconBtn
             label="Compare"
             href="https://shop.mahidha.com/compare/"
             className="hidden lg:inline-flex"
