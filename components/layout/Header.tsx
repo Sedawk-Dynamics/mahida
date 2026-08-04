@@ -200,22 +200,11 @@ export default function Header() {
 
         {/* Right column — Cart only on mobile; full set from desktop up */}
         <div className="flex items-center justify-end gap-1 md:gap-2">
-          <IconBtn
-            label="Search"
-            href="https://shop.mahidha.com/"
-            className="hidden lg:inline-flex"
-          >
+          <IconBtn label="Search" href="https://shop.mahidha.com/">
             <Icons.search size={20} />
           </IconBtn>
           <IconBtn label="Cart" href="https://shop.mahidha.com/cart/" badge={hydrated ? count : 0}>
             <Icons.bag size={20} />
-          </IconBtn>
-          <IconBtn
-            label="Search"
-            href="https://shop.mahidha.com/"
-            className="inline-flex lg:hidden"
-          >
-            <Icons.search size={20} />
           </IconBtn>
           <IconBtn
             label="Compare"
