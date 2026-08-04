@@ -73,7 +73,7 @@ export function organizationJsonLd() {
     slogan: "Elevated Everyday",
     description:
       "MAHIDHA — modern pearl & sterling silver jewellery. Rooted in Hyderabad's Nizam-era pearl heritage, designed for now.",
-    email: "hello@mahidha.com",
+    email: "info@mahidha.com",
     telephone: "+91 72073 61114",
     foundingLocation: { "@type": "Place", name: "Hyderabad, India" },
     areaServed: { "@type": "Country", name: "India" },
@@ -89,7 +89,7 @@ export function organizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91 72073 61114",
-      email: "hello@mahidha.com",
+      email: "info@mahidha.com",
       contactType: "customer service",
     },
     sameAs: [

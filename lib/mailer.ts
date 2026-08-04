@@ -20,8 +20,8 @@ export function getTransporter(): Transporter {
   return cached;
 }
 
-const FROM = process.env.SMTP_FROM || "MAHIDHA <hello@mahidha.com>";
-const TO = process.env.CONTACT_TO || "hello@mahidha.com";
+const FROM = process.env.SMTP_FROM || "MAHIDHA <info@mahidha.com>";
+const TO = process.env.CONTACT_TO || "info@mahidha.com";
 
 /* minimal HTML escaping for values interpolated into the email body */
 export function esc(s: string): string {

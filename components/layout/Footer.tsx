@@ -140,7 +140,7 @@ export default function Footer() {
           500032
         </p>
         <p className="flex items-center gap-2">
-          <Icons.mail size={16} stroke="#C4A87A" /> hello@mahidha.com
+          <Icons.mail size={16} stroke="#C4A87A" /> info@mahidha.com
         </p>
         <p className="flex items-center gap-2">
           <Icons.phone size={16} stroke="#C4A87A" /> +91 72073 61114, +91 72073 61115

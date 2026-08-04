@@ -34,7 +34,7 @@ export default function ContactPage() {
                 India, 500032
               </li>
               <li className="flex items-center gap-3">
-                <Icons.mail size={20} stroke="#C4A87A" /> hello@mahidha.com
+                <Icons.mail size={20} stroke="#C4A87A" /> info@mahidha.com
               </li>
               <li className="flex items-center gap-3">
                 <Icons.phone size={20} stroke="#C4A87A" /> +91 72073 61114, +91 72073 61115
