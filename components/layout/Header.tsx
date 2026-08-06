@@ -200,7 +200,7 @@ export default function Header() {
 
         {/* Right column — Cart only on mobile; full set from desktop up */}
         <div className="flex items-center justify-end gap-1 md:gap-2">
-          <IconBtn label="Search" href="https://shop.mahidha.com/">
+          <IconBtn label="Search" href="https://shop.mahidha.com/product-category/all-jewellery/">
             <Icons.search size={20} />
           </IconBtn>
           <IconBtn label="Cart" href="https://shop.mahidha.com/cart/" badge={hydrated ? count : 0}>
