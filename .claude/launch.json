@@ -26,6 +26,12 @@
       "port": 3003
     },
     {
+      "name": "banaras-dev-3011",
+      "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\banaras", "--", "-p", "3011"],
+      "port": 3011
+    },
+    {
       "name": "wp-skin-preview",
       "runtimeExecutable": "C:\\PROGRA~1\\nodejs\\npx.cmd",
       "runtimeArgs": ["-y", "http-server", "C:\\Users\\Sarthak Srivastava\\Desktop\\Webelio Projects\\Gravity\\wordpress", "-p", "3009", "-c-1"],
