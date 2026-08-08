@@ -26,8 +26,8 @@ const SLIDES: Slide[] = [
     eyebrow: "The Rakhi Edit",
     headline: "Celebrate Rakhi with Timeless Gifts",
     sub: "Sterling silver jewellery she'll cherish long after the celebrations.",
-    cta: "Shop Everyday",
-    href: "https://shop.mahidha.com/product-category/everyday/",
+    cta: "Shop the Rakhi Collection",
+    href: "https://shop.mahidha.com/product-category/gifting/for-her/",
     pos: "object-[65%_55%] md:object-[center_55%]",
   },
   {
