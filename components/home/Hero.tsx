@@ -21,6 +21,16 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
+    img: "/img/rakhio.jpeg",
+    alt: "Rakhi thali with laddoos, kumkum and a pearl rakhi on a silver plate",
+    eyebrow: "The Rakhi Edit",
+    headline: "Celebrate Rakhi with Timeless Gifts",
+    sub: "Sterling silver jewellery she'll cherish long after the celebrations.",
+    cta: "Shop Everyday",
+    href: "https://shop.mahidha.com/product-category/everyday/",
+    pos: "object-[65%_55%] md:object-[center_55%]",
+  },
+  {
     img: "/img/workday2.png",
     alt: "Pearl bracelet on a wrist beside a laptop and coffee — workwear",
     eyebrow: "The Work Edit",
