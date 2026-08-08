@@ -50,15 +50,6 @@ const SLIDES: Slide[] = [
     pos: "object-[68%_25%] md:object-[center_30%]",
   },
   {
-    img: "/img/rakhi22.png",
-    alt: "Rakhi gifts — pearls and silver for cherished bonds",
-    eyebrow: "Rakhi Moments",
-    headline: "For bonds that feel like home.",
-    sub: "Rakhi gifts that carry love, warmth, and a little sparkle.",
-    cta: "Shop Everyday",
-    href: "https://shop.mahidha.com/product-category/everyday/",
-  },
-  {
     img: F.nizamPhoto,
     alt: "Pearl and amethyst choker on a model in an ivory saree — Nizam heritage",
     eyebrow: "The Nizam Heritage",
