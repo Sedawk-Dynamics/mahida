@@ -51,8 +51,8 @@ export default function ContactPage() {
                 <Icons.fb size={22} />
               </a>
               <a
-                href="https://www.instagram.com/lovedbymahidha/"
-                aria-label="Instagram @lovedbymahidha"
+                href="https://www.instagram.com/mahidhastudio/"
+                aria-label="Instagram @mahidhastudio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold"

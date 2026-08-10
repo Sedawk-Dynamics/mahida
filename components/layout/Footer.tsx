@@ -64,8 +64,8 @@ export default function Footer() {
               <Icons.fb size={20} />
             </a>
             <a
-              href="https://www.instagram.com/lovedbymahidha/"
-              aria-label="Instagram @lovedbymahidha"
+              href="https://www.instagram.com/mahidhastudio/"
+              aria-label="Instagram @mahidhastudio"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-ivory"

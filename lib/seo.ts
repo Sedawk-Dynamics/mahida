@@ -94,7 +94,7 @@ export function organizationJsonLd() {
     },
     sameAs: [
       "https://www.facebook.com/lovedbymahidha/",
-      "https://www.instagram.com/lovedbymahidha/",
+      "https://www.instagram.com/mahidhastudio/",
       "https://www.linkedin.com/company/mahidha-global-pvt-ltd",
       "https://x.com/Mahidhaofficial",
     ],
