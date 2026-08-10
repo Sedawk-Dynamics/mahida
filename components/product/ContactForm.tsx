@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { Icons } from "@/components/ui/Icons";
 import Button from "@/components/ui/Button";
-import { sendContact } from "@/lib/api-client";
-
 type Field = "name" | "email" | "subject" | "message";
+
+const WEB3FORMS_ACCESS_KEY = "cc58ea1b-f1ff-499b-9c21-19d09c777991";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -25,7 +25,21 @@ export default function ContactForm() {
     setLoading(true);
     setError("");
     try {
-      await sendContact({ ...form, company });
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          from_name: "MAHIDHA Website",
+          subject: `Website enquiry: ${form.subject}`,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          botcheck: company !== "",
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || "Please try again.");
       setSent(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Please try again.");
