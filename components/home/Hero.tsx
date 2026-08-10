@@ -66,10 +66,11 @@ const SLIDES: Slide[] = [
     sub: "Every piece is thoughtfully made, one at a time — never mass-produced.",
     cta: "Learn More",
     href: "https://www.mahidha.com/artisan-story",
+    pos: "object-[55%_30%] md:object-[center_30%]",
   },
 ];
 
-const DURATION = 2000;
+const DURATION = 6000;
 
 export default function Hero() {
   const [i, setI] = useState(0);
