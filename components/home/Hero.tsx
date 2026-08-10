@@ -113,7 +113,7 @@ export default function Hero() {
 
   return (
     <section
-      className="group relative h-[92vh] min-h-[600px] md:min-h-[640px] bg-navy overflow-hidden"
+      className="group relative h-[60vh] min-h-[440px] md:h-[92vh] md:min-h-[640px] bg-navy overflow-hidden"
       aria-roledescription="carousel"
       aria-label="MAHIDHA editorial highlights"
       tabIndex={0}
