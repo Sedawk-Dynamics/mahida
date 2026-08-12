@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { getImageProps } from "next/image";
 import Button from "@/components/ui/Button";
 import SmartImage from "@/components/ui/SmartImage";
 import { Icons } from "@/components/ui/Icons";
@@ -8,30 +9,35 @@ import { F, ph } from "@/lib/images";
 
 interface Slide {
   img: string;
+  /* 4:5 portrait crop served below md — phones show the full frame instead
+     of a zoomed band of the landscape shot */
+  mobileImg?: string;
   alt: string;
   eyebrow: string;
   headline: string;
   sub: string;
   cta: string;
   href: string;
-  /* object-position classes when the mobile crop needs a different focal
-     point than the default center (subjects off-center in the source image) */
+  /* object-position overrides; with a mobileImg present only the md: part
+     matters (mobile renders the portrait crop at center) */
   pos?: string;
 }
 
 const SLIDES: Slide[] = [
   {
     img: "/img/rakhio.jpeg",
+    mobileImg: "/img/sliders1.jpeg",
     alt: "Rakhi thali with laddoos, kumkum and a pearl rakhi on a silver plate",
     eyebrow: "The Rakhi Edit",
     headline: "Celebrate Rakhi with Timeless Gifts",
     sub: "Sterling silver jewellery she'll cherish long after the celebrations.",
     cta: "Shop Collection",
     href: "https://shop.mahidha.com/product-category/gifting/for-her/",
-    pos: "object-[65%_55%] md:object-[center_55%]",
+    pos: "md:object-[center_55%]",
   },
   {
     img: "/img/workday2.png",
+    mobileImg: "/img/slider2.jpeg",
     alt: "Pearl bracelet on a wrist beside a laptop and coffee — workwear",
     eyebrow: "The Work Edit",
     headline: "Pearls that mean business.",
@@ -41,16 +47,17 @@ const SLIDES: Slide[] = [
   },
   {
     img: "/img/Slider2vacation2026.jpeg",
+    mobileImg: "/img/slider3.jpeg",
     alt: "Vacation mood with pearl jewellery in warm light",
     eyebrow: "The Vacation Edit",
     headline: "Pack light. Shine everywhere.",
     sub: "Lightweight pearls and silver, made to move with your escape.",
     cta: "Shop Vacation",
     href: "https://shop.mahidha.com/product-category/all-jewellery/",
-    pos: "object-[68%_25%] md:object-[center_30%]",
   },
   {
     img: F.nizamPhoto,
+    mobileImg: "/img/slider4.jpeg",
     alt: "Pearl and amethyst choker on a model in an ivory saree — Nizam heritage",
     eyebrow: "The Nizam Heritage",
     headline: "Inspired by the Nizam. Designed for now.",
@@ -60,13 +67,13 @@ const SLIDES: Slide[] = [
   },
   {
     img: "/img/KarigarhandPM.png",
+    mobileImg: "/img/slider5.jpeg",
     alt: "A karigar's hands crafting a pearl bracelet",
     eyebrow: "Made by Hand",
     headline: "Born in the hands of skilled karigars.",
     sub: "Every piece is thoughtfully made, one at a time — never mass-produced.",
     cta: "Learn More",
     href: "https://www.mahidha.com/artisan-story",
-    pos: "object-[55%_30%] md:object-[center_30%]",
   },
 ];
 
@@ -131,14 +138,33 @@ export default function Hero() {
           className={`slide absolute inset-0 overflow-hidden ${idx === i ? "active" : ""}`}
           aria-hidden={idx !== i}
         >
-          <SmartImage
-            src={ph(s.img)}
-            alt={s.alt}
-            fill
-            sizes="100vw"
-            priority={idx === 0}
-            className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
-          />
+          {s.mobileImg ? (
+            (() => {
+              const common = { alt: s.alt, fill: true, sizes: "100vw", priority: idx === 0 };
+              const { props: desktop } = getImageProps({ ...common, src: ph(s.img) });
+              const { props: mobile } = getImageProps({
+                ...common,
+                src: s.mobileImg,
+                className: `w-full h-full object-cover object-center ${s.pos ?? "md:object-[center_30%]"}`,
+              });
+              return (
+                <picture>
+                  <source media="(min-width: 768px)" srcSet={desktop.srcSet} sizes="100vw" />
+                  {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+                  <img {...mobile} />
+                </picture>
+              );
+            })()
+          ) : (
+            <SmartImage
+              src={ph(s.img)}
+              alt={s.alt}
+              fill
+              sizes="100vw"
+              priority={idx === 0}
+              className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
+            />
+          )}
           <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
           <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
         </div>
