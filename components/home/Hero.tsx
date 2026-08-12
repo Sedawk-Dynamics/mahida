@@ -120,7 +120,7 @@ export default function Hero() {
 
   return (
     <section
-      className="group relative h-[60vh] min-h-[440px] md:h-[92vh] md:min-h-[640px] bg-navy overflow-hidden"
+      className="group relative bg-navy overflow-hidden md:h-[92vh] md:min-h-[640px]"
       aria-roledescription="carousel"
       aria-label="MAHIDHA editorial highlights"
       tabIndex={0}
@@ -132,6 +132,8 @@ export default function Hero() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
+      {/* Image stage — clean image on mobile (text sits below it); fills the hero on md+ */}
+      <div className="relative w-full aspect-[4/5] max-h-[72vh] md:absolute md:inset-0 md:aspect-auto md:max-h-none">
       {SLIDES.map((s, idx) => (
         <div
           key={idx}
@@ -165,31 +167,13 @@ export default function Hero() {
               className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
             />
           )}
-          <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
+          {/* Readability gradients — desktop only; a thin bottom fade on mobile keeps
+              the dots legible without veiling the jewellery */}
+          <div className="hidden md:block absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
+          <div className="hidden md:block absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
+          <div className="md:hidden absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-navy/60 to-transparent" />
         </div>
       ))}
-
-      {/* Content overlay — left aligned (keyed so it re-fades per slide) */}
-      <div className="relative h-full px-6 sm:px-10 lg:px-16 flex flex-col justify-center items-start text-left">
-        <div key={i} className="reveal in max-w-lg">
-          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
-            <span className="inline-block h-px w-7 bg-gold" />
-            <Icons.sparkle size={13} stroke="#C4A87A" /> {active.eyebrow}
-          </p>
-          <h1 className="font-serif text-ivory leading-[1.1] text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
-            {active.headline}
-          </h1>
-          <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">
-            {active.sub}
-          </p>
-          <div className="mt-7">
-            <Button variant="light" href={active.href}>
-              {active.cta}
-            </Button>
-          </div>
-        </div>
-      </div>
 
       {/* Arrows */}
       <button
@@ -212,7 +196,7 @@ export default function Hero() {
       </button>
 
       {/* Dot / line indicators */}
-      <div className="absolute bottom-7 left-5 flex gap-2">
+      <div className="absolute bottom-4 md:bottom-7 left-5 flex gap-2">
         {SLIDES.map((s, idx) => (
           <button
             key={idx}
@@ -225,6 +209,29 @@ export default function Hero() {
             }`}
           />
         ))}
+      </div>
+      </div>
+
+      {/* Content — below the image on mobile (never covers the jewellery);
+          centered overlay on md+ (keyed so it re-fades per slide) */}
+      <div className="relative px-6 pt-7 pb-9 sm:px-10 text-left md:h-full md:px-10 lg:px-16 md:pt-0 md:pb-0 flex flex-col justify-center items-start">
+        <div key={i} className="reveal in max-w-lg">
+          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
+            <span className="inline-block h-px w-7 bg-gold" />
+            <Icons.sparkle size={13} stroke="#C4A87A" /> {active.eyebrow}
+          </p>
+          <h1 className="font-serif text-ivory leading-[1.1] text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
+            {active.headline}
+          </h1>
+          <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">
+            {active.sub}
+          </p>
+          <div className="mt-7">
+            <Button variant="light" href={active.href}>
+              {active.cta}
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
