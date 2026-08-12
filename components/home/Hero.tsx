@@ -167,11 +167,9 @@ export default function Hero() {
               className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
             />
           )}
-          {/* Readability gradients — desktop only; a thin bottom fade on mobile keeps
-              the dots legible without veiling the jewellery */}
-          <div className="hidden md:block absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
-          <div className="hidden md:block absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
-          <div className="md:hidden absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-navy/85 via-navy/35 to-transparent" />
+          {/* Readability gradients — same treatment on all viewports */}
+          <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
         </div>
       ))}
 
