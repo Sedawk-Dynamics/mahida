@@ -171,7 +171,7 @@ export default function Hero() {
               the dots legible without veiling the jewellery */}
           <div className="hidden md:block absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
           <div className="hidden md:block absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
-          <div className="md:hidden absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-navy/60 to-transparent" />
+          <div className="md:hidden absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-navy/85 via-navy/35 to-transparent" />
         </div>
       ))}
 
@@ -196,7 +196,7 @@ export default function Hero() {
       </button>
 
       {/* Dot / line indicators */}
-      <div className="absolute bottom-4 md:bottom-7 left-5 flex gap-2">
+      <div className="absolute bottom-4 right-5 md:right-auto md:left-5 md:bottom-7 flex gap-2">
         {SLIDES.map((s, idx) => (
           <button
             key={idx}
@@ -212,9 +212,9 @@ export default function Hero() {
       </div>
       </div>
 
-      {/* Content — below the image on mobile (never covers the jewellery);
-          centered overlay on md+ (keyed so it re-fades per slide) */}
-      <div className="relative px-6 pt-7 pb-9 sm:px-10 text-left md:h-full md:px-10 lg:px-16 md:pt-0 md:pb-0 flex flex-col justify-center items-start">
+      {/* Content — bottom-anchored over the image on mobile (clears the centred
+          jewellery); centered overlay on md+ (keyed so it re-fades per slide) */}
+      <div className="absolute inset-x-0 bottom-0 px-6 pb-9 sm:px-10 text-left md:relative md:inset-x-auto md:bottom-auto md:h-full md:px-10 lg:px-16 md:pb-0 flex flex-col justify-end md:justify-center items-start">
         <div key={i} className="reveal in max-w-lg">
           <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
             <span className="inline-block h-px w-7 bg-gold" />
