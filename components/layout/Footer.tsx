@@ -55,7 +55,7 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex gap-3 text-gold">
             <a
-              href="https://www.facebook.com/lovedbymahidha/"
+              href="https://www.facebook.com/mahidhastudio"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"

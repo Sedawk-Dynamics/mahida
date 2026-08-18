@@ -93,7 +93,7 @@ export function organizationJsonLd() {
       contactType: "customer service",
     },
     sameAs: [
-      "https://www.facebook.com/lovedbymahidha/",
+      "https://www.facebook.com/mahidhastudio",
       "https://www.instagram.com/mahidhastudio/",
       "https://www.linkedin.com/company/mahidha-global-pvt-ltd",
       "https://x.com/Mahidhaofficial",
