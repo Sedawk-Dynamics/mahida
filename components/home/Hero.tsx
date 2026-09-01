@@ -25,12 +25,12 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    img: "/img/rakhio.jpeg",
-    mobileImg: "/img/sliders1.jpeg",
-    alt: "Rakhi thali with laddoos, kumkum and a pearl rakhi on a silver plate",
+    img: "/img/new2.jpeg",
+    mobileImg: "/img/new.jpeg",
+    alt: "Pearl rakhi with laddoos and diyas beside Ganesha and Lakshmi idols in warm festive light",
     eyebrow: "The Rakhi Edit",
-    headline: "Celebrate Rakhi with Timeless Gifts",
-    sub: "Sterling silver jewellery she'll cherish long after the celebrations.",
+    headline: "A thread of love. A lifetime of shine.",
+    sub: "This Rakhi, celebrate the bond with sterling silver keepsakes she'll treasure forever.",
     cta: "Shop Collection",
     href: "https://shop.mahidha.com/product-category/gifting/for-her/",
     pos: "md:object-[center_55%]",
