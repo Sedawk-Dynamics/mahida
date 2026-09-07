@@ -77,6 +77,8 @@ export function hrefFor(to: string, params: { cat?: string; style?: string; id?:
       return "/size-guide";
     case "contact":
       return "/contact";
+    case "b2b":
+      return "/business-enquiries";
     case "cart":
       return "/cart";
     default:

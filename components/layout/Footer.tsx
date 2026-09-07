@@ -101,6 +101,7 @@ export default function Footer() {
             ["Founders", "story"],
             ["Journal", "journal"],
             ["Contact Us", "contact"],
+            ["Business Enquiries", "b2b"],
           ]}
 
           
