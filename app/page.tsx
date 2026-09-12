@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import TrustMini from "@/components/home/TrustMini";
+import FestiveBanner from "@/components/home/FestiveBanner";
 import LifestyleStrip from "@/components/home/LifestyleStrip";
 import StyleEditsHome from "@/components/home/StyleEditsHome";
 import HeritageStrip from "@/components/home/HeritageStrip";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
       <Hero />
       <TrustMini />
+      <FestiveBanner />
       <LifestyleStrip />
       <ShopByCategory />
       <StyleEditsHome />
