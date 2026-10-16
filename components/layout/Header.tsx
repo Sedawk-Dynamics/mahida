@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Icons } from "@/components/ui/Icons";
 import SmartImage from "@/components/ui/SmartImage";
 import { NAV, ALL_JEWELRY_MEGA } from "@/lib/data";
 import { LOGO } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
 import { useCart, useHydrated, useStore } from "@/lib/store";
+
+const SUBMENU_LABELS = new Set(["All Jewellery", "Latest", "Everyday", "Escape", "Nizam", "S925"]);
 
 function IconBtn({
   label,
@@ -65,7 +67,28 @@ export default function Header() {
   const hydrated = useHydrated();
   const [scrolled, setScrolled] = useState(false);
   const [drawer, setDrawer] = useState(false);
-  const [ajOpen, setAjOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [desktopSubmenu, setDesktopSubmenu] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setDesktopSubmenu(null);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        headerRef.current?.querySelector<HTMLButtonElement>('button[data-dropdown-trigger][aria-expanded="true"]')?.focus();
+        setDesktopSubmenu(null);
+        setOpenSubmenu(null);
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -81,6 +104,10 @@ export default function Header() {
 
   return (
     <header
+      ref={headerRef}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setDesktopSubmenu(null);
+      }}
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled
           ? "bg-pearl shadow-[0_1px_0_rgba(43,43,43,0.06)]"
@@ -135,19 +162,32 @@ export default function Header() {
             const ext = n.external;
             const cls =
               "ulink font-sans text-[13px] tracking-nav uppercase text-[#2E2A28] hover:text-gold";
-            if (n.label === "All Jewellery") {
+            if (SUBMENU_LABELS.has(n.label)) {
               return (
-                <div key={n.label} className="group/aj flex items-center h-full">
-                  <a href={ext} className={`${cls} inline-flex items-center gap-1.5`}>
+                <div key={n.label} className="flex items-center h-full">
+                  <button
+                    type="button"
+                    data-dropdown-trigger
+                    aria-expanded={desktopSubmenu === n.label}
+                    aria-controls={`desktop-menu-${n.label.replaceAll(" ", "-")}`}
+                    onClick={() => setDesktopSubmenu((open) => open === n.label ? null : n.label)}
+                    className={`${cls} inline-flex items-center gap-1.5 cursor-pointer ${desktopSubmenu === n.label ? "active" : ""}`}
+                  >
                     {n.label}
-                    <span className="inline-block rotate-90 text-gold">
+                    <span className={`inline-block text-gold transition-transform duration-300 motion-reduce:transition-none ${desktopSubmenu === n.label ? "-rotate-90" : "rotate-90"}`}>
                       <Icons.chevron size={11} />
                     </span>
-                  </a>
+                  </button>
                   {/* Full-width mega — spans header, content constrained to the container (matches live wd-design-full-width) */}
-                  <div className="absolute left-0 right-0 top-full hidden group-hover/aj:block group-focus-within/aj:block z-50">
+                  <div
+                    id={`desktop-menu-${n.label.replaceAll(" ", "-")}`}
+                    inert={desktopSubmenu !== n.label}
+                    aria-hidden={desktopSubmenu !== n.label}
+                    className={`absolute left-0 right-0 top-full z-50 origin-top transition-[opacity,transform,visibility] duration-300 ease-out motion-reduce:transition-none ${desktopSubmenu === n.label ? "visible opacity-100 translate-y-0 scale-100" : "invisible pointer-events-none opacity-0 -translate-y-3 scale-[0.98]"}`}
+                  >
                     <div className="bg-[#F5F0E8] border-t border-charcoal/10 shadow-[0_12px_30px_rgba(0,0,0,0.06)]">
                       <div className="w-[95%] mx-auto px-[15px] py-8.5">
+                        <a href={ext} className="ulink inline-block mb-6 font-sans text-[12px] tracking-nav uppercase text-gold">Shop all {n.label}</a>
                         <div className="flex gap-14">
                           {ALL_JEWELRY_MEGA.map((g) => (
                             <div key={g.title}>
@@ -243,7 +283,7 @@ export default function Header() {
           onClick={() => setDrawer(false)}
         />
         <div
-          className={`absolute left-0 top-0 h-full w-[82%] max-w-sm bg-pearl shadow-xl transition-transform duration-300 ${
+          className={`absolute left-0 top-0 h-full w-[82%] max-w-sm overflow-y-auto bg-pearl shadow-xl transition-transform duration-300 ${
             drawer ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -266,7 +306,7 @@ export default function Header() {
               const rowCls = `block py-3.5 border-b border-charcoal/10 font-sans text-[14px] tracking-nav uppercase ${
                 active ? "text-gold" : "text-charcoal"
               }`;
-              if (n.label === "All Jewellery") {
+              if (SUBMENU_LABELS.has(n.label)) {
                 return (
                   <div key={n.label} className="border-b border-charcoal/10">
                     <div className="flex items-stretch">
@@ -278,19 +318,24 @@ export default function Header() {
                         {n.label}
                       </a>
                       <button
-                        onClick={() => setAjOpen((o) => !o)}
-                        aria-expanded={ajOpen}
-                        aria-label="Toggle All Jewellery submenu"
+                        onClick={() => setOpenSubmenu((open) => open === n.label ? null : n.label)}
+                        aria-expanded={openSubmenu === n.label}
+                        aria-label={`Toggle ${n.label} submenu`}
                         className="w-14 flex items-center justify-center border-l border-charcoal/10 text-gold"
                       >
                         <span
-                          className={`transition-transform duration-300 ${ajOpen ? "rotate-90" : ""}`}
+                          className={`transition-transform duration-300 ${openSubmenu === n.label ? "rotate-90" : ""}`}
                         >
                           <Icons.chevron size={16} />
                         </span>
                       </button>
                     </div>
-                    {ajOpen && (
+                    <div
+                      inert={openSubmenu !== n.label}
+                      aria-hidden={openSubmenu !== n.label}
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none ${openSubmenu === n.label ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                    >
+                      <div className="min-h-0 overflow-hidden">
                       <div className="pb-4 pl-1 space-y-4">
                         {ALL_JEWELRY_MEGA.map((g) => (
                           <div key={g.title}>
@@ -317,7 +362,8 @@ export default function Header() {
                           </div>
                         ))}
                       </div>
-                    )}
+                      </div>
+                    </div>
                   </div>
                 );
               }
