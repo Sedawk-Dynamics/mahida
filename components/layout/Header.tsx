@@ -10,7 +10,7 @@ import { LOGO } from "@/lib/images";
 import { hrefFor } from "@/lib/utils";
 import { useCart, useHydrated, useStore } from "@/lib/store";
 
-const SUBMENU_LABELS = new Set(["All Jewellery", "Latest", "Everyday", "Escape", "Nizam", "S925"]);
+const SUBMENU_LABELS = new Set(["All Jewellery"]);
 
 function IconBtn({
   label,

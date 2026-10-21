@@ -100,6 +100,7 @@ export default function Footer() {
             ["Know Your Pearls", "pearls"],
             ["Founders", "story"],
             ["Journal", "journal"],
+            ["Press Release", "pressRelease"],
             ["Contact Us", "contact"],
             ["Business Enquiries", "b2b"],
           ]}
