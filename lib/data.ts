@@ -106,62 +106,73 @@ export const BESTSELLERS: Product[] = [
 /* Real "New In" products — cards link out to their live pages on shop.mahidha.com. */
 export const NEW_IN: Product[] = [
   {
-    id: "saumya-bracelet",
-    name: "Saumya Bracelet",
-    category: "The Escape",
+    id: "raaji-bangle",
+    name: "Raaji Bangle",
+    category: "The Silver Atelier",
     style: "Bracelets",
     material: "925 Sterling Silver",
-    price: 4599,
-    oldPrice: 5110,
-    rating: 5,
-    desc: "A single strand of naturally luminous freshwater pearls with an adjustable sterling silver slider closure — timeless and effortlessly wearable.",
-    img: ["Saumya Bracelet"],
-    pics: ["/img/Saumya-Bracelet-2.png"],
-    shopUrl: "https://shop.mahidha.com/product/saumya-bracelet/",
+    price: 14598.99,
+    rating: 0,
+    desc: "A classic plain bangle refined for the modern wardrobe.",
+    img: [
+      "Raaji Bangle"
+    ],
+    pics: [
+      "/img/Raaji-Bangle-4.png"
+    ],
+    shopUrl: "https://shop.mahidha.com/product/raaji-bangle/"
   },
   {
-    id: "ira-pearl-necklace",
-    name: "Ira Pearl Necklace",
-    category: "The Everyday Muse",
+    id: "lavanya-amethyst-necklace",
+    name: "Lavanya Amethyst Necklace",
+    category: "The Celebration Edit",
     style: "Necklaces",
-    material: "925 Sterling Silver",
-    price: 7999,
-    oldPrice: 8888,
-    rating: 5,
-    desc: "A luminous freshwater pearl suspended from a fine sterling silver chain with a warm gold-polished finish — understated everyday elegance.",
-    img: ["Ira Pearl Necklace"],
-    pics: ["/img/Ira-Pearl-Necklace-5.png"],
-    shopUrl:
-      "https://shop.mahidha.com/product/ira-pearl-necklaceminimal-timeless-and-quietly-elegant-this-freshwater-pearl-necklace-is-designed-for-the-woman-who-finds-beauty-in-simplicity/",
+    material: "Natural Amethyst and Freshwater Pearls",
+    price: 13798.99,
+    rating: 0,
+    desc: "Faceted natural amethyst gemstones and luminous freshwater pearls strung together in a timeless silhouette.",
+    img: [
+      "Lavanya Amethyst Necklace"
+    ],
+    pics: [
+      "/img/WhatsApp-Image-2026-07-04-at-1.07.06-PM.jpeg"
+    ],
+    shopUrl: "https://shop.mahidha.com/product/lavanya-amethyst-necklace/"
   },
   {
-    id: "noor-jhalar-necklace",
-    name: "Noor Jhalar Necklace",
-    category: "Statement Necklace",
-    style: "Necklaces",
-    material: "925 Sterling Silver",
-    price: 14999,
-    oldPrice: 16666,
-    rating: 5,
-    desc: "Inspired by traditional jhalar jewellery — cascading freshwater pearls in warm gold, silver and ivory tones on a sterling silver chain.",
-    img: ["Noor Jhalar Necklace"],
-    pics: ["/img/Noor-Jhalar-Necklace-2.png"],
-    shopUrl: "https://shop.mahidha.com/product/noor-jhalar-necklace/",
-  },
-  {
-    id: "rashi-suidhaga-drops",
-    name: "Rashi Suidhaga Drops",
-    category: "Threader Earrings",
+    id: "aabha-drops",
+    name: "Aabha Drops",
+    category: "The Silver Atelier",
     style: "Earrings",
     material: "925 Sterling Silver",
-    price: 4299,
-    oldPrice: 4799,
-    rating: 5,
-    desc: "Delicate gold-plated sterling silver threader earrings with luminous freshwater pearls that float effortlessly from a fine chain.",
-    img: ["Rashi Suidhaga Drops"],
-    pics: ["/img/Rashi-Suidhaga-Drops-2-1.png"],
-    shopUrl: "https://shop.mahidha.com/product/rashi-suidhaga-drops/",
+    price: 14999,
+    rating: 0,
+    desc: "A striking cascade of delicate chains designed to move with you.",
+    img: [
+      "Aabha Drops"
+    ],
+    pics: [
+      "/img/Aabha-Drops-3-1.png"
+    ],
+    shopUrl: "https://shop.mahidha.com/product/aabha-drops/"
   },
+  {
+    id: "meher-ruby-choker",
+    name: "Meher Ruby Choker",
+    category: "The Nizam Heritage",
+    style: "Necklaces",
+    material: "Basra-toned Pearls and Ruby Accents",
+    price: 25399,
+    rating: 5,
+    desc: "Luminous Basra-toned pearls and rich ruby accents in a regal, wearable choker.",
+    img: [
+      "Meher Ruby Choker"
+    ],
+    pics: [
+      "/img/Meher-Ruby-Choker-1.png"
+    ],
+    shopUrl: "https://shop.mahidha.com/product/meher-ruby-choker/"
+  }
 ];
 
 export const CATEGORY_INTRO: Record<string, string> = {
