@@ -178,7 +178,7 @@ export default function Hero() {
         type="button"
         aria-label="Previous slide"
         onClick={prev}
-        className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 p-2 text-ivory/80 hover:text-gold opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+        className="absolute z-20 left-3 md:left-5 top-1/2 -translate-y-1/2 min-h-11 min-w-11 rounded-full bg-navy/40 p-2 text-ivory hover:text-gold transition-colors"
       >
         <span className="inline-block rotate-180">
           <Icons.arrow size={26} />
@@ -188,13 +188,13 @@ export default function Hero() {
         type="button"
         aria-label="Next slide"
         onClick={next}
-        className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 p-2 text-ivory/80 hover:text-gold opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+        className="absolute z-20 right-3 md:right-5 top-1/2 -translate-y-1/2 min-h-11 min-w-11 rounded-full bg-navy/40 p-2 text-ivory hover:text-gold transition-colors"
       >
         <Icons.arrow size={26} />
       </button>
 
       {/* Dot / line indicators */}
-      <div className="absolute bottom-4 right-5 md:right-auto md:left-5 md:bottom-7 flex gap-2">
+      <div className="absolute z-20 bottom-2 right-5 md:right-auto md:left-5 md:bottom-7 flex gap-2">
         {SLIDES.map((s, idx) => (
           <button
             key={idx}
@@ -202,8 +202,8 @@ export default function Hero() {
             aria-label={`Go to slide ${idx + 1}: ${s.eyebrow}`}
             aria-current={idx === i}
             onClick={() => goTo(idx)}
-            className={`h-[3px] rounded-full transition-all ${
-              idx === i ? "w-9 bg-gold" : "w-4 bg-ivory/40 hover:bg-ivory/70"
+            className={`h-11 flex items-center rounded-full after:content-[''] after:h-[3px] after:w-full after:rounded-full ${
+              idx === i ? "w-11 after:bg-gold" : "w-11 after:bg-ivory/40 hover:after:bg-ivory/70"
             }`}
           />
         ))}
@@ -212,7 +212,7 @@ export default function Hero() {
 
       {/* Content — bottom-anchored over the image on mobile (clears the centred
           jewellery); centered overlay on md+ (keyed so it re-fades per slide) */}
-      <div className="absolute inset-x-0 bottom-0 px-6 pb-9 sm:px-10 text-left md:relative md:inset-x-auto md:bottom-auto md:h-full md:px-10 lg:px-16 md:pb-0 flex flex-col justify-end md:justify-center items-start">
+      <div className="pointer-events-none absolute z-10 inset-x-0 bottom-0 px-6 pb-16 sm:px-10 text-left md:relative md:inset-x-auto md:bottom-auto md:h-full md:px-10 lg:px-16 md:pb-0 flex flex-col justify-end md:justify-center items-start">
         <div key={i} className="reveal in max-w-lg">
           <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
             <span className="inline-block h-px w-7 bg-gold" />
@@ -224,7 +224,7 @@ export default function Hero() {
           <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">
             {active.sub}
           </p>
-          <div className="mt-7">
+          <div className="pointer-events-auto mt-7">
             <Button variant="light" href={active.href}>
               {active.cta}
             </Button>

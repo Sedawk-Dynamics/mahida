@@ -200,3 +200,60 @@ body::after {
     animation: none !important;
   }
 }
+
+/* Two identical groups make the review loop seamless. */
+.reviews-track {
+  display: flex;
+  width: max-content;
+  animation: reviews-slide 65s linear infinite;
+}
+.reviews-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+}
+.review-card {
+  width: min(380px, 80vw);
+  flex-shrink: 0;
+}
+.reviews-window:hover .reviews-track,
+.reviews-window:focus-within .reviews-track {
+  animation-play-state: paused;
+}
+@keyframes reviews-slide {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track { animation: none; }
+  .reviews-group[aria-hidden="true"] { display: none; }
+}
+
+.reviews-section {
+  background: radial-gradient(ellipse at 15% 0%, #e8ddca 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 100%, #e8ddca 0%, transparent 45%), #f5f1e9;
+}
+.reviews-window {
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  scrollbar-width: thin;
+  scrollbar-color: #c4a87a transparent;
+}
+.review-card {
+  background: linear-gradient(145deg, #fffdf9, #f8f4ec);
+  border: 1px solid #c4a87a40;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px -12px #342c2530;
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+.review-card:hover {
+  transform: translateY(-5px);
+  border-color: #c4a87a99;
+  box-shadow: 0 16px 32px -12px #342c2538;
+}
+.review-avatar {
+  background: linear-gradient(135deg, #263c48, #0e202c);
+  box-shadow: 0 0 0 3px #fffdf9, 0 0 0 4px #c4a87a70;
+}
+@media (prefers-reduced-motion: reduce) {
+  .review-card { transition: none; }
+  .review-card:hover { transform: none; }
+}

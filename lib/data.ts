@@ -51,7 +51,7 @@ export const BESTSELLERS: Product[] = [
     category: "Statement Necklace",
     style: "Necklaces",
     material: "925 Sterling Silver",
-    price: 14999,
+    price: 9099,
     oldPrice: 16666,
     rating: 5,
     desc: "A long freshwater pearl wrap necklace accented with deep emerald-toned natural stones for a rich, contemporary statement.",
@@ -65,7 +65,7 @@ export const BESTSELLERS: Product[] = [
     category: "Celestial Studs",
     style: "Earrings",
     material: "925 Sterling Silver",
-    price: 13999,
+    price: 8699,
     oldPrice: 15554,
     rating: 5,
     desc: "Crescent-moon studs handcrafted in sterling silver with rich gold plating and intricate Kundan Jadau-style detailing.",
@@ -79,7 +79,7 @@ export const BESTSELLERS: Product[] = [
     category: "Festive Choker",
     style: "Necklaces",
     material: "925 Sterling Silver",
-    price: 35999,
+    price: 29999,
     oldPrice: 39999,
     rating: 5,
     desc: "Inspired by royal celebrations — sterling silver with a luminous gold finish, sparkling kundan settings and deep ruby-toned drops.",
@@ -93,7 +93,7 @@ export const BESTSELLERS: Product[] = [
     category: "Heritage Earrings",
     style: "Earrings",
     material: "925 Sterling Silver",
-    price: 10999,
+    price: 8098,
     oldPrice: 12221,
     rating: 5,
     desc: "Filigree-inspired heritage drop earrings with deep ruby-hued stones and luminous freshwater pearls.",
@@ -111,7 +111,7 @@ export const NEW_IN: Product[] = [
     category: "The Silver Atelier",
     style: "Bracelets",
     material: "925 Sterling Silver",
-    price: 14598.99,
+    price: 10798,
     rating: 0,
     desc: "A classic plain bangle refined for the modern wardrobe.",
     img: [
@@ -128,7 +128,7 @@ export const NEW_IN: Product[] = [
     category: "The Celebration Edit",
     style: "Necklaces",
     material: "Natural Amethyst and Freshwater Pearls",
-    price: 13798.99,
+    price: 9998,
     rating: 0,
     desc: "Faceted natural amethyst gemstones and luminous freshwater pearls strung together in a timeless silhouette.",
     img: [
@@ -145,7 +145,7 @@ export const NEW_IN: Product[] = [
     category: "The Silver Atelier",
     style: "Earrings",
     material: "925 Sterling Silver",
-    price: 14999,
+    price: 9799,
     rating: 0,
     desc: "A striking cascade of delicate chains designed to move with you.",
     img: [
@@ -162,7 +162,7 @@ export const NEW_IN: Product[] = [
     category: "The Nizam Heritage",
     style: "Necklaces",
     material: "Basra-toned Pearls and Ruby Accents",
-    price: 25399,
+    price: 16999,
     rating: 5,
     desc: "Luminous Basra-toned pearls and rich ruby accents in a regal, wearable choker.",
     img: [
@@ -302,7 +302,7 @@ export const TRUST6: [string, string, string][] = [
 ];
 
 /* Real customer testimonials — [quote, name, image]. */
-export const TESTIMONIALS: [string, string, string][] = [
+export const TESTIMONIALS: [string, string, string?][] = [
   [
     "\"I don't usually buy jewellery online, so I was a little unsure at first. But when I received this necklace, I was pleasantly surprised. The pearls are beautiful, the finish is neat, and it sits comfortably around my neck. It has become one of my favourite pieces because it is simple, graceful, and goes well with almost everything I wear.\"",
     "Madhu Sharma",
@@ -318,6 +318,9 @@ export const TESTIMONIALS: [string, string, string][] = [
     "Jyotsna",
     "/img/testimonial3.jpg",
   ],
+  ["Had a wonderful experience at Mahidha! They have an excellent collection with beautiful designs and plenty of options to choose from. The pricing is very reasonable and offers great value for money. What truly stands out is their excellent customer service and the way they handle and resolve any issues promptly and professionally. Their commitment to customer satisfaction is commendable. Highly recommend Mahidha to anyone looking for beautiful jewellery, good pricing, and a trustworthy shopping experience!","Hemant Rathi"],
+  ["Mahidha is truly a one-of-a-kind jewellery brand! Every piece is beautifully handcrafted, and I haven?t come across pearl designs quite like these anywhere else.\nWhat makes Mahidha so special is the versatility of its jewellery. Each piece effortlessly complements both traditional and contemporary outfits, making it perfect even for everyday styling.\nThe pearl necklace I picked from Mahidha for Diwali was an absolute favourite! It caught everyone?s attention and earned me so many compliments. Beyond the beautiful design, the quality is exceptional, making it all the more special.\nI?m already looking forward to adding more pieces from their collection to my jewellery box.\nWishing Mahidha all the success and love it deserves. Keep creating magic with your beautiful designs. You have a long, wonderful way to go ??","Jyotsna K"],
+  ["My experience with Mahidha Pearls has been absolutely wonderful! The South Sea pearl bracelet and earrings in a beautiful gold finish are truly exquisite, and the white South Sea pearl necklace is simply stunning in its quality, elegance, and beauty. Every piece reflects exceptional craftsmanship and timeless sophistication.\n\nWhat makes the experience even more special is the founders' warm, friendly, and customer-centric approach. They make their valued customers feel genuinely appreciated, often delighting them with thoughtful surprise gifts and personal notes during festivals. Such gestures make the shopping experience memorable and heartwarming.\n\nA beautiful collection, stunning quality, and founders who truly value their customers ? Mahidha Pearls is definitely a brand worth appreciating and recommending! ??","Dr Sridevi Soundirarajan"],
 ];
 
 /* =================================================================
