@@ -18,8 +18,6 @@ export default function ProductCard({ p, badge }: { p: Product; badge?: string }
   const sold = p.status === "sold";
   const wished = hydrated && wishlist.includes(p.id);
   const shopHref = p.shopUrl || LIVE_SHOP;
-  const discount =
-    p.oldPrice && p.price ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 
   return (
     <div className="group">
@@ -34,11 +32,7 @@ export default function ProductCard({ p, badge }: { p: Product; badge?: string }
           />
         </a>
         <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {badge ? (
-            <Badge tone="gold">{badge}</Badge>
-          ) : (
-            discount > 0 && <Badge tone="gold">-{discount}%</Badge>
-          )}
+          {badge && <Badge tone="gold">{badge}</Badge>}
           {p.status === "new" && <Badge tone="gold">New</Badge>}
           {sold && <Badge tone="sold">Sold out</Badge>}
           {p.status === "star" && (
@@ -89,12 +83,7 @@ export default function ProductCard({ p, badge }: { p: Product; badge?: string }
         </a>
         <p className="mt-1.5 font-sans text-[15px] text-charcoal">
           {p.price ? (
-            <>
-              {p.oldPrice && (
-                <span className="text-taupe line-through mr-2">{inr(p.oldPrice)}</span>
-              )}
-              {inr(p.price)}
-            </>
+            inr(p.price)
           ) : (
             <span className="text-taupe">Price on enquiry</span>
           )}

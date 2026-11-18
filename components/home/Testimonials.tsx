@@ -13,6 +13,16 @@ export default function Testimonials() {
     <section className="reviews-section relative overflow-hidden" aria-label="Client reviews">
       <div className="max-w-wrap mx-auto px-5 py-12 md:py-16">
         <SectionHeading overline="What our clients say" title="Loved in real life" />
+        <div className="mt-5 flex justify-center">
+          <SmartImage
+            src="/img/google-review-logo.png"
+            alt="Google Reviews"
+            width={3840}
+            height={2160}
+            sizes="160px"
+            className="h-auto w-36 md:w-40 object-contain"
+          />
+        </div>
         <div className="reviews-window mt-3 overflow-x-auto py-5" tabIndex={0} aria-label="Customer reviews; hover or focus to pause, scroll to explore">
           <div className="reviews-track" style={{ animationPlayState: expanded !== null ? "paused" : undefined }}>
             {[0, 1].map((copy) => (
