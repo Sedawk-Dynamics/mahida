@@ -42,7 +42,7 @@ const SLIDES: Slide[] = [
     "eyebrow": "THE EVERYDAY EDIT",
     "headline": "Made for every moment.",
     "sub": "Effortless elegance that moves with you, from everyday rituals to unplanned evenings.",
-    "cta": "Shop Collection",
+    "cta": "Explore Collection",
     "href": "https://shop.mahidha.com/product-category/gifting/everyday-icon/",
     "pos": "object-center"
   },
@@ -122,7 +122,7 @@ export default function Hero() {
 
   return (
     <section
-      className="group relative bg-navy overflow-hidden md:aspect-video md:min-h-[480px]"
+      className="group relative bg-navy overflow-hidden md:aspect-video"
       aria-roledescription="carousel"
       aria-label="MAHIDHA editorial highlights"
       tabIndex={0}
@@ -149,7 +149,7 @@ export default function Hero() {
               const { props: mobile } = getImageProps({
                 ...common,
                 src: s.mobileImg,
-                className: `w-full h-full object-contain md:object-cover ${s.pos ?? "object-center md:object-[center_30%]"}`,
+                className: `w-full h-full object-contain ${s.pos ?? "object-center"}`,
               });
               return (
                 <picture>
@@ -166,7 +166,7 @@ export default function Hero() {
               fill
               sizes="100vw"
               priority={idx === 0}
-              className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
+              className={`w-full h-full object-contain ${s.pos ?? "object-center"}`}
             />
           )}
           {/* Shade the lower image for the mobile text overlay. */}
