@@ -26,6 +26,7 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     "img": "/img/hero-pearl-layers.jpeg",
+    "mobileImg": "/img/hero-pearl-layers-mobile.jpeg",
     "alt": "Model in an ivory saree wearing layered pastel pearl necklaces and pearl drop earrings",
     "eyebrow": "THE MAHIDHA SIGNATURE",
     "headline": "Pearls, with a personality of their own.",
@@ -36,21 +37,23 @@ const SLIDES: Slide[] = [
   },
   {
     "img": "/img/hero-day-to-evening.jpeg",
+    "mobileImg": "/img/hero-day-to-evening-mobile.jpeg",
     "alt": "A red pendant styled with a cream blazer by day and a burgundy dress by evening",
     "eyebrow": "THE EVERYDAY EDIT",
     "headline": "Made for every moment.",
     "sub": "Effortless elegance that moves with you, from everyday rituals to unplanned evenings.",
     "cta": "Shop Collection",
     "href": "https://shop.mahidha.com/product-category/gifting/everyday-icon/",
-    "pos": "object-[25%_center] md:object-center"
+    "pos": "object-center"
   },
   {
     "img": "/img/hero-festive-pearls.jpeg",
+    "mobileImg": "/img/hero-festive-pearls-mobile.jpeg",
     "alt": "Model in a yellow saree wearing a pearl and green stone choker among marigold flowers",
     "eyebrow": "THE WEDDING EDIT",
     "headline": "For moments that last a lifetime.",
     "sub": "Timeless adornments crafted to make every celebration unforgettable.",
-    "cta": "Shop Everyday",
+    "cta": "Explore Collection",
     "href": "https://shop.mahidha.com/product-category/gifting/bridal-tribe/",
     "pos": "object-center"
   },
@@ -119,7 +122,7 @@ export default function Hero() {
 
   return (
     <section
-      className="group relative bg-navy overflow-hidden md:h-[92vh] md:min-h-[640px]"
+      className="group relative bg-navy overflow-hidden md:aspect-video md:min-h-[480px]"
       aria-roledescription="carousel"
       aria-label="MAHIDHA editorial highlights"
       tabIndex={0}
@@ -131,8 +134,8 @@ export default function Hero() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Image stage — clean image on mobile (text sits below it); fills the hero on md+ */}
-      <div className="relative w-full aspect-[4/5] max-h-[72vh] md:absolute md:inset-0 md:aspect-auto md:max-h-none">
+      {/* Portrait framing on mobile; wide framing on desktop. */}
+      <div className="relative w-full aspect-[4/5] md:absolute md:inset-0 md:aspect-auto">
       {SLIDES.map((s, idx) => (
         <div
           key={idx}
@@ -141,17 +144,17 @@ export default function Hero() {
         >
           {s.mobileImg ? (
             (() => {
-              const common = { alt: s.alt, fill: true, sizes: "100vw", priority: idx === 0 };
+              const common = { alt: s.alt, fill: true, sizes: "100vw", loading: idx === 0 ? "eager" as const : "lazy" as const, fetchPriority: idx === 0 ? "high" as const : "auto" as const };
               const { props: desktop } = getImageProps({ ...common, src: ph(s.img) });
               const { props: mobile } = getImageProps({
                 ...common,
                 src: s.mobileImg,
-                className: `w-full h-full object-cover object-center ${s.pos ?? "md:object-[center_30%]"}`,
+                className: `w-full h-full object-contain md:object-cover ${s.pos ?? "object-center md:object-[center_30%]"}`,
               });
               return (
                 <picture>
                   <source media="(min-width: 768px)" srcSet={desktop.srcSet} sizes="100vw" />
-                  {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <img {...mobile} />
                 </picture>
               );
@@ -166,9 +169,9 @@ export default function Hero() {
               className={`w-full h-full object-cover ${s.pos ?? "object-[center_30%]"}`}
             />
           )}
-          {/* Readability gradients — same treatment on all viewports */}
-          <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/35 to-navy/40" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
+          {/* Shade the lower image for the mobile text overlay. */}
+          <div className="absolute inset-0 bg-linear-to-t from-navy/95 via-navy/25 to-transparent md:from-navy/85 md:via-navy/35 md:to-navy/40" />
+          <div className="absolute inset-0 hidden md:block bg-linear-to-r from-navy/70 via-navy/30 to-transparent" />
         </div>
       ))}
 
@@ -209,21 +212,20 @@ export default function Hero() {
       </div>
       </div>
 
-      {/* Content — bottom-anchored over the image on mobile (clears the centred
-          jewellery); centered overlay on md+ (keyed so it re-fades per slide) */}
-      <div className="pointer-events-none absolute z-10 inset-x-0 bottom-0 px-6 pb-16 sm:px-10 text-left md:relative md:inset-x-auto md:bottom-auto md:h-full md:px-10 lg:px-16 md:pb-0 flex flex-col justify-end md:justify-center items-start">
+      {/* Copy overlays the lower image on mobile and is centered on desktop. */}
+      <div className="pointer-events-none absolute z-10 inset-x-0 bottom-0 px-5 pb-14 sm:px-10 text-left md:inset-0 md:px-10 lg:px-16 md:pb-0 flex flex-col justify-end md:justify-center items-start">
         <div key={i} className="reveal in max-w-lg">
-          <p className="font-sans text-[11px] tracking-nav uppercase text-gold mb-3 flex items-center gap-2.5">
+          <p className="font-sans text-[10px] md:text-[11px] tracking-nav uppercase text-gold mb-2 md:mb-3 flex items-center gap-2.5">
             <span className="inline-block h-px w-7 bg-gold" />
             <Icons.sparkle size={13} stroke="#C4A87A" /> {active.eyebrow}
           </p>
-          <h1 className="font-serif text-ivory leading-[1.1] text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
+          <h1 className="font-serif text-ivory leading-[1.1] text-[20px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
             {active.headline}
           </h1>
-          <p className="mt-4 text-ivory/80 text-[14px] md:text-[16px] leading-relaxed max-w-sm">
+          <p className="mt-3 md:mt-4 text-ivory/90 md:text-ivory/80 text-[13px] md:text-[16px] leading-relaxed max-w-sm">
             {active.sub}
           </p>
-          <div className="pointer-events-auto mt-7">
+          <div className="pointer-events-auto mt-5 md:mt-7">
             <Button variant="light" href={active.href}>
               {active.cta}
             </Button>
